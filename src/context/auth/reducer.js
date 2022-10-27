@@ -25,6 +25,10 @@ const AuthReducers = (state, action) => {
 
             }
 
+
+
+        default:
+            return state;
     }
 
 
