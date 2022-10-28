@@ -4,15 +4,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import AuthState from './context/auth/state';
+import UiState from './context/UI/state';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AuthState>
-        <App />
-      </AuthState>
+      <UiState>
+        <AuthState>
+          <App />
+        </AuthState>
+      </UiState>
     </BrowserRouter>
   </React.StrictMode>
 );

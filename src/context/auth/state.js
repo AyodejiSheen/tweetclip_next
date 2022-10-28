@@ -1,7 +1,8 @@
 import axios from "axios";
 import baseUrl from "../../baseUrl";
+import UiContext from "../UI/context";
 
-const { useReducer } = require("react");
+const { useReducer, useContext } = require("react");
 const { default: AuthContext } = require("./context");
 const { default: AuthReducers } = require("./reducer")
 
@@ -21,24 +22,28 @@ const AuthState = (props) => {
     const [state, dispatch] = useReducer(AuthReducers, initialState);
 
 
+    //alert context
+    let { setAlert } = useContext(UiContext)
 
 
-
+    const config = {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    };
 
     //Global functions go down here (with Auth API calls)
 
     const userSignup = async (data) => {
-        // await axios.post(`${baseUrl.baseUrl}/user`, data).then((response) => {
-        //     if (response.data.error) {
-        console.log(data)
-        return true;
-        //     } else {
-
-        //         return true
-        //     }
-        // }).catch((err) => {
-
-        // });
+        await axios.post(`${baseUrl.baseUrl}/signup`, data, config)
+            .then((response) => {
+                const { data } = response
+                setAlert({ msg: data.message, type: "success" })
+                return true;
+            }).catch((err) => {
+                const { data } = err.response
+                setAlert({ msg: data.message, type: "fail" })
+            });
     }
 
 
