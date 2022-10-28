@@ -26,17 +26,23 @@ const AuthState = (props) => {
     let { setAlert } = useContext(UiContext)
 
 
+    const config = {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    };
 
     //Global functions go down here (with Auth API calls)
 
     const userSignup = async (data) => {
-        await axios.post(`${baseUrl.baseUrl}/signup`, data)
+        await axios.post(`${baseUrl.baseUrl}/signup`, data, config)
             .then((response) => {
-                console.log(response)
+                const { data } = response
+                setAlert({ msg: data.message, type: "success" })
                 return true;
             }).catch((err) => {
-                console.log(err.message);
-                setAlert({ msg: err.message, type: "fail" })
+                const { data } = err.response
+                setAlert({ msg: data.message, type: "fail" })
             });
     }
 

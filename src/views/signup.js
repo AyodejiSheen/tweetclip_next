@@ -46,8 +46,12 @@ export const SignUp = () => {
     //validationSchema--- to integrate validations on the form using Yup
     const validationSchema = Yup.object().shape({
         email: Yup.string().email('Invalid email').required('Email is required'),
-        password: Yup.string().min(4).max(20).required("Enter password"),
-        confirm_password: Yup.string().min(4).max(20).required("Enter password"),
+        password: Yup.string().matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
+            message: "Password too weak",
+        }).required("Enter password"),
+        confirm_password: Yup.string().matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
+            message: "Password too weak",
+        }).required("Enter password"),
     })
 
 
@@ -59,7 +63,8 @@ export const SignUp = () => {
             if (data.confirm_password !== data.password) {
                 setAlert({ msg: "Password doesnot match!", type: "fail" })
             } else {
-                let signingup = await userSignup(data);
+                let details = { email: data.email, password: data.password }
+                let signingup = await userSignup(details);
                 if (signingup) {
                     setAlert({ msg: "Registration Successfull", type: "success" })
                 }
