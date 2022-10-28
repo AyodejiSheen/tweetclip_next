@@ -1,3 +1,1 @@
-export default {
-    baseUrl : 'https://tweetclips-test.herokuapp.com/api/v1'
-}
+export const baseurl = "https://tweetclips-test.herokuapp.com/api/v1";
