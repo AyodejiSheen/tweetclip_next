@@ -33,7 +33,7 @@ const UiState = (props) => {
 
         setTimeout(() => dispatch({
             type: REMOVE_ALERT,
-        }), 5000)
+        }), 7000)
 
     }
 
