@@ -2,7 +2,13 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { baseUrl } from "../../baseUrl";
 import UiContext from "../UI/context";
+
+
+
 import { SIGN_UP } from "./actions";
+import { RESET_PASSWORD } from "./actions";
+import { BROWSER_CONFIG } from "./actions";
+
 
 const { useReducer, useContext } = require("react");
 const { default: AuthContext } = require("./context");
@@ -17,6 +23,7 @@ const AuthState = (props) => {
 
     const initialState = {
         user: null,
+        browserConfig: null
     }
 
 
@@ -36,11 +43,6 @@ const AuthState = (props) => {
             "Content-Type": "application/json",
         },
     };
-
-
-
-
-
 
 
 
@@ -73,6 +75,15 @@ const AuthState = (props) => {
             }).catch((err) => {
                 const { data } = err.response
                 setAlert({ msg: data.message, type: "fail" })
+                if (data.device) {
+                    let details = { deviceId: data.device, email: value.email }
+                    dispatch({
+                        type: BROWSER_CONFIG,
+                        payload: details
+                    })
+                    navigate('new-device')
+                }
+
             });
     }
 
@@ -91,6 +102,50 @@ const AuthState = (props) => {
     }
 
 
+    const ResetPassword = async ({ email }) => {
+        await axios.get(`${baseUrl}/password_reset/${email}`, config)
+            .then((response) => {
+                const { data } = response
+                setAlert({ msg: data.message, type: "success" })
+                dispatch({
+                    type: RESET_PASSWORD,
+                    payload: email
+                })
+                navigate('reset-password')
+                return true;
+            }).catch((err) => {
+                const { data } = err.response
+                setAlert({ msg: data.message, type: "fail" })
+            })
+    }
+
+
+    const updatePassword = async (data) => {
+        let details = { code: data.code, password: data.password }
+        await axios.put(`${baseUrl}/password_reset/${state.user.email}`, details, config)
+            .then((response) => {
+                const { data } = response
+                setAlert({ msg: data.message, type: "success" })
+                return true;
+            }).catch((err) => {
+                const { data } = err.response
+                setAlert({ msg: data.message, type: "fail" })
+            })
+    }
+
+
+    const newBrowserConfig = async (data) => {
+        let details = { email: state.browserConfig.email, code: data }
+        await axios.put(`${baseUrl}/browser_confirmation/${state.browserConfig.id}`, details, config)
+            .then((response) => {
+                const { data } = response
+                setAlert({ msg: data.message, type: "success" })
+                return true;
+            }).catch((err) => {
+                const { data } = err.response
+                setAlert({ msg: data.message, type: "fail" })
+            })
+    }
 
 
 
@@ -106,6 +161,10 @@ const AuthState = (props) => {
             userSignup,
             userLogin,
             verifyEmail,
+            ResetPassword,
+            updatePassword,
+            newBrowserConfig,
+            browserConfig: state.browserConfig,
             user: state.user
         }}>
 

@@ -65,6 +65,13 @@ export const SignUp = () => {
     }, 2000);
   };
 
+
+
+
+
+
+  
+
   return (
     <>
 
@@ -143,6 +150,7 @@ export const SignUp = () => {
                 />{" "}
                 {/*to display the error message for the field*/}
               </label>
+              <p className="text-xs text-slate-300">Use 8 or more characters with a mix of letters, numbers & symbols.</p>
             </div>
 
             <div className="my-4 md:mt-0 lg:py-1.5">

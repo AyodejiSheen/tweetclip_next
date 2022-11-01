@@ -122,7 +122,7 @@ export const Login = () => {
                         </div>
 
                         <p className="text-right">
-                            <Link to="#"
+                        <Link to="/forgot-password"
                                 className="text-xs md:text-sm  font-semibold text-sky-600 hover:underline"
                             >
                                 Forgot your password?

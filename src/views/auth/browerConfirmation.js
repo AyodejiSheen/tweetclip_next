@@ -1,18 +1,25 @@
 import { useContext, useState } from "react"
-import phone from '../assets/media/smartphone-2.svg'
-import AuthContext from "../context/auth/context";
+import phone from '../../assets/media/smartphone-2.svg'
+import AuthContext from "../../context/auth/context";
 
 
 
 
 
-export const Verification = () => {
+
+
+
+
+
+
+
+export const BrowserConfig = () => {
 
 
     const [otp, setOtp] = useState(new Array(4).fill(""));
     const [otpToken, setOtpToken] = useState("");
 
-    let { verifyEmail } = useContext(AuthContext)
+    let { newBrowserConfig } = useContext(AuthContext)
 
 
     const handleChange = (e, index) => {
@@ -26,12 +33,11 @@ export const Verification = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        verifyEmail(parseInt(otpToken))
-        console.log(otpToken)
+        newBrowserConfig(parseInt(otpToken))
     }
 
 
-    let { user } = useContext(AuthContext)
+    let { browserConfig } = useContext(AuthContext)
 
 
 
@@ -42,9 +48,9 @@ export const Verification = () => {
             <div><img src={phone} alt="img" className="w-24 mx-auto" /></div>
 
             <div className='space-y-2'>
-                <h2 className='text-xl font-extrabold text-center'> Verify your Email</h2>
+                <h2 className='text-xl font-extrabold text-center'> Verify your Device</h2>
                 <p className='font-medium text-center text-slate-400'>Enter the verification code we sent to</p>
-                <p className='font-bold text-center '>{user.email}</p>
+                <p className='font-bold text-center '>{browserConfig.email}</p>
             </div>
 
             <div className='space-y-6 flex justify-center'>
@@ -65,14 +71,10 @@ export const Verification = () => {
                             />
                         ))
                     }
-
-
                     <button
-                        className="block w-full px-4 py-3.5 shadow-md shadow-purple-300  mt-8 text-sm font-medium text-center text-white transition-colors duration-150 bg-sky-600 border border-transparent rounded-lg active:bg-sky-600 hover:bg-sky-700 focus:outline-none focus:shadow-outline-blue" type='submit'
+                        className="block w-full px-4 py-3.5 shadow-md shadow-sky-100  mt-8 text-sm font-medium text-center text-white transition-colors duration-150 bg-sky-600 border border-transparent rounded-lg active:bg-sky-600 hover:bg-sky-700 focus:outline-none focus:shadow-outline-blue" type='submit'
                     >Verify</button>
-
                 </form>
-
             </div>
             <p className='font-medium text-center text-xs md:text-sm'>Didn’t get the code? <button className='text-sky-600'>Resend</button> </p>
 

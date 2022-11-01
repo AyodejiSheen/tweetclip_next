@@ -2,7 +2,8 @@ import {
     //import all the actions for user context api
 
     SIGN_UP,
-    // LOGIN,
+    RESET_PASSWORD,
+    BROWSER_CONFIG,
     // SIGN_OUT,
     // AUTH,
     // AUTH_ERROR,
@@ -22,7 +23,18 @@ const AuthReducers = (state, action) => {
         case SIGN_UP:
             return {
                 ...state,
-                user : {email:action.payload.email}
+                user: { email: action.payload.email }
+            }
+
+        case RESET_PASSWORD:
+            return {
+                ...state,
+                user: { email: action.payload }
+            }
+        case BROWSER_CONFIG:
+            return{
+                ...state,
+                browserConfig: { id: action.payload.deviceId, email:action.payload.email}
             }
 
 

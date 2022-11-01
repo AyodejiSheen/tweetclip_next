@@ -20,7 +20,7 @@ export const Alert = () => {
 
       {/* Loading Alert */}
       {alert.type === "loading" && (
-        <div className="bg-black absolute h-screen w-screen m-0 flex z-50 bg-opacity-40">
+        <div className="bg-black absolute min-h-screen w-screen m-0 flex z-50 bg-opacity-40">
           <motion.div
             animate={{ scale: [1, 0, 1, 0, 1, 0, 1] }}
             initial={{ scale: 0 }}
