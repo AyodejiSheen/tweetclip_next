@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
-import phone from '../assets/media/smartphone-2.svg'
-import AuthContext from "../context/auth/context";
+import phone from '../../assets/media/smartphone-2.svg'
+import AuthContext from "../../context/auth/context";
+
 
 
 
@@ -68,7 +69,7 @@ export const Verification = () => {
 
 
                     <button
-                        className="block w-full px-4 py-3.5 shadow-md shadow-purple-300  mt-8 text-sm font-medium text-center text-white transition-colors duration-150 bg-sky-600 border border-transparent rounded-lg active:bg-sky-600 hover:bg-sky-700 focus:outline-none focus:shadow-outline-blue" type='submit'
+                        className="block w-full px-4 py-3.5 shadow-md shadow-sky-100  mt-8 text-sm font-medium text-center text-white transition-colors duration-150 bg-sky-600 border border-transparent rounded-lg active:bg-sky-600 hover:bg-sky-700 focus:outline-none focus:shadow-outline-blue" type='submit'
                     >Verify</button>
 
                 </form>

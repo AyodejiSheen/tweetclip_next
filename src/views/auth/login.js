@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom';
 
 //context API
 import { useContext } from 'react';
-import AuthContext from '../context/auth/context';
-import UiContext from '../context/UI/context';
 
 
-import google from '../assets/media/Google__G__Logo.svg.png'
-import twitter from '../assets/media/Twitter-logo.svg.png'
+
+import google from '../../assets/media/Google__G__Logo.svg.png'
+import twitter from '../../assets/media/Twitter-logo.svg.png'
+import AuthContext from "../../context/auth/context";
+import UiContext from "../../context/UI/context";
 
 
 

@@ -12,7 +12,7 @@ export const Auth = () => {
     return (
         <>
 
-            <section className='bg-gray-100 flex flex-wrap min-h-screen w-screen m-0 p-8 justify-center'>
+            <section className='bg-gray-100 flex flex-wrap min-h-screen w-screen m-0 p-8 justify-center login-bg'>
 
                 <div className='lg:m-auto my-6'>
                     <div className='space-y-3'>
