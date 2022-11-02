@@ -1,10 +1,30 @@
+import { useContext } from 'react';
+import ColorPicker from 'react-best-gradient-color-picker'
+import ArtBoardContext from '../../../context/artboard/context';
+
+
+
+
+
 
 export const Color = () => {
-    return(
+
+
+    let {changeColor, color} = useContext(ArtBoardContext)
+
+    const passColor = (value) => {
+        changeColor(value)
+    }
+
+
+
+
+    return (
+
         <>
-        
-        <p>This is the color Component</p>
-        
+            <div className='py-8'>
+                <ColorPicker value={color} onChange={passColor} className="space-y-5"  />
+            </div>
         </>
     )
 }

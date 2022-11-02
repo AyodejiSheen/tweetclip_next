@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import AuthState from './context/auth/state';
 import UiState from './context/UI/state';
+import ArtboardState from './context/artboard/state';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,7 +14,9 @@ root.render(
     <BrowserRouter>
       <UiState>
         <AuthState>
-          <App />
+          <ArtboardState>
+            <App />
+          </ArtboardState>
         </AuthState>
       </UiState>
     </BrowserRouter>

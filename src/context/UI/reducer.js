@@ -2,7 +2,9 @@ import {
     //import all the actions for ui context api
     SET_ALERT,
     REMOVE_ALERT,
-    SWITCH_THEME
+    SWITCH_THEME,
+    SHOW_ITEM,
+    REMOVE_ITEM,
 
 } from './actions'
 
@@ -31,9 +33,21 @@ const UiReducers = (state, action) => {
         case SWITCH_THEME:
             return {
                 ...state,
-                isDark: !state.isDark
+                isDark: action.payload,
+                show:null
+            }
+        
+        case SHOW_ITEM:
+            return{
+                ...state,
+                show: action.payload
             }
 
+        case REMOVE_ITEM:
+            return {
+                ...state,
+                show: null
+            }
 
 
         default:

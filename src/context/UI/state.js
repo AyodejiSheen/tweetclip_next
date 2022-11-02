@@ -1,5 +1,5 @@
 
-import { SET_ALERT, REMOVE_ALERT, SWITCH_THEME } from "./actions";
+import { SET_ALERT, REMOVE_ALERT, SWITCH_THEME, SHOW_ITEM, REMOVE_ITEM, } from "./actions";
 
 
 
@@ -14,8 +14,9 @@ const UiState = (props) => {
 
 
     const initialState = {
-        isDark: true,
-        alert: { showAlert: false, msg: null, type: null }
+        isDark: 'light',
+        alert: { showAlert: false, msg: null, type: null },
+        show: "",
     }
 
 
@@ -39,12 +40,28 @@ const UiState = (props) => {
     }
 
 
-    const switchTheme = () => {
+    const switchTheme = (value) => {
         dispatch({
-            type: SWITCH_THEME
+            type: SWITCH_THEME,
+            payload: value
         })
-        console.log(state.isDark)
     }
+
+
+    const showItem = (value) => {
+        if (state.show === value) {
+            dispatch({
+                type:REMOVE_ITEM,
+            })
+        } else {
+            dispatch({
+                type: SHOW_ITEM,
+                payload: value
+            })
+        }
+    
+    }
+
 
 
 
@@ -63,8 +80,10 @@ const UiState = (props) => {
         <UiContext.Provider value={{
             setAlert,
             switchTheme,
+            showItem,
+            show: state.show,
             alert: state.alert,
-            isDark:state.isDark
+            isDark: state.isDark
         }}>
 
             {/* to make the fuctions and state availabe globally */}
