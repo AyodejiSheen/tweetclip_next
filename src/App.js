@@ -10,7 +10,7 @@ import { SignUp } from "./views/auth/signup";
 import { UpdatePassword } from "./views/auth/updatePassword";
 import { Verification } from "./views/auth/verification";
 import { ErrorPage } from "./views/errorpage";
-import { Color } from "./views/userDashboard/color/color";
+import { Profile } from "./views/profile/profile";
 import { Controls } from "./views/userDashboard/controls";
 import { DashHome } from "./views/userDashboard/dashHome";
 
@@ -36,8 +36,9 @@ function App() {
 
         <Route path="dashboard" element={<DashHome />}>
           <Route index element={<Controls/>}></Route>
-          <Route path="color" element={<Color/>}></Route>
         </Route>
+
+        <Route path="profile" element={<Profile/>}></Route>
 
 
         <Route path="googleAuth" element={<GoogleAuth />}></Route>

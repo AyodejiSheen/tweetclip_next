@@ -1,5 +1,5 @@
 
-import { SET_ALERT, REMOVE_ALERT, SWITCH_THEME, SHOW_ITEM, REMOVE_ITEM, } from "./actions";
+import { SET_ALERT, REMOVE_ALERT, SWITCH_THEME, SHOW_ITEM, REMOVE_ITEM, SHOW_NAVTABS } from "./actions";
 
 
 
@@ -17,6 +17,7 @@ const UiState = (props) => {
         isDark: 'light',
         alert: { showAlert: false, msg: null, type: null },
         show: "",
+        navTabs: "overview"
     }
 
 
@@ -51,7 +52,7 @@ const UiState = (props) => {
     const showItem = (value) => {
         if (state.show === value) {
             dispatch({
-                type:REMOVE_ITEM,
+                type: REMOVE_ITEM,
             })
         } else {
             dispatch({
@@ -59,7 +60,15 @@ const UiState = (props) => {
                 payload: value
             })
         }
-    
+
+    }
+
+
+    const showNavTabs = (value) => {
+        dispatch({
+            type: SHOW_NAVTABS,
+            payload: value
+        })
     }
 
 
@@ -81,6 +90,8 @@ const UiState = (props) => {
             setAlert,
             switchTheme,
             showItem,
+            showNavTabs,
+            navTabs:state.navTabs,
             show: state.show,
             alert: state.alert,
             isDark: state.isDark

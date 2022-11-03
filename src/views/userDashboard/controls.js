@@ -103,7 +103,7 @@ export const Controls = () => {
             </div>
 
             <div className="bottom-20 fixed hidden lg:block">
-                <button className="space-x-2 w-96 border-2 dark:border-slate-600 text-lg dark:text-slate-300 text-center py-5 rounded-lg bg-blue-500 text-white font-semibold">
+                <button className="space-x-2 w-96 border-2 dark:border-slate-800 text-lg dark:text-slate-300 text-center py-5 rounded-full bg-blue-500 text-white font-semibold">
                     <i className="lni lni-cloud-upload"></i>
                     <span className="font-semibold">Export Project</span>
                 </button>

@@ -5,6 +5,7 @@ import {
     SWITCH_THEME,
     SHOW_ITEM,
     REMOVE_ITEM,
+    SHOW_NAVTABS,
 
 } from './actions'
 
@@ -48,6 +49,31 @@ const UiReducers = (state, action) => {
                 ...state,
                 show: null
             }
+
+        case SHOW_NAVTABS:
+            return{
+                ...state,
+                navTabs:action.payload
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         default:
