@@ -1,5 +1,5 @@
 
-import { CHANGE_COLOR, GET_FONTS } from "./actions";
+import { CHANGE_COLOR, GET_FONTS, FONT_SIZE } from "./actions";
 import ArtBoardContext from "./context";
 
 
@@ -17,7 +17,8 @@ const ArtboardState = (props) => {
 
     const initialState = {
         color: 'rgba(65, 89, 56, 1)',
-        font: ""
+        font: "",
+        font_size: ""
     }
 
 
@@ -36,13 +37,21 @@ const ArtboardState = (props) => {
 
 
     const getFonts = async (value) => {
-
         dispatch({
             type: GET_FONTS,
             payload: value
         })
         console.log(value)
     }
+
+    const changeFontSize = (value) => {
+        dispatch({
+            type: FONT_SIZE,
+            payload:value
+        })
+    console.log(state.font_size)
+    }
+
 
 
 
@@ -59,8 +68,10 @@ const ArtboardState = (props) => {
         <ArtBoardContext.Provider value={{
             color: state.color,
             font: state.font,
+            font_size: state.font_size,
             changeColor,
-            getFonts
+            getFonts,
+            changeFontSize,
         }}>
 
             {/* to make the fuctions and state availabe globally */}

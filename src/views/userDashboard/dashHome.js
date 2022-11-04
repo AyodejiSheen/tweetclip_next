@@ -14,7 +14,7 @@ export const DashHome = () => {
 
     let { isDark, show, showItem } = useContext(UiContext)
 
-    let { color, font } = useContext(ArtBoardContext);
+    let { color, font, font_size } = useContext(ArtBoardContext);
 
 
     return (
@@ -90,7 +90,7 @@ export const DashHome = () => {
                         </div>
 
                         <div className={`flex justify-center items-center h-96 lg:h-[90%] rounded-2xl`} style={{ backgroundColor: `${color}` }}>
-                            <h1 className='text-4xl text-white font-extrabold text-center' style={{ fontFamily: ` ${font}` }}>This is the Artboard</h1>
+                            <h1 className='text-4xl text-white font-extrabold text-center' style={{ fontFamily: ` ${font}`, fontSize: `${font_size}px` }}>This is the Artboard</h1>
                         </div>
                     </div>
                 </section>

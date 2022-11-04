@@ -1,9 +1,10 @@
 import { useContext } from "react"
 import UiContext from "../../context/UI/context"
 import dp from '../../assets/media/dp.png'
-import {  useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { Theme } from "../../components/theme"
 import { Overview } from "./overview"
+import { EditProfile } from "./editProfile"
 
 
 
@@ -59,30 +60,30 @@ export const Profile = () => {
                     <div className='w-full lg:w-2/3 2xl:w-3/4  rounded-[3rem] space-y-7 '>
 
                         <div className='flex gap-4 order-2 lg:order-1 justify-start overflow-x-scroll'>
-                            <div onClick={() => showNavTabs("overview")} className='cursor-pointer border-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base '>
+                            <div onClick={() => showNavTabs("overview")} className={`cursor-pointer border-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base ${navTabs === "overview" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
                                 <i className="lni lni-save"></i>
                                 <p>Overview</p>
                             </div>
-                            <div className='border-2 dark:border-slate-600 dark:text-slate-300 px-10 py-3 flex items-center justify-center rounded-xl space-x-2 flex-none text-sm md:text-base '>
+                            <div onClick={() => showNavTabs("editProfile")} className={`cursor-pointer border-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base ${navTabs === "editProfile" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
                                 <i className="lni lni-cloud-download"></i>
                                 <p>Edit Profile</p>
                             </div>
-                            <div className='border-2 dark:border-slate-600 dark:text-slate-300 px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base '>
+                            <div onClick={() => showNavTabs("plan")} className={`cursor-pointer border-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base ${navTabs === "plan" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
                                 <i className="lni lni-cloud-download"></i>
                                 <p>Plan</p>
                             </div>
 
-                            <div className='border-2 dark:border-slate-600 dark:text-slate-300 px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base '>
+                            <div onClick={() => showNavTabs("billing")} className={`cursor-pointer border-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base ${navTabs === "billing" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
                                 <i className="lni lni-cloud-download"></i>
                                 <p>Billing</p>
                             </div>
 
-                            <div className='border-2 dark:border-slate-600 dark:text-slate-300 px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base '>
+                            <div onClick={() => showNavTabs("security")} className={`cursor-pointer border-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base ${navTabs === "security" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
                                 <i className="lni lni-cloud-download"></i>
                                 <p>Security</p>
                             </div>
 
-                            <div className='border-2 dark:border-slate-600 dark:text-slate-300 px-10 py-3 flex items-center justify-center flex-none rounded-xl space-x-2 text-sm md:text-base '>
+                            <div onClick={() => showNavTabs("activeDevice")} className={`cursor-pointer border-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base ${navTabs === "activeDevice" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
                                 <i className="lni lni-cloud-download"></i>
                                 <p>Active Device</p>
                             </div>
@@ -96,10 +97,29 @@ export const Profile = () => {
                                 )
                             }
 
+                            {
+                                navTabs === "editProfile" && (
+                                    <EditProfile />
+                                )
+                            }
 
-
-
-
+                            <div className="mt-8">
+                                <div className=" border-2 border-dotted p-4 md:p-7 rounded-xl bg-yellow-50 dark:bg-orange-700 border-yellow-600 dark:bg-opacity-20">
+                                    <div className="flex gap-6 md:items-center">
+                                        <div className="text-yellow-400">
+                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor"></rect>
+                                                <rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)" fill="currentColor"></rect>
+                                                <rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)" fill="currentColor"></rect>
+                                            </svg>
+                                        </div>
+                                        <div className="space-y-1">
+                                            <h3 className="md:text-lg text-slate-600 font-semibold dark:text-slate-300">We need your attention!</h3>
+                                            <p className='font-semibold text-slate-400 text-xs md:text-sm'>Your payment was declined. To start using tools, please <Link to="/" className='text-sky-600'> Add Payment Method.</Link></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>

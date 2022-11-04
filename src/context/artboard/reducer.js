@@ -1,7 +1,8 @@
 import {
     //import all the actions for ui context api
     CHANGE_COLOR,
-    GET_FONTS
+    GET_FONTS,
+    FONT_SIZE,
 
 } from './actions'
 
@@ -25,6 +26,17 @@ const ArtboardReducers = (state, action) => {
                 ...state,
                 font:action.payload
             }
+
+        case FONT_SIZE:
+            console.log(action.payload)
+            return{
+                ...state,
+                font_size:action.payload
+            }
+
+
+
+
 
 
         default:
