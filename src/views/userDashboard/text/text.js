@@ -1,3 +1,5 @@
+import { useContext } from "react"
+import ArtBoardContext from "../../../context/artboard/context"
 
 
 
@@ -7,15 +9,22 @@
 
 export const Text = () => {
 
+    let {fonts} = useContext(ArtBoardContext)
 
 
 
     return (
 
         <>
-            <div className='py-8'>
-                <h1 className='font-bold text-2xl'>Choose a font style!</h1>
-            </div>
+            {
+                fonts === null ? ( <p>Loading...</p>) : (
+                    fonts.slice(0, 100).map((each) => {
+                        return(
+                            <p>{each.family}</p>
+                        )
+                    })
+                )
+            }
         </>
     )
 }

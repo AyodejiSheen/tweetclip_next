@@ -44,7 +44,9 @@ export const Controls = () => {
                     {
                         show === "text" && (
                             <div className="">
-                                <Text />
+      
+                                <Text/>
+
                             </div>
                         )
                     }
