@@ -16,7 +16,7 @@ export const Controls = () => {
 
             <div className='space-y-4'>
                 <div>
-                    <div onClick={() => showItem('color')} className='cursor-pointer px-6 border-2 dark:border-slate-600 text-lg flex justify-between font-light dark:text-slate-300 text-center py-5 w-full rounded-lg'>
+                    <div onClick={() => showItem('color')} className={`cursor-pointer px-6 border-2 dark:border-slate-600 text-lg flex justify-between font-light dark:text-slate-300 text-center py-5 w-full rounded-lg ${show === "color" ? "bg-blue-600 border-0 " : ""}`}>
                         <p className="font-medium">Color</p>
                         <p><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={show === 'color' ? "rotate-90 transition duration-300" : "transition duration-300"}>
                             <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor"></path>
@@ -34,7 +34,7 @@ export const Controls = () => {
 
 
                 <div>
-                    <div onClick={() => showItem('text')} className='cursor-pointer px-6 border-2 dark:border-slate-600 text-lg flex justify-between font-light dark:text-slate-300 text-center py-5 w-full rounded-lg'>
+                    <div onClick={() => showItem('text')} className={`cursor-pointer px-6 border-2 dark:border-slate-600 text-lg flex justify-between font-light dark:text-slate-300 text-center py-5 w-full rounded-lg ${show === "text" ? "bg-blue-600 border-0 " : ""}`}>
                         <p className="font-medium">Text</p>
                         <p><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={show === 'text' ? "rotate-90 transition duration-300" : "transition duration-300"}>
                             <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor"></path>
@@ -53,7 +53,7 @@ export const Controls = () => {
                 </div>
 
                 <div>
-                    <div onClick={() => showItem('slogan')} className='cursor-pointer px-6 border-2 dark:border-slate-600 text-lg flex justify-between font-light dark:text-slate-300 text-center py-5 w-full rounded-lg'>
+                    <div onClick={() => showItem('slogan')} className={`cursor-pointer px-6 border-2 dark:border-slate-600 text-lg flex justify-between font-light dark:text-slate-300 text-center py-5 w-full rounded-lg ${show === "slogan" ? "bg-blue-600 border-0 text-white" : ""}`}>
                         <p className="font-medium">Slogan</p>
                         <p><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={show === 'slogan' ? "rotate-90 transition duration-300" : "transition duration-300"}>
                             <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor"></path>
@@ -70,7 +70,7 @@ export const Controls = () => {
                 </div>
 
                 <div>
-                    <div onClick={() => showItem('icon')} className='cursor-pointer px-6 border-2 dark:border-slate-600 text-lg flex justify-between font-light dark:text-slate-300 text-center py-5 w-full rounded-lg'>
+                    <div onClick={() => showItem('icon')} className={`cursor-pointer px-6 border-2 dark:border-slate-600 text-lg flex justify-between font-light dark:text-slate-300 text-center py-5 w-full rounded-lg ${show === "icon" ? "bg-blue-600 border-0 " : ""}`}>
                         <p className="font-medium">Icon</p>
                         <p><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={show === 'icon' ? "rotate-90 transition duration-300" : "transition duration-300"}>
                             <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor"></path>
@@ -87,7 +87,7 @@ export const Controls = () => {
                 </div>
 
                 <div>
-                    <div onClick={() => showItem('layout')} className='cursor-pointer px-6 border-2 dark:border-slate-600 text-lg flex justify-between font-light dark:text-slate-300 text-center py-5 w-full rounded-lg'>
+                    <div onClick={() => showItem('layout')} className={`cursor-pointer px-6 border-2 dark:border-slate-600 text-lg flex justify-between font-light dark:text-slate-300 text-center py-5 w-full rounded-lg ${show === "layout" ? "bg-blue-600 border-0 " : ""}`}>
                         <p className="font-medium">Layout</p>
                         <p><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={show === 'layout' ? "rotate-90 transition duration-300" : "transition duration-300"}>
                             <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor"></path>
@@ -104,8 +104,8 @@ export const Controls = () => {
                 </div>
             </div>
 
-            <div className="bottom-20 fixed hidden lg:block">
-                <button className="space-x-2 w-96 border-2 dark:border-slate-800 text-lg dark:text-slate-300 text-center py-5 rounded-full bg-blue-500 text-white font-semibold">
+            <div className="lg:mt-[30%]  hidden lg:block">
+                <button className="space-x-2 w-full border-2 dark:border-slate-800 text-lg dark:text-slate-300 text-center py-5 rounded-full bg-blue-500 text-white font-semibold">
                     <i className="lni lni-cloud-upload"></i>
                     <span className="font-semibold">Export Project</span>
                 </button>

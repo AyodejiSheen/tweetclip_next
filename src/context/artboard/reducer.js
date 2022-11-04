@@ -1,6 +1,7 @@
 import {
     //import all the actions for ui context api
-    CHANGE_COLOR
+    CHANGE_COLOR,
+    GET_FONTS
 
 } from './actions'
 
@@ -17,6 +18,12 @@ const ArtboardReducers = (state, action) => {
             return {
                 ...state,
                 color: action.payload
+            }
+
+        case GET_FONTS:
+            return{
+                ...state,
+                font:action.payload
             }
 
 

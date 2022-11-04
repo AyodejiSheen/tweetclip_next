@@ -6,7 +6,6 @@ import { Outlet } from 'react-router-dom'
 import { Theme } from '../../components/theme'
 import ArtBoardContext from '../../context/artboard/context'
 import { ProfileNav } from '../../components/profileNav'
-import { useEffect } from 'react'
 
 
 
@@ -15,13 +14,7 @@ export const DashHome = () => {
 
     let { isDark, show, showItem } = useContext(UiContext)
 
-    let { color, getAllFonts } = useContext(ArtBoardContext);
-
-
-    useEffect(() => {
-        getAllFonts();
-    })
-
+    let { color, font } = useContext(ArtBoardContext);
 
 
     return (
@@ -97,7 +90,7 @@ export const DashHome = () => {
                         </div>
 
                         <div className={`flex justify-center items-center h-96 lg:h-[90%] rounded-2xl`} style={{ backgroundColor: `${color}` }}>
-                            <h1 className='text-4xl text-white font-extrabold text-center'>This is the Artboard</h1>
+                            <h1 className='text-4xl text-white font-extrabold text-center' style={{ fontFamily: ` ${font}` }}>This is the Artboard</h1>
                         </div>
                     </div>
                 </section>
