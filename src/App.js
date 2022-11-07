@@ -1,12 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Alert } from "./components/alert/alert";
-import GoogleAuth from "./components/googleAuth";
 import { Auth } from "./views/auth/auth";
 import { BrowserConfig } from "./views/auth/browerConfirmation";
 import { ForgotPassword } from "./views/auth/forgotPassword";
+import GoogleAuth from "./views/auth/googleAuth";
 import { Login } from "./views/auth/login";
 import { SignUp } from "./views/auth/signup";
+import TwitterAuth from "./views/auth/TwitterAuth";
 import { UpdatePassword } from "./views/auth/updatePassword";
 import { Verification } from "./views/auth/verification";
 import { ErrorPage } from "./views/errorpage";
@@ -42,6 +43,7 @@ function App() {
 
 
         <Route path="googleAuth" element={<GoogleAuth />}></Route>
+        <Route path="twitterAuth" element={<TwitterAuth />}></Route>
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
     </>

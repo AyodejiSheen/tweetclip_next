@@ -21,10 +21,10 @@ export const Profile = () => {
 
             <div className={isDark === 'dark' ? 'dark' : ""}>
 
-                <section className='flex flex-col lg:flex-row gap-10 p-5 lg:p-10 lg:h-screen  bg-neutral-50 dark:bg-slate-900 gap-y-6 lg:gap-y-0'>
+                <section className='flex flex-col lg:flex-row gap-10 p-5 xl:p-10 lg:h-screen  bg-neutral-50 dark:bg-slate-900 gap-y-6 lg:gap-y-0'>
                     <div className='w-full lg:w-1/3 2xl:w-1/4  dark:bg-slate-800  bg-neutral-100 rounded-xl lg:rounded-[1.8rem] lg:py-8 lg:px-12 p-6'>
                         <div className="flex justify-between flex-col h-full gap-6">
-                            <div className="flex justify-between">
+                            <div className="flex justify-between items-center">
                                 <div>
                                     <button onClick={() => navigate(-1)} className="font-semibold bg-slate-300 px-6 py-2 rounded-full text-sm"> <i class="lni lni-arrow-left"></i> Back</button>
                                 </div>
@@ -48,7 +48,7 @@ export const Profile = () => {
                             </div>
 
                             <div className="w-full mx-auto text-center">
-                                <button className="space-x-2 mx-auto lg:w-80 border-2 dark:border-slate-800 text-lg dark:text-slate-300 text-center px-10 py-3 lg:py-5 rounded-full bg-blue-500 text-white font-semibold">
+                                <button className="space-x-2 mx-auto xl:w-80 border-2 dark:border-slate-800 text-lg dark:text-slate-300 text-center px-10 py-3 lg:py-5 rounded-2xl bg-blue-500 text-white font-semibold">
                                     <i className="lni lni-cloud-upload"></i>
                                     <span className="font-semibold text-sm">View Saved Projects</span>
                                 </button>
@@ -72,11 +72,6 @@ export const Profile = () => {
                             <div onClick={() => showNavTabs("plan")} className={`cursor-pointer border-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base ${navTabs === "plan" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
                                 <i className="lni lni-cloud-download"></i>
                                 <p>Plan</p>
-                            </div>
-
-                            <div onClick={() => showNavTabs("billing")} className={`cursor-pointer border-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base ${navTabs === "billing" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
-                                <i className="lni lni-cloud-download"></i>
-                                <p>Billing</p>
                             </div>
 
                             <div onClick={() => showNavTabs("security")} className={`cursor-pointer border-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base ${navTabs === "security" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>

@@ -12,6 +12,7 @@ import google from '../../assets/media/Google__G__Logo.svg.png'
 import twitter from '../../assets/media/Twitter-logo.svg.png'
 import AuthContext from "../../context/auth/context";
 import UiContext from "../../context/UI/context";
+import { Loading } from "notiflix";
 
 
 
@@ -48,8 +49,10 @@ export const Login = () => {
 
     const onSubmit = (data, { resetForm }) => {
         setAlert({ msg: null, type: "loading" });
+
         setTimeout(() => {
             userLogin(data);
+            Loading.remove()
         }, 2000)
 
     }
@@ -78,7 +81,7 @@ export const Login = () => {
                 </div>
 
                 <div>
-                    <a href="nothing"
+                    <a href="https://tweetclips-test.herokuapp.com/api/v1/twitteroauth"
                         className="flex items-center justify-center w-full px-4 py-2.5 text-sm font-medium leading-5 text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray"
                     >
                         <img src={twitter} alt="img" className="w-4 mr-3" />

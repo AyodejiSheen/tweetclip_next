@@ -44,6 +44,7 @@ const ArtboardState = (props) => {
         console.log(value)
     }
 
+
     const changeFontSize = (value) => {
         dispatch({
             type: FONT_SIZE,
@@ -51,9 +52,6 @@ const ArtboardState = (props) => {
         })
     console.log(state.font_size)
     }
-
-
-
 
 
 

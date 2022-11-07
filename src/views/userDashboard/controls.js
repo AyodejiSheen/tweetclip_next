@@ -91,9 +91,9 @@ export const Controls = () => {
             </div>
 
             <div className="lg:mt-[30%]  hidden lg:block">
-                <button className="space-x-2 w-full border-2 dark:border-slate-800 text-lg dark:text-slate-300 text-center py-5 rounded-full bg-blue-500 text-white font-semibold">
-                    <i className="lni lni-cloud-upload"></i>
-                    <span className="font-semibold">Export Project</span>
+                <button className="space-x-2 w-full border-2 dark:border-slate-800 text-lg dark:text-slate-300 text-center py-5 rounded-2xl bg-blue-500 text-white font-semibold">
+                    <i className="lni lni-video text-2xl"></i>
+                    <span className="font-semibold">Generate Video</span>
                 </button>
             </div>
 

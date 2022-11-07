@@ -26,8 +26,8 @@ export const ProfileNav = () => {
                         <div className=''>
                             <div className='px-4 pb-4'>
                                 <div className='text-center'>
-                                    <p className='text-lg font-bold text-gray-800 dark:text-gray-200 '>Adeyemi Segun</p>
-                                    <p className='text-sm text-gray-800 dark:text-gray-200 '>aoluwasegun009@gmail.com</p>
+                                    <p className='text-lg font-bold text-gray-800 dark:text-gray-200 '>Max Smith</p>
+                                    <p className='text-sm text-gray-800 dark:text-gray-200 '>maxsmith009@gmail</p>
                                 </div>
                             </div>
                             <hr className='dark:opacity-10' />
