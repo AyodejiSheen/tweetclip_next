@@ -52,7 +52,7 @@ export const Theme = () => {
                             initial={{ scale: 0 }}
                             transition={{ type: "twin", ease: "easeInOut" }}
                         >
-                            <div className='absolute w-48 right-0 mt-4 rounded-lg bg-opacity-70 dark:bg-opacity-70 backdrop-blur-lg dark:border-0 border-2 border-slate-300 dark:bg-slate-800 bg-white px-4 py-3 '>
+                            <div className='absolute w-48 right-0 mt-4 rounded-lg dark:border-0 border-2 border-slate-300 dark:bg-slate-800 bg-white px-4 py-3 '>
                                 <button onClick={() => switchTheme("light")} className="flex px-4 py-3 hover:bg-slate-200 hover:text-blue-600 dark:hover:bg-slate-600  w-full rounded-lg items-center">
                                     <span className="dark:text-slate-400 mr-3"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M11.9905 5.62598C10.7293 5.62574 9.49646 5.9995 8.44775 6.69997C7.39903 7.40045 6.58159 8.39619 6.09881 9.56126C5.61603 10.7263 5.48958 12.0084 5.73547 13.2453C5.98135 14.4823 6.58852 15.6185 7.48019 16.5104C8.37186 17.4022 9.50798 18.0096 10.7449 18.2557C11.9818 18.5019 13.2639 18.3757 14.429 17.8931C15.5942 17.4106 16.5901 16.5933 17.2908 15.5448C17.9915 14.4962 18.3655 13.2634 18.3655 12.0023C18.3637 10.3119 17.6916 8.69129 16.4964 7.49593C15.3013 6.30056 13.6808 5.62806 11.9905 5.62598Z" fill="currentColor"></path>

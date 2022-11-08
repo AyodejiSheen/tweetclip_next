@@ -26,7 +26,7 @@ export const Profile = () => {
                         <div className="flex justify-between flex-col h-full gap-6">
                             <div className="flex justify-between items-center">
                                 <div>
-                                    <button onClick={() => navigate(-1)} className="font-semibold bg-slate-300 px-6 py-2 rounded-full text-sm"> <i class="lni lni-arrow-left"></i> Back</button>
+                                    <button onClick={() => navigate(-1)} className="font-semibold bg-slate-300 px-6 py-2 rounded-full text-xs md:text-sm"> <i class="lni lni-arrow-left"></i> Back</button>
                                 </div>
                                 <div>
                                     <Theme />
@@ -48,9 +48,9 @@ export const Profile = () => {
                             </div>
 
                             <div className="w-full mx-auto text-center">
-                                <button className="space-x-2 mx-auto xl:w-80 border-2 dark:border-slate-800 text-lg dark:text-slate-300 text-center px-10 py-3 lg:py-5 rounded-2xl bg-blue-500 text-white font-semibold">
+                                <button className="space-x-2 mx-auto xl:w-80 border-2 dark:border-slate-800  md:text-lg dark:text-slate-300 text-center px-7 md:px-10 py-2.5 lg:py-5 rounded-2xl bg-blue-500 text-white font-semibold">
                                     <i className="lni lni-cloud-upload"></i>
-                                    <span className="font-semibold text-sm">View Saved Projects</span>
+                                    <span className="font-semibold text-xs lg:text-sm">View Saved Projects</span>
                                 </button>
                             </div>
                         </div>
@@ -85,7 +85,7 @@ export const Profile = () => {
                             </div>
                         </div>
 
-                        <div className={`rounded-2xl border-slate-300 border-2 dark:border-slate-600 p-8`}>
+                        <div className={`rounded-2xl border-slate-300 border-2 dark:border-slate-600 px-3 py-8`}>
 
                             {
                                 navTabs === "overview" && (

@@ -59,7 +59,7 @@ export const DashHome = () => {
                                                 <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
                                             </svg>
                                         </div>
-                                        <input className="w-full pl-8 pr-2 py-2 h-14 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-xl dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-slate-700 dark:text-slate-300 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input" type="text" placeholder="Search for projects" aria-label="Search" />
+                                        <input className="w-full pl-8 pr-2 py-2 h-10 md:h-14 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-xl dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-slate-700 dark:text-slate-300 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input" type="text" placeholder="Search for projects" aria-label="Search" />
                                     </div>
                                 </div>
 
@@ -78,7 +78,7 @@ export const DashHome = () => {
 
                                 {/* profile pics */}
                                 <div>
-                                    <img src={dp} className="w-12 lg:w-14 rounded-xl" alt='img' onClick={() => showItem('profile')} />
+                                    <img src={dp} className="w-10 lg:w-14 rounded-xl" alt='img' onClick={() => showItem('profile')} />
 
                                     {
                                         show === "profile" && (

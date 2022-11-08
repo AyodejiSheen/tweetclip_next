@@ -52,8 +52,8 @@ export const Plan = () => {
                                             <p className="text-xs lg:text-sm font-medium dark:text-slate-600">Best for startups</p>
                                         </div>
                                     </div>
-                                    <div>
-                                        <h2 className="font-bold text-3xl lg:text-5xl dark:text-slate-200"> <sub className={`text-xs lg:text-sm text-slate-400  ${details === "startup" ? "text-slate-200" : ""}`}>$</sub> 39<sub className={`text-xs lg:text-sm text-slate-400  ${details === "startup" ? "text-slate-200 " : ""}`}>/ Mon</sub></h2>
+                                    <div className="items-end">
+                                        <h2 className="font-bold text-2xl lg:text-5xl dark:text-slate-200"> <sub className={`text-xs lg:text-sm text-slate-400  ${details === "startup" ? "text-slate-200" : ""}`}>$</sub> 39<sub className={`text-xs lg:text-sm text-slate-400  ${details === "startup" ? "text-slate-200 " : ""}`}>/ Mon</sub></h2>
                                     </div>
                                 </div>
 
@@ -66,7 +66,7 @@ export const Plan = () => {
                                         </div>
                                     </div>
                                     <div>
-                                        <h2 className="font-bold text-3xl lg:text-5xl dark:text-slate-200"> <sub className={`text-xs lg:text-sm text-slate-400  ${details === "advanced" ? "text-slate-200" : ""}`}>$</sub> 399<sub className={`text-xs lg:text-sm text-slate-400  ${details === "advanced" ? "text-slate-200 " : ""}`}>/ Mon</sub></h2>
+                                        <h2 className="font-bold text-2xl lg:text-5xl dark:text-slate-200"> <sub className={`text-xs lg:text-sm text-slate-400  ${details === "advanced" ? "text-slate-200" : ""}`}>$</sub> 399<sub className={`text-xs lg:text-sm text-slate-400  ${details === "advanced" ? "text-slate-200 " : ""}`}>/ Mon</sub></h2>
                                     </div>
                                 </div>
 
@@ -95,11 +95,11 @@ export const Plan = () => {
                                         <div className={`rounded-full h-4 w-4 lg:h-8 lg:w-8 bg-slate-200 dark:bg-slate-700 ${details === "custom" ? "bg-white dark:bg-white" : ""}`}> </div>
                                         <div>
                                             <h5 className="font-semibold text-lg lg:text-xl dark:text-slate-200">Custom</h5>
-                                            <p className="text-xs lg:text-sm font-medium dark:text-slate-600">Request a custon license</p>
+                                            <p className="text-xs lg:text-sm font-medium dark:text-slate-600">Request a custom license</p>
                                         </div>
                                     </div>
-                                    <div>
-                                        <button className="bg-emerald-700 text-white font-medium rounded-lg mt-4 px-6 py-2.5 md:mt-0 md:px-6 md:py-2">Contact Us</button>
+                                    <div className="">
+                                        <button className="bg-emerald-700 text-white text-xs md:text-base font-medium rounded-lg mt-4 px-6 py-2.5 md:mt-0 md:px-6 md:py-2">Contact Us</button>
                                     </div>
                                 </div>
                             </div>
@@ -325,7 +325,7 @@ export const Plan = () => {
                                         </div>
                                     </div>
                                     <div>
-                                        <h2 className="font-bold text-3xl lg:text-5xl dark:text-slate-200"> <sub className={`text-xs lg:text-sm text-slate-400  ${details === "startup" ? "text-slate-200" : ""}`}>$</sub> 399<sub className={`text-xs lg:text-sm text-slate-400  ${details === "startup" ? "text-slate-200 " : ""}`}>/ Mon</sub></h2>
+                                        <h2 className="font-bold text-2xl lg:text-5xl dark:text-slate-200"> <sub className={`text-xs lg:text-sm text-slate-400  ${details === "startup" ? "text-slate-200" : ""}`}>$</sub> 399<sub className={`text-xs lg:text-sm text-slate-400  ${details === "startup" ? "text-slate-200 " : ""}`}>/ Yr</sub></h2>
                                     </div>
                                 </div>
 
@@ -338,7 +338,7 @@ export const Plan = () => {
                                         </div>
                                     </div>
                                     <div>
-                                        <h2 className="font-bold text-3xl lg:text-5xl dark:text-slate-200"> <sub className={`text-xs lg:text-sm text-slate-400  ${details === "advanced" ? "text-slate-200" : ""}`}>$</sub> 3999<sub className={`text-xs lg:text-sm text-slate-400  ${details === "advanced" ? "text-slate-200 " : ""}`}>/ Mon</sub></h2>
+                                        <h2 className="font-bold text-2xl lg:text-5xl dark:text-slate-200"> <sub className={`text-xs lg:text-sm text-slate-400  ${details === "advanced" ? "text-slate-200" : ""}`}>$</sub> 3999<sub className={`text-xs lg:text-sm text-slate-400  ${details === "advanced" ? "text-slate-200 " : ""}`}>/ Yr</sub></h2>
                                     </div>
                                 </div>
 
@@ -371,7 +371,7 @@ export const Plan = () => {
                                         </div>
                                     </div>
                                     <div>
-                                        <button className="bg-emerald-700 text-white font-medium rounded-lg mt-4 px-6 py-2.5 md:mt-0 md:px-6 md:py-2">Contact Us</button>
+                                        <button className="bg-emerald-700 text-white font-medium text-xs md:text-base rounded-lg mt-4 px-6 py-2.5 md:mt-0 md:px-6 md:py-2">Contact Us</button>
                                     </div>
                                 </div>
                             </div>

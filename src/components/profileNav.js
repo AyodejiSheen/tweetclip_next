@@ -22,7 +22,7 @@ export const ProfileNav = () => {
                     initial={{ scale: 0 }}
                     transition={{ type: "twin", ease: "easeInOut" }}
                 >
-                    <div className='absolute mt-4 right-0  p-8 rounded-lg bg-opacity-70 backdrop-blur-lg dark:border-0 border-2 border-slate-300 dark:bg-slate-800 bg-white'>
+                    <div className='absolute mt-4 right-0 w-80  p-8 rounded-lg dark:border-0 border-2 border-slate-300 dark:bg-slate-800 bg-white'>
                         <div className=''>
                             <div className='px-4 pb-4'>
                                 <div className='text-center'>
