@@ -21,10 +21,10 @@ const GoogleAuth = () => {
 
     const submit = () => {
         if (res.isSuccess === true) {
-            navigate('dashboard')
+            navigate('/dashboard')
             return true;
         } else if (res.type === 3) {
-            navigate('new-device')
+            navigate('/new-device')
         }
     }
 
