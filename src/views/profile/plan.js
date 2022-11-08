@@ -43,7 +43,7 @@ export const Plan = () => {
                 {
                     planType === "monthly" ? (
                         <div className="xl:flex gap-12 space-y-5 xl:space-y-0" >
-                            <div className="xl::w-1/2 space-y-4">
+                            <div className="xl:w-1/2 space-y-4">
                                 <div onClick={() => handleChange("startup")} className={`cursor-pointer hover:border-transparent transition-all duration-500 border-dotted  dark:border-slate-700 border-2 p-6 border-slate-300 rounded-xl flex items-center flex-wrap justify-between ${details === "startup" ? "text-white bg-blue-500 border-transparent dark:border-transparent" : ""}`}>
                                     <div className="flex items-center gap-6">
                                         <div className={`rounded-full h-4 w-4 lg:h-8 lg:w-8 bg-slate-200 dark:bg-slate-700 ${details === "startup" ? "bg-white dark:bg-white" : ""}`}> </div>

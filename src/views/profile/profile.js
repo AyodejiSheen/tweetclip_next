@@ -85,7 +85,7 @@ export const Profile = () => {
                             </div>
                         </div>
 
-                        <div className={`rounded-2xl border-slate-300 border-2 dark:border-slate-600 px-3 py-8`}>
+                        <div className={`rounded-2xl border-slate-300 border-2 dark:border-slate-600 px-3 md:px-8 py-8`}>
 
                             {
                                 navTabs === "overview" && (

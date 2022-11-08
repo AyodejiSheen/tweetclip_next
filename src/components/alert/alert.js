@@ -1,4 +1,4 @@
-import { Loading, Notify } from 'notiflix';
+import { Notify } from 'notiflix';
 import { useContext } from "react";
 import UiContext from "../../context/UI/context";
 
@@ -14,14 +14,14 @@ export const Alert = () => {
       {alert.type === "warning" && Notify.warning(alert.msg)}
 
       {/* Loading Alert */}
-      {alert.type === "loading" && (
+      {/* {alert.type === "loading" && (
         Loading.standard('Please wait...', {
           backgroundColor: 'rgba(244,247,250,0.7)',
           svgColor:'#1DA1F2',
           svgSize:'100px',
           messageColor:'#1DA1F2'
         })
-      )}
+      )} */}
     </>
   );
 };

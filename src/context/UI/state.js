@@ -1,5 +1,5 @@
 
-import { SET_ALERT, SWITCH_THEME, SHOW_ITEM, REMOVE_ITEM, SHOW_NAVTABS } from "./actions";
+import { SET_ALERT, REMOVE_ALERT, SWITCH_THEME, SHOW_ITEM, REMOVE_ITEM, SHOW_NAVTABS } from "./actions";
 
 
 
@@ -33,6 +33,11 @@ const UiState = (props) => {
             type: SET_ALERT,
             payload: data
         })
+
+        setTimeout(() => dispatch({
+            type: REMOVE_ALERT,
+        }), 7000)
+
 
     }
 

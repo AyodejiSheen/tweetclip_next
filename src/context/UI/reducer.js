@@ -5,7 +5,7 @@ import {
     SHOW_ITEM,
     REMOVE_ITEM,
     SHOW_NAVTABS,
-
+    REMOVE_ALERT,
 } from './actions'
 
 
@@ -24,15 +24,21 @@ const UiReducers = (state, action) => {
                 alert: { ...alert, showAlert: true, msg: res.msg, type: res.type },
             }
 
+        case REMOVE_ALERT:
+            return {
+                ...state,
+                alert: { ...alert, showAlert: false, msg: null, type: null },
+            }
+
         case SWITCH_THEME:
             return {
                 ...state,
                 isDark: action.payload,
-                show:null
+                show: null
             }
-        
+
         case SHOW_ITEM:
-            return{
+            return {
                 ...state,
                 show: action.payload
             }
@@ -44,9 +50,9 @@ const UiReducers = (state, action) => {
             }
 
         case SHOW_NAVTABS:
-            return{
+            return {
                 ...state,
-                navTabs:action.payload
+                navTabs: action.payload
             }
 
 

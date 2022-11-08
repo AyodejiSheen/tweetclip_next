@@ -12,7 +12,7 @@ import google from '../../assets/media/Google__G__Logo.svg.png'
 import twitter from '../../assets/media/Twitter-logo.svg.png'
 import AuthContext from "../../context/auth/context";
 import UiContext from "../../context/UI/context";
-import { Loading } from "notiflix";
+// import { Loading } from "notiflix";
 
 
 
@@ -20,7 +20,7 @@ import { Loading } from "notiflix";
 export const SignUp = () => {
   const { userSignup } = useContext(AuthContext);
 
-  let { setAlert } = useContext(UiContext);
+  let { setAlert, alert } = useContext(UiContext);
 
   //creating  intialvalues for formik
   const intialValues = {
@@ -64,7 +64,7 @@ export const SignUp = () => {
           setAlert({ msg: "Registration Successfull", type: "success" });
         }
       }
-      Loading.remove();
+      // Loading.remove();
     }, 2000);
   };
 
@@ -175,11 +175,18 @@ export const SignUp = () => {
               </label>
             </div>
 
-            <button
+            <button disabled={alert.type === "loading"}
               className="block w-full px-4 py-3 shadow-lg shadow-blue-200 mt-6 text-sm font-semibold text-center text-white transition-colors duration-150 bg-blue-500 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
               type="submit"
             >
-              Create Account
+                            { alert.type === "loading" ? (
+                                <div className="flex gap-3 items-center justify-center">
+                                    <i className="lni lni-spinner-solid animate-spin text-lg"></i>
+                                    <p>Please wait...</p>
+                                </div>
+                            ) : ( 
+                                <p>Create Account</p>
+                            )}
             </button>
           </Form>
         </Formik>

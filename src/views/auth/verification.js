@@ -16,7 +16,7 @@ export const Verification = () => {
     const [otpToken, setOtpToken] = useState("");
 
     let { verifyEmail } = useContext(AuthContext)
-    let { setAlert } = useContext(UiContext);
+    let { setAlert, alert } = useContext(UiContext);
 
 
     const handleChange = (e, index) => {
@@ -74,9 +74,16 @@ export const Verification = () => {
                     }
 
 
-                    <button
+                    <button disabled={alert.type === "loading"}
                         className="block w-full px-4 py-3 shadow-lg shadow-blue-200 mt-6 text-sm font-semibold text-center text-white transition-colors duration-150 bg-blue-500 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue" type='submit'
-                    >Verify</button>
+                    >                            {alert.type === "loading" ? (
+                        <div className="flex gap-3 items-center justify-center">
+                            <i className="lni lni-spinner-solid animate-spin text-lg"></i>
+                            <p>Please wait...</p>
+                        </div>
+                    ) : (
+                        <p>Verify</p>
+                    )}</button>
 
                 </form>
 
