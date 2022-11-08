@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import phone from '../../assets/media/smartphone-2.svg'
 import AuthContext from "../../context/auth/context";
+import UiContext from "../../context/UI/context";
 
 
 
@@ -14,6 +15,7 @@ export const Verification = () => {
     const [otpToken, setOtpToken] = useState("");
 
     let { verifyEmail } = useContext(AuthContext)
+    let { setAlert } = useContext(UiContext);
 
 
     const handleChange = (e, index) => {
@@ -27,8 +29,10 @@ export const Verification = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        verifyEmail(parseInt(otpToken))
-        console.log(otpToken)
+        setAlert({ msg: null, type: "loading" });
+        setTimeout(() => {
+            verifyEmail(parseInt(otpToken))
+        }, 2000)
     }
 
 

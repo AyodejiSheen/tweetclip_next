@@ -1,4 +1,5 @@
 import { ErrorMessage, Field, Form, Formik } from "formik"
+import { Loading } from "notiflix";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import * as Yup from 'yup';
@@ -61,9 +62,8 @@ export const UpdatePassword = () => {
         setAlert({ msg: null, type: "loading" });
 
         setTimeout(() => {
-            console.log(otpToken)
-            console.log(parseInt(otpToken))
-            updatePassword({...data, code:parseInt(otpToken)})
+            updatePassword({ ...data, code: parseInt(otpToken) })
+            Loading.remove();
         }, 2000)
     }
 

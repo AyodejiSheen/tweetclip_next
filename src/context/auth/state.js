@@ -127,6 +127,7 @@ const AuthState = (props) => {
             .then((response) => {
                 const { data } = response
                 setAlert({ msg: data.message, type: "success" })
+                navigate('dashboard')
                 return true;
             }).catch((err) => {
                 const { data } = err.response
@@ -141,6 +142,7 @@ const AuthState = (props) => {
             .then((response) => {
                 const { data } = response
                 setAlert({ msg: data.message, type: "success" })
+                navigate('dashboard')
                 return true;
             }).catch((err) => {
                 const { data } = err.response
