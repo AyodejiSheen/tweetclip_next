@@ -1,13 +1,16 @@
 
 
-import React from 'react'
-import { useLocation } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 
 
 
 
 const TwitterAuth = () => {
+
+
+    const navigate = useNavigate();
 
 
     function useQuery() {
@@ -18,7 +21,18 @@ const TwitterAuth = () => {
 
     let res = JSON.parse(query.get("response"));
 
-    console.log(res)
+    const submit = () => {
+        if (res.isSuccess === true) {
+            navigate('dashboard')
+            return true;
+        } else if (res.type === 3) {
+            navigate('new-device')
+        }
+    }
+
+    useEffect(() => {
+        submit()
+    });
     
 
 
