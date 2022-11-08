@@ -12,7 +12,7 @@ export const Auth = () => {
     return (
         <>
 
-            <section style={{backgroundColor: "rgb(244, 247, 250"}}  className=' flex flex-wrap min-h-screen w-screen m-0 p-8 justify-center login-bg'>
+            <section style={{backgroundColor: "rgb(244, 247, 250"}}  className=' flex flex-wrap min-h-screen w-screen m-0 p-8 justify-center'>
 
                 <div className='lg:m-auto my-6'>
                     <div className='space-y-3'>

@@ -18,6 +18,7 @@ const GoogleAuth = () => {
     let query = useQuery();
 
     let res = JSON.parse(query.get("response"));
+    console.log(res)
 
     const submit = () => {
         if (res.isSuccess === true) {
