@@ -12,6 +12,7 @@ import google from '../../assets/media/Google__G__Logo.svg.png'
 import twitter from '../../assets/media/Twitter-logo.svg.png'
 import AuthContext from "../../context/auth/context";
 import UiContext from "../../context/UI/context";
+import { Loading } from "notiflix";
 
 
 
@@ -63,6 +64,7 @@ export const SignUp = () => {
           setAlert({ msg: "Registration Successfull", type: "success" });
         }
       }
+      Loading.remove();
     }, 2000);
   };
 
@@ -174,7 +176,7 @@ export const SignUp = () => {
             </div>
 
             <button
-              className="block w-full px-4 py-2.5 shadow-md shadow-purple-300 mt-4 text-sm font-medium text-center text-white transition-colors duration-150 bg-sky-600 border border-transparent rounded-lg active:bg-sky-600 hover:bg-sky-700 focus:outline-none focus:shadow-outline-blue"
+              className="block w-full px-4 py-3 shadow-lg shadow-blue-200 mt-6 text-sm font-semibold text-center text-white transition-colors duration-150 bg-blue-500 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
               type="submit"
             >
               Create Account

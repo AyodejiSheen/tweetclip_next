@@ -1,4 +1,5 @@
 import { ErrorMessage, Field, Form, Formik } from "formik"
+import { Loading } from "notiflix";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import * as Yup from 'yup';
@@ -29,6 +30,7 @@ export const ForgotPassword = () => {
         setAlert({ msg: null, type: "loading" });
         setTimeout(() => {
             ResetPassword(data)
+            Loading.remove()
         }, 2000)
     }
 
@@ -58,7 +60,7 @@ export const ForgotPassword = () => {
 
                         <div className="gap-4 lg:flex justify-center">
                             <button
-                                className="block lg:flex lg:w-auto w-full px-8 py-3 shadow-md shadow-sky-100 mt-6 text-sm font-semibold text-center text-white transition-colors duration-150 bg-sky-600 border border-transparent rounded-lg active:bg-sky-600 hover:bg-sky-700 focus:outline-none focus:shadow-outline-blue" type='submit'
+                                className="block w-full px-4 py-3 shadow-lg shadow-blue-200 mt-6 text-sm font-semibold text-center text-white transition-colors duration-150 bg-blue-500 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue" type='submit'
                             >Submit</button>
 
                             <Link to="/"
