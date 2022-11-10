@@ -16,6 +16,8 @@ import { Controls } from "./views/userDashboard/controls";
 import { DashHome } from "./views/userDashboard/dashHome";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
+import { SuccessParams } from "./views/payments/successParams";
+import { Cancel } from "./views/payments/cancel";
 
 
 
@@ -50,8 +52,9 @@ function App() {
         <Route path="profile" element={<Profile/>}></Route>
 
 
-        <Route path="success/params" element={<GoogleAuth />}></Route>
-        <Route path="cancel" element={<GoogleAuth />}></Route>
+        <Route path="success/:tranCode" element={<SuccessParams />}></Route>
+        <Route path="cancel" element={<Cancel />}></Route>
+        
         <Route path="googleAuth" element={<GoogleAuth />}></Route>
         <Route path="twitterAuth" element={<TwitterAuth />}></Route>
         <Route path="*" element={<ErrorPage />}></Route>
