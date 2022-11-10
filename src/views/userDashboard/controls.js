@@ -24,7 +24,8 @@ export const Controls = () => {
                     </div>
                     {
                         show === "color" && (
-                            <div className="">
+                            <div     data-aos="fade-down"     data-aos-duration="600"
+                            data-aos-easing="ease-in-out" className="">
                                 <Color />
                             </div>
                         )
@@ -42,7 +43,8 @@ export const Controls = () => {
                     </div>
                     {
                         show === "text" && (
-                            <div className="">
+                            <div data-aos="fade-down"     data-aos-duration="600"
+                            data-aos-easing="ease-in-out" className="">
 
                                 <Text />
 
@@ -62,7 +64,8 @@ export const Controls = () => {
                     </div>
                     {
                         show === "fontsize" && (
-                            <div className="">
+                            <div data-aos="fade-down"     data-aos-duration="600"
+                            data-aos-easing="ease-in-out" className="">
                                 <FontSize />
                             </div>
                         )
@@ -79,7 +82,8 @@ export const Controls = () => {
                     </div>
                     {
                         show === "layout" && (
-                            <div className="">
+                            <div data-aos="fade-down"     data-aos-duration="600"
+                            data-aos-easing="ease-in-out" className="">
                                 <Layout />
                             </div>
                         )
@@ -91,7 +95,8 @@ export const Controls = () => {
             </div>
 
             <div className="lg:mt-[30%]  hidden lg:block">
-                <button className="space-x-2 w-full border-2 dark:border-slate-800 text-lg dark:text-slate-300 text-center py-5 rounded-2xl bg-blue-500 text-white font-semibold">
+                <button data-aos="fade-down"     data-aos-duration="600"
+                            data-aos-easing="ease-in-out" className="space-x-2 w-full border-2 dark:border-slate-800 text-lg dark:text-slate-300 text-center py-5 rounded-2xl bg-blue-500 text-white font-semibold">
                     <i className="lni lni-video text-2xl"></i>
                     <span className="font-semibold">Generate Video</span>
                 </button>

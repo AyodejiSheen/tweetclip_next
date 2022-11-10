@@ -11,7 +11,7 @@ import ArtBoardContext from "../../../context/artboard/context"
 export const Text = (props) => {
 
 
-    let { getFonts } = useContext(ArtBoardContext)
+    let { getFonts, font } = useContext(ArtBoardContext)
 
     const [search, setSearch] = useState("")
 
@@ -42,7 +42,7 @@ export const Text = (props) => {
                         return false;
                     }).map((each) => {
                         return (
-                            <div key={each.name} onClick={() => getFonts(each.name)} className=" my-2 cursor-pointer px-6 border-2 dark:border-slate-600  flex justify-between  dark:text-slate-300 text-center py-5 w-full rounded-lg font-extrabold text-2xl" style={{ fontFamily: ` ${each.name}` }}>
+                            <div key={each.name} onClick={() => getFonts(each.name)} className={`my-2 cursor-pointer px-6 border-2 dark:border-slate-600  flex justify-between  dark:text-slate-300 text-center py-5 w-full rounded-lg font-extrabold text-2xl ${font === each.name ? "bg-blue-300 border-none translate-x-2 transition-all duration-300 text-white":""}`} style={{ fontFamily: ` ${each.name}` }}>
                                 {each.name}
                             </div>
                         )

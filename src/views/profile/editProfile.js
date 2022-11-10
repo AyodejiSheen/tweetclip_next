@@ -42,89 +42,83 @@ export const EditProfile = (props) => {
 
     return (
         <>
+            <section className=" dark:bg-slate-900 space-y-8">
+                <div className="border-b-2 border-slate-300 dark:border-slate-600 pb-7">
+                    <h2 className="font-bold text-xl text-slate-500 dark:text-slate-300">Edit Profile</h2>
+                </div>
 
-            <Formik initialValues={intialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-                <Form>
+                <Formik initialValues={intialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+                    <Form>
 
-                    <div className="space-y-8">
+                        <div className="space-y-8">
 
-                    <div>
-                        <div className='w-32 mx-auto space-y-3 mb-3'>
-                            <img src={dp} alt="profile pics" className="rounded-full"/>
-                            <div className='flex space-x-4 justify-center text-blue-600 '>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="cursor-pointer h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                                </svg>
+                            <div>
+                                <div className='w-32 mx-auto space-y-3 mb-3'>
+                                    <img src={dp} alt="profile pics" className="rounded-full" />
+                                    <div className='flex space-x-4 justify-center text-blue-600 '>
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="cursor-pointer h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                                        </svg>
 
-                                <svg xmlns="http://www.w3.org/2000/svg" className="cursor-pointer h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="cursor-pointer h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <p className="text-xs font-semibold text-center text-slate-700">Allowed file types: png, jpg, jpeg.</p>
                             </div>
+
+
+                            <div className='lg:grid grid-cols-2 space-y-4 lg:space-y-0 gap-6'>
+                                <div className='mt-4 md:mt-0 flex-1 space-y-4'>
+                                    <label className="block text-sm">
+                                        <span className="text-gray-700 dark:text-gray-400">Firstname</span>
+                                        <Field
+                                            disabled={true}
+                                            name="firstname"
+                                            onFocus={setchange}
+                                            className="block w-full mt-1 border p-2.5 font-medium text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                            type="text" />
+                                        <ErrorMessage name="firstname" component="span" className="text-red-500" />
+                                    </label>
+                                </div>
+
+                                <div className='flex-1 space-y-4'>
+                                    <label className="block text-sm">
+                                        <span className="text-gray-700 dark:text-gray-400">Lastname</span>
+                                        <Field name="lastname"
+                                            onFocus={setchange}
+                                            disabled={true}
+                                            className="block w-full mt-1 border p-2.5 font-medium text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                            type="text" />
+                                        <ErrorMessage name="lastname" component="span" className="text-red-500" />
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            <div className=''>
+                                <div>
+                                    <label className="block text-sm">
+                                        <span className="text-gray-700 dark:text-gray-400">Email Address</span>
+                                        <Field
+                                            name="email"
+                                            onFocus={setchange}
+                                            className="block w-full mt-1 border p-2.5 font-medium text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                            type="email" />
+                                        <ErrorMessage name="email" component="span" className="text-red-500" />
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type='submit' className={` text-sm mt-5 text-white px-5 py-3 rounded-lg shadow-md shadow-blue-300 dark:shadow-gray-900 ${onChange ? "bg-blue-700" : "bg-blue-300"}`} >Save Changes</button>
                         </div>
-                        <p className="text-xs font-semibold text-center text-slate-700">Allowed file types: png, jpg, jpeg.</p>
-                    </div>
 
 
-                    <div className='lg:grid grid-cols-2 space-y-4 lg:space-y-0 gap-6'>
-                        <div className='mt-4 md:mt-0 flex-1 space-y-4'>
-                            <label className="block text-sm">
-                                <span className="text-gray-700 dark:text-gray-400">Firstname</span>
-                                <Field
-                                    disabled={true}
-                                    name="firstname"
-                                    onFocus={setchange}
-                                    className="block w-full mt-1 border p-2.5 font-medium text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                    type="text" />
-                                <ErrorMessage name="firstname" component="span" className="text-red-500" />
-                            </label>
-                        </div>
+                    </Form>
+                </Formik>
 
-                        <div className='flex-1 space-y-4'>
-                            <label className="block text-sm">
-                                <span className="text-gray-700 dark:text-gray-400">Lastname</span>
-                                <Field name="lastname"
-                                    onFocus={setchange}
-                                    disabled={true}
-                                    className="block w-full mt-1 border p-2.5 font-medium text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                    type="text" />
-                                <ErrorMessage name="lastname" component="span" className="text-red-500" />
-                            </label>
-                        </div>
-                    </div>
-
-
-                    <div className='lg:grid grid-cols-2 space-y-4 lg:space-y-0 gap-6'>
-                        <div>
-                            <label className="block text-sm">
-                                <span className="text-gray-700 dark:text-gray-400">Email Address</span>
-                                <Field
-                                    name="email"
-                                    onFocus={setchange}
-                                    className="block w-full mt-1 border p-2.5 font-medium text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                    type="email" />
-                                <ErrorMessage name="email" component="span" className="text-red-500" />
-                            </label>
-                        </div>
-
-                        <div>
-                            <label className="block text-sm">
-                                <span className="text-gray-700 dark:text-gray-400">Phone Number</span>
-                                <Field
-                                    name="phone"
-                                    onFocus={setchange}
-                                    className="block w-full mt-1 border p-2.5 font-medium text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                    type="number" />
-                                <ErrorMessage name="phone" component="span" className="text-red-500" />
-                            </label>
-                        </div>
-                    </div>
-
-                    <button type='submit' className={` text-sm mt-5 text-white px-5 py-3 rounded-lg shadow-md shadow-blue-300 dark:shadow-gray-900 ${onChange ? "bg-blue-700" : "bg-blue-300"}`} >Save Changes</button>
-                    </div>
-
-
-                </Form>
-            </Formik>
+            </section>
 
         </>
     )

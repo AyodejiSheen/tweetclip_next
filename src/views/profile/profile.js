@@ -6,6 +6,8 @@ import { Theme } from "../../components/theme"
 import { Overview } from "./overview"
 import { EditProfile } from "./editProfile"
 import { Plan } from "./plan"
+import { Security } from "./security"
+import { Devices } from "./devices"
 
 
 
@@ -89,24 +91,48 @@ export const Profile = () => {
 
                             {
                                 navTabs === "overview" && (
-                                    <Overview />
+                                    <div data-aos="fade-up">
+                                        <Overview />
+                                    </div>
                                 )
                             }
 
                             {
                                 navTabs === "editProfile" && (
-                                    <EditProfile />
+                                    <div data-aos="fade-up">
+                                        <EditProfile />
+                                    </div>
                                 )
                             }
 
 
                             {
                                 navTabs === "plan" && (
-                                    <Plan />
+                                    <div data-aos="fade-up">
+                                        <Plan />
+                                    </div>
                                 )
                             }
 
-                            <div className="mt-8">
+                            {
+                                navTabs === "security" && (
+                                    <div data-aos="fade-up">
+                                        <Security />
+                                    </div>
+                                )
+                            }
+
+
+                            {
+                                navTabs === "activeDevice" && (
+                                    <div data-aos="fade-up">
+                                        <Devices />
+                                    </div>
+                                )
+                            }
+
+
+                            <div className="mt-8" data-aos="zoom-in">
                                 <div className=" border-2 border-dotted p-4 md:p-7 rounded-xl bg-yellow-50 dark:bg-orange-700 border-yellow-600 dark:bg-opacity-20">
                                     <div className="flex gap-6 md:items-center">
                                         <div className="text-yellow-400">
