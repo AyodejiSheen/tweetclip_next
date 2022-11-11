@@ -7,7 +7,6 @@ import UiContext from "../UI/context";
 
 import { SIGN_UP } from "./actions";
 import { RESET_PASSWORD } from "./actions";
-import { BROWSER_CONFIG } from "./actions";
 
 
 const { useReducer, useContext } = require("react");
@@ -77,12 +76,7 @@ const AuthState = (props) => {
                 const { data } = err.response
                 setAlert({ msg: data.message, type: "fail" })
                 if (data.device) {
-                    let details = { deviceId: data.device, email: value.email }
-                    dispatch({
-                        type: BROWSER_CONFIG,
-                        payload: details
-                    })
-                    navigate('new-device')
+                    navigate(`new-device/${value.email}/${data.device}`)
                 }
             });
     }
@@ -137,8 +131,8 @@ const AuthState = (props) => {
 
 
     const newBrowserConfig = async (data) => {
-        let details = { email: state.browserConfig.email, code: data }
-        await axios.put(`${baseUrl}/browser_confirmation/${state.browserConfig.id}`, details, config)
+        let details = { email: data.email, code: data.code }
+        await axios.put(`${baseUrl}/browser_confirmation/${data.id}`, details, config)
             .then((response) => {
                 const { data } = response
                 setAlert({ msg: data.message, type: "success" })

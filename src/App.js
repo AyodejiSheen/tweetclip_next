@@ -42,7 +42,7 @@ function App() {
           <Route path="verification" element={<Verification />}></Route>
           <Route path="forgot-password" element={<ForgotPassword />}></Route>
           <Route path="reset-password" element={<UpdatePassword />}></Route>
-          <Route path="new-device" element={<BrowserConfig />}></Route>
+          <Route path="new-device/:email/:id" element={<BrowserConfig />}></Route>
         </Route>
 
         <Route path="dashboard" element={<DashHome />}>
@@ -54,7 +54,7 @@ function App() {
 
         <Route path="success/:tranCode" element={<SuccessParams />}></Route>
         <Route path="cancel" element={<Cancel />}></Route>
-        
+
         <Route path="googleAuth" element={<GoogleAuth />}></Route>
         <Route path="twitterAuth" element={<TwitterAuth />}></Route>
         <Route path="*" element={<ErrorPage />}></Route>

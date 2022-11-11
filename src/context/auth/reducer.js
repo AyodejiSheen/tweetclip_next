@@ -31,6 +31,7 @@ const AuthReducers = (state, action) => {
                 ...state,
                 user: { email: action.payload }
             }
+            
         case BROWSER_CONFIG:
             return{
                 ...state,

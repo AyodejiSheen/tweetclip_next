@@ -1,4 +1,5 @@
 import { useContext, useState } from "react"
+import { useParams } from "react-router-dom";
 import phone from '../../assets/media/smartphone-2.svg'
 import AuthContext from "../../context/auth/context";
 import UiContext from "../../context/UI/context";
@@ -15,6 +16,9 @@ import UiContext from "../../context/UI/context";
 
 
 export const BrowserConfig = () => {
+
+
+    let {email, id} = useParams();
 
 
     const [otp, setOtp] = useState(new Array(4).fill(""));
@@ -37,12 +41,10 @@ export const BrowserConfig = () => {
         e.preventDefault();
         setAlert({ msg: null, type: "loading" });
         setTimeout(() => {
-            newBrowserConfig(parseInt(otpToken))
+            let details = {email, id, code: parseInt(otpToken) }
+            newBrowserConfig(details)
         }, 2000)
     }
-
-
-    let { browserConfig } = useContext(AuthContext)
 
 
 
@@ -55,7 +57,7 @@ export const BrowserConfig = () => {
             <div className='space-y-2'>
                 <h2 className='text-xl font-extrabold text-center'> Verify your Device</h2>
                 <p className='font-medium text-center text-slate-400'>Enter the verification code we sent to</p>
-                <p className='font-bold text-center '>{browserConfig.email}</p>
+                <p className='font-bold text-center '>{email}</p>
             </div>
 
             <div className='space-y-6 flex justify-center'>
