@@ -15,9 +15,10 @@ import { Profile } from "./views/profile/profile";
 import { Controls } from "./views/userDashboard/controls";
 import { DashHome } from "./views/userDashboard/dashHome";
 import AOS from 'aos';
-import 'aos/dist/aos.css'; 
+import 'aos/dist/aos.css';
 import { SuccessParams } from "./views/payments/successParams";
 import { Cancel } from "./views/payments/cancel";
+import setAuthToken from "./context/auth/setAuthToken";
 
 
 
@@ -29,6 +30,11 @@ import { Cancel } from "./views/payments/cancel";
 function App() {
 
   AOS.init();
+
+
+  if (sessionStorage.ctoken) {
+    setAuthToken(sessionStorage.ctoken)
+  }
 
 
   return (
@@ -46,10 +52,10 @@ function App() {
         </Route>
 
         <Route path="dashboard" element={<DashHome />}>
-          <Route index element={<Controls/>}></Route>
+          <Route index element={<Controls />}></Route>
+          <Route path="profile" element={<Profile />}></Route>
         </Route>
 
-        <Route path="profile" element={<Profile/>}></Route>
 
 
         <Route path="success/:tranCode" element={<SuccessParams />}></Route>

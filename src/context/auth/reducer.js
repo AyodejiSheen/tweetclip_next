@@ -3,7 +3,6 @@ import {
 
     SIGN_UP,
     RESET_PASSWORD,
-    BROWSER_CONFIG,
     // SIGN_OUT,
     // AUTH,
     // AUTH_ERROR,
@@ -30,12 +29,6 @@ const AuthReducers = (state, action) => {
             return {
                 ...state,
                 user: { email: action.payload }
-            }
-            
-        case BROWSER_CONFIG:
-            return{
-                ...state,
-                browserConfig: { id: action.payload.deviceId, email:action.payload.email}
             }
 
 
