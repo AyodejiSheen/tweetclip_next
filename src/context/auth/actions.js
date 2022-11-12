@@ -7,4 +7,5 @@ export const AUTH_ERROR = "AUTH_ERROR";
 export const AUTH = "AUTH";
 export const EDIT_USER = "EDIT_USER";
 export const RESET_PASSWORD = "RESET_PASSWORD";
-export const BROWSER_CONFIG = "BROWSER_CONFIG";
+export const SIGNIN_SUCCESS = "SIGNIN_SUCCESS";
+export const USER_LOADED_SUCCESS = "USER_LOADED_SUCCESS";

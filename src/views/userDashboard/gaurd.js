@@ -5,7 +5,7 @@ import AuthContext from '../../context/auth/context';
 const DashboardGuard = ({ children }) => {
     const { isAuthenticated } = useContext(AuthContext)
     return (
-        !isAuthenticated ? <Navigate to="/dashboard" /> : children
+        !isAuthenticated ? <Navigate to="/" /> : children
     )
 }
 

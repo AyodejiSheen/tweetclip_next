@@ -52,7 +52,6 @@ export const Login = () => {
 
         setTimeout(() => {
             userLogin(data);
-            // Loading.remove()
         }, 2000)
 
     }

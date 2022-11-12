@@ -19,6 +19,7 @@ import 'aos/dist/aos.css';
 import { SuccessParams } from "./views/payments/successParams";
 import { Cancel } from "./views/payments/cancel";
 import setAuthToken from "./context/auth/setAuthToken";
+import DashboardGuard from "./views/userDashboard/gaurd";
 
 
 
@@ -50,11 +51,10 @@ function App() {
           <Route path="new-device/:email/:id" element={<BrowserConfig />}></Route>
         </Route>
 
-        <Route path="dashboard" element={<DashHome />}>
+        <Route path="dashboard" element={ <DashboardGuard> <DashHome /> </DashboardGuard>}>
           <Route index element={<Controls />}></Route>
           <Route path="profile" element={<Profile />}></Route>
         </Route>
-
 
 
         <Route path="success/:tranCode" element={<SuccessParams />}></Route>

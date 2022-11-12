@@ -2,12 +2,19 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { baseUrl } from "../../baseUrl";
 import UiContext from "../UI/context";
-
-
-
-import { SIGN_UP } from "./actions";
-import { RESET_PASSWORD } from "./actions";
 import setAuthToken from "./setAuthToken";
+
+
+
+import {
+    SIGN_UP,
+    RESET_PASSWORD,
+    SIGNIN_SUCCESS,
+    USER_LOADED_SUCCESS,
+
+
+} from "./actions";
+
 
 
 const { useReducer, useContext } = require("react");
@@ -70,16 +77,25 @@ const AuthState = (props) => {
     const userLogin = async (value) => {
         await axios.post(`${baseUrl}/auth`, value, config)
             .then((response) => {
-                const { data } = response
+                const { data } = response;
+
+                dispatch({
+                    type: SIGNIN_SUCCESS,
+                    payload: data.token
+                })
+
                 setAlert({ msg: data.message, type: "success" })
                 navigate('dashboard')
                 return true;
+
             }).catch((err) => {
+
                 const { data } = err.response
                 setAlert({ msg: data.message, type: "fail" })
                 if (data.device) {
                     navigate(`new-device/${value.email}/${data.device}`)
                 }
+
             });
     }
 
@@ -97,6 +113,7 @@ const AuthState = (props) => {
                 setAlert({ msg: data.message, type: "fail" })
             });
     }
+
 
 
     const ResetPassword = async ({ email }) => {
@@ -117,6 +134,7 @@ const AuthState = (props) => {
     }
 
 
+
     const updatePassword = async (data) => {
         let details = { code: data.code, password: data.password }
         await axios.put(`${baseUrl}/password_reset/${state.user.email}`, details, config)
@@ -130,6 +148,7 @@ const AuthState = (props) => {
                 setAlert({ msg: data.message, type: "fail" })
             })
     }
+
 
 
     const newBrowserConfig = async (data) => {
@@ -147,6 +166,8 @@ const AuthState = (props) => {
     }
 
 
+
+
     const loadUsersDetails = async () => {
 
         if (sessionStorage.ctoken) {
@@ -155,13 +176,21 @@ const AuthState = (props) => {
 
         await axios.get(`${baseUrl}/auth/me`)
             .then((response) => {
-                console.log(response)
+                const { data } = response;
+                dispatch({
+                    type: USER_LOADED_SUCCESS,
+                    payload: data
+                })
+
             }).catch((err) => {
                 console.log(err)
             })
-
     }
 
+
+    const userLogout = () => {
+
+    }
 
 
 

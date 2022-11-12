@@ -3,7 +3,8 @@ import {
 
     SIGN_UP,
     RESET_PASSWORD,
-    // SIGN_OUT,
+    SIGNIN_SUCCESS,
+    USER_LOADED_SUCCESS
     // AUTH,
     // AUTH_ERROR,
     // EDIT_USER
@@ -30,7 +31,21 @@ const AuthReducers = (state, action) => {
                 ...state,
                 user: { email: action.payload }
             }
-            
+
+        case SIGNIN_SUCCESS:
+            sessionStorage.setItem('ctoken', action.payload)
+            return {
+                ...state,
+                token: action.payload,
+                isAuthenticated: true,
+            }
+
+        case USER_LOADED_SUCCESS:
+            return{
+                ...state,
+                isAuthenticated: true,
+            }
+
 
 
 
