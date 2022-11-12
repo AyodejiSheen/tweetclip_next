@@ -1,5 +1,4 @@
 import axios from "axios";
-import { response } from "express";
 import { useNavigate } from "react-router-dom";
 import { baseUrl } from "../../baseUrl";
 import UiContext from "../UI/context";
@@ -148,7 +147,7 @@ const AuthState = (props) => {
     }
 
 
-    const loadUser = async () => {
+    const loadUsersDetails = async () => {
 
         if (sessionStorage.ctoken) {
             setAuthToken(sessionStorage.ctoken)
@@ -179,9 +178,9 @@ const AuthState = (props) => {
             ResetPassword,
             updatePassword,
             newBrowserConfig,
-            loadUser,
-            user: state.user,
+            loadUsersDetails,
             isAuthenticated: state.isAuthenticated,
+            user: state.user
         }}>
 
             {/* to make the fuctions and state availabe globally */}

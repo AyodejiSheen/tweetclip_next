@@ -30,6 +30,7 @@ const AuthReducers = (state, action) => {
                 ...state,
                 user: { email: action.payload }
             }
+            
 
 
 

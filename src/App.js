@@ -31,7 +31,6 @@ function App() {
 
   AOS.init();
 
-
   if (sessionStorage.ctoken) {
     setAuthToken(sessionStorage.ctoken)
   }
