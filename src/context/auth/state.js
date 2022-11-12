@@ -11,9 +11,11 @@ import {
     RESET_PASSWORD,
     SIGNIN_SUCCESS,
     USER_LOADED_SUCCESS,
-
+    USER_LOADED_FAIL,
+    SIGN_OUT,
 
 } from "./actions";
+import { response } from "express";
 
 
 
@@ -30,7 +32,8 @@ const AuthState = (props) => {
 
     const initialState = {
         user: null,
-        isAuthenticated: null,
+        isAuthenticated: false,
+        isLoading: true,
         token: sessionStorage.getItem('ctoken'),
     }
 
@@ -166,14 +169,12 @@ const AuthState = (props) => {
     }
 
 
-
-
     const loadUsersDetails = async () => {
 
         if (sessionStorage.ctoken) {
             setAuthToken(sessionStorage.ctoken)
+            console.log(sessionStorage.ctoken)
         }
-
         await axios.get(`${baseUrl}/auth/me`)
             .then((response) => {
                 const { data } = response;
@@ -181,15 +182,24 @@ const AuthState = (props) => {
                     type: USER_LOADED_SUCCESS,
                     payload: data
                 })
-
             }).catch((err) => {
-                console.log(err)
+                const {data} = err.response
+                dispatch({
+                    type: USER_LOADED_FAIL,
+                    payload: data
+                })
+                setAlert({ msg: data.message, type: "fail" })
             })
+
+
     }
 
 
-    const userLogout = () => {
 
+    const userSignOut = () => {
+        dispatch({
+            type: SIGN_OUT
+        })
     }
 
 
@@ -208,8 +218,10 @@ const AuthState = (props) => {
             updatePassword,
             newBrowserConfig,
             loadUsersDetails,
+            userSignOut,
             isAuthenticated: state.isAuthenticated,
-            user: state.user
+            isLoading: state.isLoading,
+            user: state.user,
         }}>
 
             {/* to make the fuctions and state availabe globally */}
