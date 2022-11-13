@@ -203,6 +203,17 @@ const AuthState = (props) => {
     }
 
 
+    const resendCode = async (value) => {
+        await axios.post(`${baseUrl}/resend_code/${value.email}`, value.type, config)
+            .then((response) => {
+                const {data} = response
+                console.log(data)
+            }).catch((err) => {
+                const {data} = err.response
+                console.log(data)
+            })
+    }
+
 
 
 
@@ -219,6 +230,7 @@ const AuthState = (props) => {
             newBrowserConfig,
             loadUsersDetails,
             userSignOut,
+            resendCode,
             isAuthenticated: state.isAuthenticated,
             isLoading: state.isLoading,
             user: state.user,

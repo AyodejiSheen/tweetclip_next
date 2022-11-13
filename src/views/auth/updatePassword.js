@@ -166,6 +166,7 @@ export const UpdatePassword = () => {
                 </Formik>
             </div>
 
+            <p className='font-medium text-center text-xs md:text-sm'>Didn’t get the code? <button className='text-sky-600'>Resend</button> </p>
 
 
         </>
