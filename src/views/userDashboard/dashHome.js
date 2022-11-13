@@ -1,6 +1,6 @@
 import Logo from '../../assets/media/logo.png'
 import dp from '../../assets/media/dp.png'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import UiContext from '../../context/UI/context'
 import { Outlet } from 'react-router-dom'
 import { Theme } from '../../components/theme'
@@ -17,10 +17,15 @@ export const DashHome = () => {
     let { isDark, show, showItem } = useContext(UiContext)
     let { color, font, font_size } = useContext(ArtBoardContext);
 
-    const { isLoading, user } = useContext(AuthContext)
+    const { loadUsersDetails, isLoading, user } = useContext(AuthContext)
 
 
-
+    useEffect(() => {
+        setTimeout(() => {
+            loadUsersDetails()
+            Loading.remove();
+        }, 2000)
+    }, [])
 
 
     return (
