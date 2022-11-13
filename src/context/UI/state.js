@@ -1,11 +1,11 @@
 
+import { useReducer } from "react";
 import { SET_ALERT, REMOVE_ALERT, SWITCH_THEME, SHOW_ITEM, REMOVE_ITEM, SHOW_NAVTABS } from "./actions";
+import UiContext from "./context";
 
 
 
-const { useReducer } = require("react");
-const { default: UiContext } = require("./context");
-const { default: UiReducers } = require("./reducer")
+import UiReducers from "./reducer";
 
 
 
@@ -92,7 +92,7 @@ const UiState = (props) => {
             switchTheme,
             showItem,
             showNavTabs,
-            navTabs:state.navTabs,
+            navTabs: state.navTabs,
             show: state.show,
             alert: state.alert,
             isDark: state.isDark

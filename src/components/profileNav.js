@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { motion } from "framer-motion"; //check note.txt for notes on framer motion
 import UiContext from '../context/UI/context';
 import { Link } from 'react-router-dom';
+import AuthContext from '../context/auth/context';
 
 
 
@@ -11,6 +12,8 @@ export const ProfileNav = () => {
 
 
     let { isDark } = useContext(UiContext)
+
+    let { userSignOut } = useContext(AuthContext)
 
 
     return (
@@ -69,22 +72,22 @@ export const ProfileNav = () => {
                             <hr className='dark:opacity-10' />
                         </div>
 
-                        <Link    to="/" >
-                            <div className='px-6 py-3 cursor-pointer hover:bg-blue-50 hover:dark:bg-gray-700'>
-                                <div className='flex gap-5 items-center'>
-                                    <div className='dark:text-slate-400'>
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 lg:w-6 lg:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                        </svg>
-                                    </div>
 
-                                    <div className='text-gray-600 dark:text-gray-300 flex-1 text-sm space-y-1'>
-                                        <button className='lg:text-base font-medium'>Sign Out</button>
-                                    </div>
+                        <div onClick={userSignOut} className='px-6 py-3 cursor-pointer hover:bg-blue-50 hover:dark:bg-gray-700'>
+                            <div className='flex gap-5 items-center'>
+                                <div className='dark:text-slate-400'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 lg:w-6 lg:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                    </svg>
+                                </div>
+
+                                <div className='text-gray-600 dark:text-gray-300 flex-1 text-sm space-y-1'>
+                                    <button  className='lg:text-base font-medium'>Sign Out</button>
                                 </div>
                             </div>
-                            <hr className='dark:opacity-10' />
-                        </Link>
+                        </div>
+                        <hr className='dark:opacity-10' />
+
                     </div>
                 </motion.div>
             </div>

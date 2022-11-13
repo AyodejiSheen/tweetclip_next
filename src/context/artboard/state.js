@@ -1,12 +1,11 @@
 
+import { useReducer } from "react";
 import { CHANGE_COLOR, GET_FONTS, FONT_SIZE } from "./actions";
 import ArtBoardContext from "./context";
+import ArtboardReducers from "./reducer";
 
 
 
-
-const { useReducer } = require("react");
-const { default: ArtboardReducers } = require("./reducer")
 
 
 

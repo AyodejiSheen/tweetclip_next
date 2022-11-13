@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { baseUrl } from "../../baseUrl";
 import UiContext from "../UI/context";
 import setAuthToken from "./setAuthToken";
+import { useContext, useReducer } from "react";
+import AuthReducers from "./reducer";
 
 
 
@@ -16,12 +18,8 @@ import {
 
 
 } from "./actions";
+import AuthContext from "./context";
 
-
-
-const { useReducer, useContext } = require("react");
-const { default: AuthContext } = require("./context");
-const { default: AuthReducers } = require("./reducer")
 
 
 
@@ -32,7 +30,8 @@ const AuthState = (props) => {
 
     const initialState = {
         user: null,
-        isAuthenticated: null,
+        isAuthenticated: false,
+        isLoading: true,
         token: sessionStorage.getItem('ctoken'),
     }
 
@@ -219,7 +218,8 @@ const AuthState = (props) => {
             loadUsersDetails,
             userSignOut,
             isAuthenticated: state.isAuthenticated,
-            user: state.user
+            isLoading: state.isLoading,
+            user: state.user,
         }}>
 
             {/* to make the fuctions and state availabe globally */}

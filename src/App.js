@@ -51,7 +51,7 @@ function App() {
           <Route path="new-device/:email/:id" element={<BrowserConfig />}></Route>
         </Route>
 
-        <Route path="dashboard" element={ <DashboardGuard> <DashHome /> </DashboardGuard>}>
+        <Route path="dashboard" element={<DashboardGuard> <DashHome /> </DashboardGuard>}>
           <Route index element={<Controls />}></Route>
           <Route path="profile" element={<Profile />}></Route>
         </Route>
