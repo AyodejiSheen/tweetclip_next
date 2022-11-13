@@ -4,9 +4,7 @@ import {
     SIGN_UP,
     RESET_PASSWORD,
     SIGNIN_SUCCESS,
-    USER_LOADED_SUCCESS,
-    SIGN_OUT,
-    USER_LOADED_FAIL,
+    USER_LOADED_SUCCESS
     // AUTH,
     // AUTH_ERROR,
     // EDIT_USER
@@ -43,30 +41,11 @@ const AuthReducers = (state, action) => {
             }
 
         case USER_LOADED_SUCCESS:
-            return {
-                ...state,
-                isAuthenticated: true,
-                isLoading: false,    
-                user: action.payload.user
-            }
-
-        case SIGN_OUT:
-            sessionStorage.removeItem('ctoken')
-            return {
-                ...state,
-                user: null,
-                isLoading: false,
-                isAuthenticated: false
-            }
-
-        case USER_LOADED_FAIL:
-            sessionStorage.removeItem('ctoken')
             return{
                 ...state,
-                user: null,
-                isLoading: false,
-                isAuthenticated: false
+                isAuthenticated: true,
             }
+
 
 
 
