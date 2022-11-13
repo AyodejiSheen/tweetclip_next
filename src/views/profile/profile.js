@@ -35,7 +35,7 @@ export const Profile = () => {
 
             {
                 !isLoading ?
-                
+
                     <div className={isDark === 'dark' ? 'dark' : ""}>
 
                         <section className='flex flex-col lg:flex-row gap-10 p-5 xl:p-10 lg:h-screen  bg-neutral-50 dark:bg-slate-900 gap-y-6 lg:gap-y-0'>
@@ -52,7 +52,14 @@ export const Profile = () => {
 
                                     <div className="flex justify-center items-end gap-6 md:gap-10 space-y-8 lg:block">
                                         <div>
-                                            <img src={dp} className="mx-auto rounded-full w-48" alt="img" />
+                                            {
+                                                !isLoading && user.displayPic !== null ? (
+                                                    <img src={`${user.displayPic.imageUrl}`} className="mx-auto rounded-full w-48" alt='img' />
+                                                ) : (
+                                                    <div className='mx-auto rounded-full flex items-center justify-center w-48 h-48 bg-blue-500 text-white text-8xl font-medium'>{user.email.charAt(0).toUpperCase()}</div>
+                                                )
+                                            }
+
                                         </div>
                                         <div className="text-center space-y-1.5">
                                             <h2 className="text-2xl md:text-3xl font-bold dark:text-slate-200">{user.displayName}</h2>
