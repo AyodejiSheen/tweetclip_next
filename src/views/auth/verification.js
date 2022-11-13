@@ -17,6 +17,13 @@ export const Verification = () => {
 
     let { verifyEmail } = useContext(AuthContext)
     let { setAlert, alert } = useContext(UiContext);
+    let { user, resendCode } = useContext(AuthContext)
+
+
+    const details = {
+        email : user.email,
+        type: 1
+    }
 
 
     const handleChange = (e, index) => {
@@ -38,7 +45,6 @@ export const Verification = () => {
     }
 
 
-    let { user } = useContext(AuthContext)
 
 
 
@@ -91,7 +97,7 @@ export const Verification = () => {
                 </form>
 
             </div>
-            <p className='font-medium text-center text-xs md:text-sm'>Didn’t get the code? <button className='text-sky-600'>Resend</button> </p>
+            <p className='font-medium text-center text-xs md:text-sm'>Didn’t get the code? <button onClick={() => resendCode(details)} className='text-sky-600'>Resend</button> </p>
 
         </>
     )

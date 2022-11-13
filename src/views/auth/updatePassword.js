@@ -20,17 +20,10 @@ export const UpdatePassword = () => {
     let { setAlert, alert } = useContext(UiContext);
     let { user, updatePassword, resendCode } = useContext(AuthContext);
     
-    // const [details, setDetails] = useState({email:user.email, type: 2})
-
     const details = {
         email : user.email,
         type: 2
     }
-
-    // 1: email
-    // 2: password
-    // 3: brower
-
 
 
     //creating  intialvalues for formik

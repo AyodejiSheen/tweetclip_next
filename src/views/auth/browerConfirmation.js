@@ -24,8 +24,13 @@ export const BrowserConfig = () => {
     const [otp, setOtp] = useState(new Array(4).fill(""));
     const [otpToken, setOtpToken] = useState("");
 
-    let { newBrowserConfig } = useContext(AuthContext)
+    let { newBrowserConfig, resendCode } = useContext(AuthContext)
     let { setAlert, alert } = useContext(UiContext)
+
+    const details = {
+        email : email,
+        type: 2
+    }
 
 
     const handleChange = (e, index) => {
@@ -93,7 +98,7 @@ export const BrowserConfig = () => {
                     )}</button>
                 </form>
             </div>
-            <p className='font-medium text-center text-xs md:text-sm'>Didn’t get the code? <button className='text-sky-600'>Resend</button> </p>
+            <p className='font-medium text-center text-xs md:text-sm'>Didn’t get the code? <button onClick={() => resendCode(details)} className='text-sky-600'>Resend</button> </p>
 
         </>
     )
