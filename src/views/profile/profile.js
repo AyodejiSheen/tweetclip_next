@@ -1,6 +1,5 @@
 import { useContext, useEffect } from "react"
 import UiContext from "../../context/UI/context"
-import dp from '../../assets/media/dp.png'
 import { Link, useNavigate } from "react-router-dom"
 import { Theme } from "../../components/theme"
 import { Overview } from "./overview"

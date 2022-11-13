@@ -70,6 +70,7 @@ const AuthState = (props) => {
                 return true;
             }).catch((err) => {
                 const { data } = err.response
+                console.log(err)
                 setAlert({ msg: data.message, type: "fail" })
             });
     }
@@ -107,6 +108,7 @@ const AuthState = (props) => {
         await axios.post(`${baseUrl}/confirmation`, value, config)
             .then((response) => {
                 const { data } = response
+                console.log(data)
                 setAlert({ msg: data.message, type: "success" })
                 navigate('login')
                 return true;
