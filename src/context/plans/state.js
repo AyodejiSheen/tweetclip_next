@@ -23,7 +23,9 @@ const PlanState = (props) => {
 
 
     //Global functions go down here (with Auth API calls)
-
+    const getPlans = async () => {
+        
+    }
 
 
 

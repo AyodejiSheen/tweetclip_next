@@ -21,6 +21,7 @@ export const DashHome = () => {
 
     useEffect(() => {
         setTimeout(() => {
+            console.log(user)
             loadUsersDetails()
             Loading.remove();
         }, 2000)
@@ -85,11 +86,16 @@ export const DashHome = () => {
 
                                         {/* profile pics */}
                                         <div>
+
                                             {
-                                                !isLoading && (
-                                                    <img src={`${user.displayPic.imageUrl}`} className="w-10 lg:w-14 rounded-xl" alt='img' onClick={() => showItem('profile')} />
+                                                !isLoading && user.displayPic !== null ? (
+                                                    <img src={`${user.displayPic.imageUrl}`} className=" cursor-pointer w-10 lg:w-14 rounded-xl" alt='img' onClick={() => showItem('profile')} />
+                                                ) : (
+                                                    <div className='cursor-pointer' onClick={() => showItem('profile')} >{user.email}</div>
                                                 )
                                             }
+
+
 
                                             {
                                                 show === "profile" && (
