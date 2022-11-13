@@ -16,7 +16,7 @@ const UiState = (props) => {
     const initialState = {
         isDark: 'light',
         alert: { showAlert: false, msg: null, type: null },
-        show: "",
+        show: null,
         navTabs: "overview"
     }
 

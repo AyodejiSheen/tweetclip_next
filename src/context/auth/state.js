@@ -173,8 +173,8 @@ const AuthState = (props) => {
 
         if (sessionStorage.ctoken) {
             setAuthToken(sessionStorage.ctoken)
-            console.log(sessionStorage.ctoken)
         }
+
         await axios.get(`${baseUrl}/auth/me`)
             .then((response) => {
                 const { data } = response;
@@ -182,6 +182,7 @@ const AuthState = (props) => {
                     type: USER_LOADED_SUCCESS,
                     payload: data
                 })
+                
             }).catch((err) => {
                 const {data} = err.response
                 dispatch({

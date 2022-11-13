@@ -13,7 +13,7 @@ export const ProfileNav = () => {
 
     let { isDark } = useContext(UiContext)
 
-    let { userSignOut } = useContext(AuthContext)
+    let { userSignOut, user } = useContext(AuthContext)
 
 
     return (
@@ -29,14 +29,14 @@ export const ProfileNav = () => {
                         <div className=''>
                             <div className='px-4 pb-4'>
                                 <div className='text-center'>
-                                    <p className='text-lg font-bold text-gray-800 dark:text-gray-200 '>Max Smith</p>
-                                    <p className='text-sm text-gray-800 dark:text-gray-200 '>maxsmith009@gmail</p>
+                                    <p className='text-lg font-bold text-gray-800 dark:text-gray-200 '>{user.displayName}</p>
+                                    <p className='text-sm text-gray-800 dark:text-gray-200 '>{user.email}</p>
                                 </div>
                             </div>
                             <hr className='dark:opacity-10' />
                         </div>
 
-                        <Link to="/profile">
+                        <Link to="profile">
                             <div className='px-6 py-3 cursor-pointer hover:bg-blue-50 hover:dark:bg-gray-700'>
                                 <div className='flex gap-5 items-center'>
                                     <div className='dark:text-slate-400'>

@@ -16,7 +16,8 @@ export const DashHome = () => {
 
     let { isDark, show, showItem } = useContext(UiContext)
     let { color, font, font_size } = useContext(ArtBoardContext);
-    const { loadUsersDetails, isLoading } = useContext(AuthContext)
+
+    const { loadUsersDetails, isLoading, user } = useContext(AuthContext)
 
 
     useEffect(() => {
@@ -85,7 +86,7 @@ export const DashHome = () => {
 
                                         {/* profile pics */}
                                         <div>
-                                            <img src={dp} className="w-10 lg:w-14 rounded-xl" alt='img' onClick={() => showItem('profile')} />
+                                            <img src={`${user.displayPic.imageUrl}`} className="w-10 lg:w-14 rounded-xl" alt='img' onClick={() => showItem('profile')} />
 
                                             {
                                                 show === "profile" && (
