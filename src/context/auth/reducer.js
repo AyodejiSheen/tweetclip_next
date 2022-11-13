@@ -7,8 +7,8 @@ import {
     USER_LOADED_SUCCESS,
     SIGN_OUT,
     USER_LOADED_FAIL,
-    // AUTH,
-    // AUTH_ERROR,
+    EMAIL_VERIFY_SUCCESS,
+
     // EDIT_USER
 
 } from './actions'
@@ -35,6 +35,7 @@ const AuthReducers = (state, action) => {
             }
 
         case SIGNIN_SUCCESS:
+        case EMAIL_VERIFY_SUCCESS:
             sessionStorage.setItem('ctoken', action.payload)
             return {
                 ...state,

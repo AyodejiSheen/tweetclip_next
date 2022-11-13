@@ -15,7 +15,9 @@ import {
     USER_LOADED_SUCCESS,
     USER_LOADED_FAIL,
     SIGN_OUT,
-
+    EMAIL_VERIFY_SUCCESS,
+    BROWSER_CONFIG_SUCCESS,
+    PASSWORD_RESET_SUCCESS
 
 } from "./actions";
 import AuthContext from "./context";
@@ -100,7 +102,7 @@ const AuthState = (props) => {
 
             });
     }
-    
+
 
 
     const verifyEmail = async (code) => {
@@ -108,9 +110,12 @@ const AuthState = (props) => {
         await axios.post(`${baseUrl}/confirmation`, value, config)
             .then((response) => {
                 const { data } = response
-                console.log(data)
+                dispatch({
+                    type: EMAIL_VERIFY_SUCCESS,
+                    payload: data.token
+                })
                 setAlert({ msg: data.message, type: "success" })
-                navigate('login')
+                navigate('dashboard')
                 return true;
             }).catch((err) => {
                 const { data } = err.response
@@ -144,8 +149,12 @@ const AuthState = (props) => {
         await axios.put(`${baseUrl}/password_reset/${state.user.email}`, details, config)
             .then((response) => {
                 const { data } = response
+                dispatch({
+                    type: PASSWORD_RESET_SUCCESS,
+                    payload: data.token
+                })
                 setAlert({ msg: data.message, type: "success" })
-                navigate('login')
+                navigate('dashboard')
                 return true;
             }).catch((err) => {
                 const { data } = err.response
@@ -160,6 +169,10 @@ const AuthState = (props) => {
         await axios.put(`${baseUrl}/browser_confirmation/${data.id}`, details, config)
             .then((response) => {
                 const { data } = response
+                dispatch({
+                    type: BROWSER_CONFIG_SUCCESS,
+                    payload: data.token
+                })
                 setAlert({ msg: data.message, type: "success" })
                 navigate('login')
                 return true;
@@ -185,9 +198,9 @@ const AuthState = (props) => {
                     type: USER_LOADED_SUCCESS,
                     payload: data
                 })
-                
+
             }).catch((err) => {
-                const {data} = err.response
+                const { data } = err.response
                 dispatch({
                     type: USER_LOADED_FAIL,
                     payload: data
@@ -203,16 +216,17 @@ const AuthState = (props) => {
             type: SIGN_OUT
         })
     }
+    
 
 
     const resendCode = async (value) => {
         console.log(value);
-        await axios.post(`${baseUrl}/resend_code/${value.email}`, {type:value.type}, config)
+        await axios.post(`${baseUrl}/resend_code/${value.email}`, { type: value.type }, config)
             .then((response) => {
-                const {data} = response
+                const { data } = response
                 setAlert({ msg: data.message, type: "success" })
             }).catch((err) => {
-                const {data} = err.response
+                const { data } = err.response
                 setAlert({ msg: data.message, type: "fail" })
             })
     }

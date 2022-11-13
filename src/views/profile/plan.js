@@ -22,9 +22,7 @@ export const Plan = () => {
 
 
     useEffect(() => {
-
         getPlans()
-
     }, [])
 
 
