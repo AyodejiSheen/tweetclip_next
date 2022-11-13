@@ -1,7 +1,14 @@
+import { useContext } from "react"
+import AuthContext from "../../context/auth/context"
 
 
 
 export const Overview = () => {
+
+    let {user} = useContext(AuthContext)
+
+
+
     return (
         <>
 
@@ -13,7 +20,7 @@ export const Overview = () => {
                 <div className="md:w-2/5 space-y-7 md:space-y-10">
                     <div className="md:flex justify-between">
                         <div className="font-medium dark:text-slate-600 text-slate-400 text-sm md:text-base">Full Name</div>
-                        <div className="font-semibold dark:text-slate-300 text-slate-600">Max Smith</div>
+                        <div className="font-semibold dark:text-slate-300 text-slate-600">{user.displayName}</div>
                     </div>
 
                     <div className="md:flex justify-between">
@@ -23,7 +30,7 @@ export const Overview = () => {
 
                     <div className="md:flex justify-between">
                         <div className="font-medium dark:text-slate-600 text-slate-400 text-sm md:text-base">Email Address</div>
-                        <div className="font-semibold dark:text-slate-300 text-slate-600">maxsmith009@gmail.com</div>
+                        <div className="font-semibold dark:text-slate-300 text-slate-600">{user.email}</div>
                     </div>
 
                 </div>
