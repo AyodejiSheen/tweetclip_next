@@ -1,6 +1,6 @@
 import {createContext} from 'react';
 
-const planContext = createContext();
+const PlanContext = createContext();
 
 
-export default planContext;
+export default PlanContext;

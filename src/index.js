@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import AuthState from './context/auth/state';
 import UiState from './context/UI/state';
 import ArtboardState from './context/artboard/state';
+import PlanState from './context/plans/state';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -14,9 +15,11 @@ root.render(
     <BrowserRouter>
       <UiState>
         <AuthState>
-          <ArtboardState>
-            <App />
-          </ArtboardState>
+          <PlanState>
+            <ArtboardState>
+              <App />
+            </ArtboardState>
+          </PlanState>
         </AuthState>
       </UiState>
     </BrowserRouter>

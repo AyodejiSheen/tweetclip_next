@@ -24,7 +24,7 @@ export const DashHome = () => {
             loadUsersDetails()
             Loading.remove();
         }, 2000)
-    }, [loadUsersDetails])
+    }, [loadUsersDetails, isLoading])
 
 
     return (
