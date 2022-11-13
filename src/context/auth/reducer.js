@@ -46,22 +46,14 @@ const AuthReducers = (state, action) => {
             return {
                 ...state,
                 isAuthenticated: true,
-                isLoading: false,    
+                isLoading: false,
                 user: action.payload.user
             }
 
         case SIGN_OUT:
-            sessionStorage.removeItem('ctoken')
-            return {
-                ...state,
-                user: null,
-                isLoading: false,
-                isAuthenticated: false
-            }
-
         case USER_LOADED_FAIL:
             sessionStorage.removeItem('ctoken')
-            return{
+            return {
                 ...state,
                 user: null,
                 isLoading: false,

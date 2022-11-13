@@ -99,6 +99,7 @@ const AuthState = (props) => {
 
             });
     }
+    
 
 
     const verifyEmail = async (code) => {

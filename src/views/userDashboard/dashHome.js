@@ -17,15 +17,16 @@ export const DashHome = () => {
     let { isDark, show, showItem } = useContext(UiContext)
     let { color, font, font_size } = useContext(ArtBoardContext);
 
-    const { loadUsersDetails, isLoading, user } = useContext(AuthContext)
+    const { loadUsersDetails, isLoading, user, isAuthenticated } = useContext(AuthContext)
 
 
     useEffect(() => {
         setTimeout(() => {
+            console.log('loadUserrunn')
             loadUsersDetails()
             Loading.remove();
         }, 2000)
-    }, [])
+    }, [isAuthenticated, loadUsersDetails])
 
 
     return (
@@ -86,7 +87,11 @@ export const DashHome = () => {
 
                                         {/* profile pics */}
                                         <div>
-                                            <img src={`${user.displayPic.imageUrl}`} className="w-10 lg:w-14 rounded-xl" alt='img' onClick={() => showItem('profile')} />
+                                            {
+                                                !isLoading && (
+                                                    <img src={`${user.displayPic.imageUrl}`} className="w-10 lg:w-14 rounded-xl" alt='img' onClick={() => showItem('profile')} />
+                                                )
+                                            }
 
                                             {
                                                 show === "profile" && (
