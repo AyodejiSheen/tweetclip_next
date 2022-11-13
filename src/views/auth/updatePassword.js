@@ -15,10 +15,22 @@ export const UpdatePassword = () => {
 
     const [otp, setOtp] = useState(new Array(4).fill(""));
     const [otpToken, setOtpToken] = useState("");
-
-
+    
+    
     let { setAlert, alert } = useContext(UiContext);
-    let { user, updatePassword } = useContext(AuthContext);
+    let { user, updatePassword, resendCode } = useContext(AuthContext);
+    
+    // const [details, setDetails] = useState({email:user.email, type: 2})
+
+    const details = {
+        email : user.email,
+        type: 2
+    }
+
+    // 1: email
+    // 2: password
+    // 3: brower
+
 
 
     //creating  intialvalues for formik
@@ -166,7 +178,7 @@ export const UpdatePassword = () => {
                 </Formik>
             </div>
 
-            <p className='font-medium text-center text-xs md:text-sm'>Didn’t get the code? <button className='text-sky-600'>Resend</button> </p>
+            <p className='font-medium text-center text-xs md:text-sm'>Didn’t get the code? <button onClick={() => resendCode(details)} className='text-sky-600'>Resend</button> </p>
 
 
         </>

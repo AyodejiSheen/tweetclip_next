@@ -143,7 +143,7 @@ const AuthState = (props) => {
             .then((response) => {
                 const { data } = response
                 setAlert({ msg: data.message, type: "success" })
-                navigate('dashboard')
+                navigate('login')
                 return true;
             }).catch((err) => {
                 const { data } = err.response
@@ -204,13 +204,14 @@ const AuthState = (props) => {
 
 
     const resendCode = async (value) => {
-        await axios.post(`${baseUrl}/resend_code/${value.email}`, value.type, config)
+        console.log(value);
+        await axios.post(`${baseUrl}/resend_code/${value.email}`, {type:value.type}, config)
             .then((response) => {
                 const {data} = response
-                console.log(data)
+                setAlert({ msg: data.message, type: "success" })
             }).catch((err) => {
                 const {data} = err.response
-                console.log(data)
+                setAlert({ msg: data.message, type: "fail" })
             })
     }
 
