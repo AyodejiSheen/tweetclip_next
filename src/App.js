@@ -53,9 +53,9 @@ function App() {
 
         <Route path="dashboard" element={<DashboardGuard> <DashHome /> </DashboardGuard>}>
           <Route index element={<Controls />}></Route>
+          <Route path="profile" element={<Profile />}></Route>
         </Route>
 
-        <Route path="profile" element={<Profile />}></Route>
 
         <Route path="success/:tranCode" element={<SuccessParams />}></Route>
         <Route path="cancel" element={<Cancel />}></Route>
