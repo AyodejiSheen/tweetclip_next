@@ -3,9 +3,9 @@ import { Navigate } from "react-router-dom";
 import AuthContext from '../../context/auth/context';
 
 const DashboardGuard = ({ children }) => {
-    const { isAuthenticated } = useContext(AuthContext)
+    const { isAuthenticated, isLoading } = useContext(AuthContext)
     return (
-        !isAuthenticated ? <Navigate to="/" /> : children
+        !isAuthenticated && !isLoading ? <Navigate to="/login" /> : children
     )
 }
 
