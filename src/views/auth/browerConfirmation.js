@@ -24,12 +24,12 @@ export const BrowserConfig = () => {
     const [otp, setOtp] = useState(new Array(4).fill(""));
     const [otpToken, setOtpToken] = useState("");
 
-    let { newBrowserConfig, resendCode } = useContext(AuthContext)
+    let { newBrowserConfig, resendCode, loadUsersDetails } = useContext(AuthContext)
     let { setAlert, alert } = useContext(UiContext)
 
     const details = {
         email : email,
-        type: 2
+        type: 3
     }
 
 
@@ -48,6 +48,7 @@ export const BrowserConfig = () => {
         setTimeout(() => {
             let details = {email, id, code: parseInt(otpToken) }
             newBrowserConfig(details)
+            loadUsersDetails();
         }, 2000)
     }
 

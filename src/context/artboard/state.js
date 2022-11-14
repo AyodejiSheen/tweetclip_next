@@ -40,7 +40,6 @@ const ArtboardState = (props) => {
             type: GET_FONTS,
             payload: value
         })
-        console.log(value)
     }
 
 
@@ -49,7 +48,6 @@ const ArtboardState = (props) => {
             type: FONT_SIZE,
             payload:value
         })
-    console.log(state.font_size)
     }
 
 

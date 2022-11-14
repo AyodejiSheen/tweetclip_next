@@ -1,4 +1,4 @@
-import { Loading } from "notiflix";
+
 import { useContext, useState } from "react"
 import phone from '../../assets/media/smartphone-2.svg'
 import AuthContext from "../../context/auth/context";
@@ -17,7 +17,7 @@ export const Verification = () => {
 
     let { verifyEmail } = useContext(AuthContext)
     let { setAlert, alert } = useContext(UiContext);
-    let { user, resendCode } = useContext(AuthContext)
+    let { user, resendCode, loadUsersDetails } = useContext(AuthContext)
 
 
     const details = {
@@ -40,8 +40,9 @@ export const Verification = () => {
         setAlert({ msg: null, type: "loading" });
         setTimeout(() => {
             verifyEmail(parseInt(otpToken))
-            Loading.remove();
+            loadUsersDetails();
         }, 2000)
+
     }
 
 

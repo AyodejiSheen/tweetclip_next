@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom'
+import AuthContext from '../../context/auth/context';
 
 
 
@@ -9,6 +10,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 const GoogleAuth = () => {
 
     const navigate = useNavigate();
+    let { loadUsersDetails } = useContext(AuthContext)
 
 
     function useQuery() {
@@ -18,14 +20,14 @@ const GoogleAuth = () => {
     let query = useQuery();
 
     let res = JSON.parse(query.get("response"));
-    console.log(res)
 
     const submit = () => {
         if (res.isSuccess === true) {
+            loadUsersDetails()
             navigate('/dashboard')
             return true;
         } else if (res.type === 3) {
-            navigate(`/new-device/${res.email}/${res.id}`)
+            navigate(`/new-device/${res.email}/${res.device}`)
         }
     }
 

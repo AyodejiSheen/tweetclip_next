@@ -43,7 +43,7 @@ const AuthState = (props) => {
 
 
     //alert context
-    let { setAlert } = useContext(UiContext)
+    let { setAlert, showItem } = useContext(UiContext)
 
     const navigate = useNavigate()
 
@@ -80,18 +80,15 @@ const AuthState = (props) => {
 
     const userLogin = async (value) => {
         await axios.post(`${baseUrl}/auth`, value, config)
-            .then((response) => {
+            .then(async (response) => {
                 const { data } = response;
-
                 dispatch({
                     type: SIGNIN_SUCCESS,
                     payload: data.token
                 })
-
                 setAlert({ msg: data.message, type: "success" })
-                navigate('dashboard')
+                await loadUsersDetails();
                 return true;
-
             }).catch((err) => {
 
                 const { data } = err.response
@@ -174,7 +171,8 @@ const AuthState = (props) => {
                     payload: data.token
                 })
                 setAlert({ msg: data.message, type: "success" })
-                navigate('login')
+                loadUsersDetails();
+                navigate('dashboard')
                 return true;
             }).catch((err) => {
                 const { data } = err.response
@@ -189,7 +187,6 @@ const AuthState = (props) => {
         if (sessionStorage.ctoken) {
             setAuthToken(sessionStorage.ctoken)
         }
-
         await axios.get(`${baseUrl}/auth/me`)
             .then((response) => {
                 const { data } = response;
@@ -197,9 +194,7 @@ const AuthState = (props) => {
                     type: USER_LOADED_SUCCESS,
                     payload: data
                 })
-
             }).catch((err) => {
-                console.log(err)
                 const { data } = err.response
                 dispatch({
                     type: USER_LOADED_FAIL,
@@ -215,6 +210,7 @@ const AuthState = (props) => {
         dispatch({
             type: SIGN_OUT
         })
+        showItem("profile")
     }
 
 
@@ -230,6 +226,8 @@ const AuthState = (props) => {
                 setAlert({ msg: data.message, type: "fail" })
             })
     }
+
+
 
 
 

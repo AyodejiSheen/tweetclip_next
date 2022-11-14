@@ -8,6 +8,8 @@ import {
     SIGN_OUT,
     USER_LOADED_FAIL,
     EMAIL_VERIFY_SUCCESS,
+    BROWSER_CONFIG_SUCCESS,
+    PASSWORD_RESET_SUCCESS,
 
     // EDIT_USER
 
@@ -36,11 +38,12 @@ const AuthReducers = (state, action) => {
 
         case SIGNIN_SUCCESS:
         case EMAIL_VERIFY_SUCCESS:
+        case BROWSER_CONFIG_SUCCESS:
+        case PASSWORD_RESET_SUCCESS:
             sessionStorage.setItem('ctoken', action.payload)
             return {
                 ...state,
                 token: action.payload,
-                isAuthenticated: true,
             }
 
         case USER_LOADED_SUCCESS:

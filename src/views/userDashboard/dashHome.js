@@ -22,6 +22,7 @@ export const DashHome = () => {
     useEffect(() => {
         loadUsersDetails()
         Loading.remove();
+        console.log(show)
         // eslint-disable-next-line
     }, [])
 

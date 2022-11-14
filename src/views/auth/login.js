@@ -1,6 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from "formik"
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 //context API
@@ -27,10 +27,10 @@ import UiContext from "../../context/UI/context";
 
 export const Login = () => {
 
+    const navigate = useNavigate()
 
-    
 
-    const { userLogin, loadUserDetails } = useContext(AuthContext)
+    const { userLogin } = useContext(AuthContext)
 
     let { setAlert, alert } = useContext(UiContext);
 
@@ -50,14 +50,12 @@ export const Login = () => {
     })
 
 
-    const onSubmit = (data, { resetForm }) => {
+    const onSubmit = async (data, { resetForm }) => {
         setAlert({ msg: null, type: "loading" });
-
-        setTimeout(() => {
-            userLogin(data);
-        }, 2000)
-
-
+        await userLogin(data);
+        if (userLogin) {
+            navigate('/dashboard')
+        }
     }
 
 

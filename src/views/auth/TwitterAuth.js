@@ -20,14 +20,13 @@ const TwitterAuth = () => {
     let query = useQuery();
 
     let res = JSON.parse(query.get("response"));
-    console.log(res)
 
     const submit = () => {
         if (res.isSuccess === true) {
             navigate('/dashboard')
             return true;
         } else if (res.type === 3) {
-            navigate(`/new-device/${res.email}/${res.id}`)
+            navigate(`/new-device/${res.email}/${res.device}`)
         }
     }
 
