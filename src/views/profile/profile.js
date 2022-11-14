@@ -22,11 +22,9 @@ export const Profile = () => {
 
 
     useEffect(() => {
-        setTimeout(() => {
-            loadUsersDetails()
-            Loading.remove();
-        }, 2000)
-    }, [loadUsersDetails])
+        loadUsersDetails()
+        Loading.remove();
+    }, [])
 
 
     return (

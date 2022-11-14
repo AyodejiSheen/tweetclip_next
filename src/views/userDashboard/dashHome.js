@@ -20,11 +20,10 @@ export const DashHome = () => {
 
 
     useEffect(() => {
-        setTimeout(() => {
-            loadUsersDetails()
-            Loading.remove();
-        }, 2000)
-    }, [loadUsersDetails, isLoading])
+        loadUsersDetails()
+        Loading.remove();
+        // eslint-disable-next-line
+    }, [])
 
 
     return (

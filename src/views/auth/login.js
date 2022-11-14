@@ -30,7 +30,7 @@ export const Login = () => {
 
     
 
-    const { userLogin } = useContext(AuthContext)
+    const { userLogin, loadUserDetails } = useContext(AuthContext)
 
     let { setAlert, alert } = useContext(UiContext);
 
@@ -56,6 +56,7 @@ export const Login = () => {
         setTimeout(() => {
             userLogin(data);
         }, 2000)
+
 
     }
 

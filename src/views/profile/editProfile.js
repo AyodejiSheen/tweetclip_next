@@ -1,7 +1,8 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";   //to make use of formik to handle the form creation for the posts
-import { useState } from "react";
+import { useContext, useState } from "react";
 import * as Yup from 'yup'
 import dp from '../../assets/media/dp.png'
+import AuthContext from "../../context/auth/context";
 
 
 
@@ -10,7 +11,7 @@ import dp from '../../assets/media/dp.png'
 
 export const EditProfile = (props) => {
 
-
+    let {user, isLoading} = useContext(AuthContext)
     const [onChange, setOnchange] = useState(false)
 
 
@@ -19,16 +20,12 @@ export const EditProfile = (props) => {
     const intialValues = {
         firstname: "",
         lastname: "",
-        email: "",
-        phone: "",
-        about: ""
+        email: user.email,
     }
 
     const validationSchema = Yup.object().shape({
         firstname: Yup.string().required("Please input your firstname"),  //i.e it must be a string and its required
         lastname: Yup.string().required("Please input your firstname"), //error message is defined for required
-        phone: Yup.string().min(10).max(12).required("Please input your phone number"),
-        about: Yup.string().min(10).max(200),
         email: Yup.string().email('Invalid email').required('Email is required'),
     })
 
@@ -53,8 +50,15 @@ export const EditProfile = (props) => {
                         <div className="space-y-8">
 
                             <div>
-                                <div className='w-32 mx-auto space-y-3 mb-3'>
-                                    <img src={dp} alt="profile pics" className="rounded-full" />
+                                <div className='w-36 mx-auto space-y-3 mb-3'>
+                                    {
+                                        !isLoading && user.displayPic !== null ? (
+                                            <img src={`${user.displayPic.imageUrl}`} className="mx-auto rounded-full w-36" alt='img' />
+                                        ) : (
+                                            <div className='mx-auto rounded-full flex items-center justify-center w-36 h-36 bg-blue-500 text-white text-6xl font-medium'>{user.email.charAt(0).toUpperCase()}</div>
+                                        )
+                                    }
+
                                     <div className='flex space-x-4 justify-center text-blue-600 '>
                                         <svg xmlns="http://www.w3.org/2000/svg" className="cursor-pointer h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
@@ -74,10 +78,9 @@ export const EditProfile = (props) => {
                                     <label className="block text-sm">
                                         <span className="text-gray-700 dark:text-gray-400">Firstname</span>
                                         <Field
-                                            disabled={true}
                                             name="firstname"
                                             onFocus={setchange}
-                                            className="block w-full mt-1 border p-2.5 font-medium text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                            className="block w-full mt-1 border p-2.5 font-medium text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                                             type="text" />
                                         <ErrorMessage name="firstname" component="span" className="text-red-500" />
                                     </label>
@@ -88,8 +91,7 @@ export const EditProfile = (props) => {
                                         <span className="text-gray-700 dark:text-gray-400">Lastname</span>
                                         <Field name="lastname"
                                             onFocus={setchange}
-                                            disabled={true}
-                                            className="block w-full mt-1 border p-2.5 font-medium text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                            className="block w-full mt-1 border p-2.5 font-medium text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                                             type="text" />
                                         <ErrorMessage name="lastname" component="span" className="text-red-500" />
                                     </label>
@@ -103,7 +105,7 @@ export const EditProfile = (props) => {
                                         <span className="text-gray-700 dark:text-gray-400">Email Address</span>
                                         <Field
                                             name="email"
-                                            onFocus={setchange}
+                                            disabled={true}
                                             className="block w-full mt-1 border p-2.5 font-medium text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                                             type="email" />
                                         <ErrorMessage name="email" component="span" className="text-red-500" />

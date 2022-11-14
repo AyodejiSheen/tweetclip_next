@@ -23,6 +23,7 @@ export const Plan = () => {
 
     useEffect(() => {
         getPlans()
+        // eslint-disable-next-line
     }, [])
 
 

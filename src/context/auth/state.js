@@ -184,7 +184,6 @@ const AuthState = (props) => {
 
 
 
-
     const loadUsersDetails = async () => {
 
         if (sessionStorage.ctoken) {
@@ -200,6 +199,7 @@ const AuthState = (props) => {
                 })
 
             }).catch((err) => {
+                console.log(err)
                 const { data } = err.response
                 dispatch({
                     type: USER_LOADED_FAIL,
@@ -216,7 +216,7 @@ const AuthState = (props) => {
             type: SIGN_OUT
         })
     }
-    
+
 
 
     const resendCode = async (value) => {
