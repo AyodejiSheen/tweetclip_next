@@ -241,6 +241,17 @@ const AuthState = (props) => {
     }
 
 
+    const otherAuth = async () => {
+        let userLoading = await loadUsersDetails();
+        if (userLoading) {
+            navigate('/dashboard')
+            setAlert({ msg: "Signin Successful", type: "success" })
+        }else{
+            navigate('/login')
+            setAlert({ msg: "Unauthorised", type: "fail" })
+        }
+    }
+
 
 
 
@@ -259,6 +270,7 @@ const AuthState = (props) => {
             loadUsersDetails,
             userSignOut,
             resendCode,
+            otherAuth,
             isAuthenticated: state.isAuthenticated,
             isLoading: state.isLoading,
             loading: loading,

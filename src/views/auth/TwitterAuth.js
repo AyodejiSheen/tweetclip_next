@@ -1,7 +1,8 @@
 
 
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import AuthContext from '../../context/auth/context';
 
 
 
@@ -11,6 +12,7 @@ const TwitterAuth = () => {
 
 
     const navigate = useNavigate();
+    let { otherAuth } = useContext(AuthContext)
 
 
     function useQuery() {
@@ -22,8 +24,9 @@ const TwitterAuth = () => {
     let res = JSON.parse(query.get("response"));
 
     const submit = () => {
+        sessionStorage.setItem('ctoken', res.token)
         if (res.isSuccess === true) {
-            navigate('/dashboard')
+            otherAuth(res.token)
             return true;
         } else if (res.type === 3) {
             navigate(`/new-device/${res.email}/${res.device}`)

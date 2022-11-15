@@ -10,7 +10,7 @@ import AuthContext from '../../context/auth/context';
 const GoogleAuth = () => {
 
     const navigate = useNavigate();
-    let { loadUsersDetails } = useContext(AuthContext)
+    let { otherAuth } = useContext(AuthContext)
 
 
     function useQuery() {
@@ -22,9 +22,9 @@ const GoogleAuth = () => {
     let res = JSON.parse(query.get("response"));
 
     const submit = () => {
+        sessionStorage.setItem('ctoken', res.token)
         if (res.isSuccess === true) {
-            loadUsersDetails()
-            navigate('/dashboard')
+            otherAuth(res.token)
             return true;
         } else if (res.type === 3) {
             navigate(`/new-device/${res.email}/${res.device}`)
