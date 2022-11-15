@@ -89,8 +89,8 @@ const AuthState = (props) => {
                     type: SIGNIN_SUCCESS,
                     payload: data.token
                 })
-                let userloading = await loadUsersDetails();
-                if (userloading) {
+                let userLoading = await loadUsersDetails();
+                if (userLoading) {
                     navigate("/dashboard")
                     setAlert({ msg: data.message, type: "success" })
                 }
@@ -115,10 +115,11 @@ const AuthState = (props) => {
                     type: EMAIL_VERIFY_SUCCESS,
                     payload: data.token
                 })
-                setAlert({ msg: data.message, type: "success" })
-                await loadUsersDetails();
-                navigate('dashboard')
-                return true;
+                let userLoading = await loadUsersDetails();
+                if (userLoading) {
+                    navigate('/dashboard')
+                    setAlert({ msg: data.message, type: "success" })
+                }
             }).catch((err) => {
                 const { data } = err.response
                 setAlert({ msg: data.message, type: "fail" })
@@ -149,16 +150,17 @@ const AuthState = (props) => {
     const updatePassword = async (data) => {
         let details = { code: data.code, password: data.password }
         await axios.put(`${baseUrl}/password_reset/${state.user.email}`, details, config)
-            .then((response) => {
+            .then(async (response) => {
                 const { data } = response
                 dispatch({
                     type: PASSWORD_RESET_SUCCESS,
                     payload: data.token
                 })
-                setAlert({ msg: data.message, type: "success" })
-
-                navigate('dashboard')
-                return true;
+                let userLoading = await loadUsersDetails();
+                if (userLoading) {
+                    navigate('/dashboard')
+                    setAlert({ msg: data.message, type: "success" })
+                }
             }).catch((err) => {
                 const { data } = err.response
                 setAlert({ msg: data.message, type: "fail" })
@@ -176,9 +178,11 @@ const AuthState = (props) => {
                     type: BROWSER_CONFIG_SUCCESS,
                     payload: data.token
                 })
-                setAlert({ msg: data.message, type: "success" })
-                await loadUsersDetails();
-                navigate('dashboard')
+                let userLoading = await loadUsersDetails();
+                if (userLoading) {
+                    navigate('/dashboard')
+                    setAlert({ msg: data.message, type: "success" })
+                }
                 return true;
             }).catch((err) => {
                 const { data } = err.response
