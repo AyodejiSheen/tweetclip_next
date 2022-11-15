@@ -40,7 +40,6 @@ const AuthReducers = (state, action) => {
         case EMAIL_VERIFY_SUCCESS:
         case BROWSER_CONFIG_SUCCESS:
         case PASSWORD_RESET_SUCCESS:
-            sessionStorage.setItem('ctoken', action.payload)
             return {
                 ...state,
                 token: action.payload,
@@ -51,7 +50,7 @@ const AuthReducers = (state, action) => {
                 ...state,
                 isAuthenticated: true,
                 isLoading: false,
-                user: action.payload.user
+                user: action.payload.user,
             }
 
         case SIGN_OUT:

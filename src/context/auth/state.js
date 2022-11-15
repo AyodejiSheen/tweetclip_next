@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { baseUrl } from "../../baseUrl";
 import UiContext from "../UI/context";
 import setAuthToken from "./setAuthToken";
-import { useContext, useReducer } from "react";
+import { useContext, useReducer, useState } from "react";
 import AuthReducers from "./reducer";
 
 
@@ -36,6 +36,8 @@ const AuthState = (props) => {
         isLoading: true,
         token: sessionStorage.getItem('ctoken'),
     }
+
+    const [loading, setLoading] = useState(false)
 
 
     //to call authreducer with dispatch
@@ -82,16 +84,18 @@ const AuthState = (props) => {
         await axios.post(`${baseUrl}/auth`, value, config)
             .then(async (response) => {
                 const { data } = response;
+                sessionStorage.setItem('ctoken', data.token)
                 dispatch({
                     type: SIGNIN_SUCCESS,
                     payload: data.token
                 })
-                setAlert({ msg: data.message, type: "success" })
-                await loadUsersDetails();
-                return true;
+                let userloading = await loadUsersDetails();
+                if (userloading) {
+                    navigate("/dashboard")
+                    setAlert({ msg: data.message, type: "success" })
+                }
             }).catch((err) => {
-
-                const { data } = err.response
+                const { data } = err.response;
                 setAlert({ msg: data.message, type: "fail" })
                 if (data.device) {
                     navigate(`new-device/${value.email}/${data.device}`)
@@ -105,13 +109,14 @@ const AuthState = (props) => {
     const verifyEmail = async (code) => {
         const value = { code: code, email: state.user.email };
         await axios.post(`${baseUrl}/confirmation`, value, config)
-            .then((response) => {
+            .then(async (response) => {
                 const { data } = response
                 dispatch({
                     type: EMAIL_VERIFY_SUCCESS,
                     payload: data.token
                 })
                 setAlert({ msg: data.message, type: "success" })
+                await loadUsersDetails();
                 navigate('dashboard')
                 return true;
             }).catch((err) => {
@@ -151,6 +156,7 @@ const AuthState = (props) => {
                     payload: data.token
                 })
                 setAlert({ msg: data.message, type: "success" })
+
                 navigate('dashboard')
                 return true;
             }).catch((err) => {
@@ -164,14 +170,14 @@ const AuthState = (props) => {
     const newBrowserConfig = async (data) => {
         let details = { email: data.email, code: data.code }
         await axios.put(`${baseUrl}/browser_confirmation/${data.id}`, details, config)
-            .then((response) => {
+            .then(async (response) => {
                 const { data } = response
                 dispatch({
                     type: BROWSER_CONFIG_SUCCESS,
                     payload: data.token
                 })
                 setAlert({ msg: data.message, type: "success" })
-                loadUsersDetails();
+                await loadUsersDetails();
                 navigate('dashboard')
                 return true;
             }).catch((err) => {
@@ -183,25 +189,28 @@ const AuthState = (props) => {
 
 
     const loadUsersDetails = async () => {
-
         if (sessionStorage.ctoken) {
             setAuthToken(sessionStorage.ctoken)
         }
-        await axios.get(`${baseUrl}/auth/me`)
+        let res = await axios.get(`${baseUrl}/auth/me`)
             .then((response) => {
                 const { data } = response;
                 dispatch({
                     type: USER_LOADED_SUCCESS,
                     payload: data
                 })
+                setLoading(true);
+                return true;
             }).catch((err) => {
                 const { data } = err.response
                 dispatch({
-                    type: USER_LOADED_FAIL,
-                    payload: data
+                    type: USER_LOADED_FAIL
                 })
                 setAlert({ msg: data.message, type: "fail" })
+                return false;
             })
+
+        return res;
     }
 
 
@@ -248,6 +257,7 @@ const AuthState = (props) => {
             resendCode,
             isAuthenticated: state.isAuthenticated,
             isLoading: state.isLoading,
+            loading: loading,
             user: state.user,
         }}>
 

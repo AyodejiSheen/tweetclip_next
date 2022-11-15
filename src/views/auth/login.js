@@ -50,12 +50,12 @@ export const Login = () => {
     })
 
 
-    const onSubmit = async (data, { resetForm }) => {
+
+    const onSubmit = (data, { resetForm }) => {
+
         setAlert({ msg: null, type: "loading" });
-        await userLogin(data);
-        if (userLogin) {
-            navigate('/dashboard')
-        }
+        userLogin(data)
+
     }
 
 

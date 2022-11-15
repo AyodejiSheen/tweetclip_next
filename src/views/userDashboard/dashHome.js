@@ -16,13 +16,13 @@ export const DashHome = () => {
     let { isDark, show, showItem } = useContext(UiContext)
     let { color, font, font_size } = useContext(ArtBoardContext);
 
-    const { loadUsersDetails, isLoading, user } = useContext(AuthContext)
+    const { loadUsersDetails, loading, isLoading, user } = useContext(AuthContext)
 
 
     useEffect(() => {
         loadUsersDetails()
         Loading.remove();
-        console.log(show)
+        console.log(loading)
         // eslint-disable-next-line
     }, [])
 
@@ -31,7 +31,7 @@ export const DashHome = () => {
         <>
 
             {
-                !isLoading ?
+                loading ?
 
 
                     <div className={isDark === 'dark' ? 'dark' : ""}>
