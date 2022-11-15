@@ -18,14 +18,13 @@ export const Profile = () => {
     const navigate = useNavigate();
 
 
-    const { loadUsersDetails, isLoading, user } = useContext(AuthContext)
+    const { loadUsersDetails, isLoading, user, loading } = useContext(AuthContext)
 
 
     useEffect(() => {
         loadUsersDetails()
         Loading.remove();
     }, [])
-
 
     return (
         <>
@@ -37,7 +36,7 @@ export const Profile = () => {
 
                         <section className='flex flex-col lg:flex-row gap-10 p-5 xl:p-10 lg:h-screen  bg-neutral-50 dark:bg-slate-900 gap-y-6 lg:gap-y-0'>
                             <div className='w-full lg:w-1/3 2xl:w-1/4  dark:bg-slate-800  bg-neutral-100 rounded-xl lg:rounded-[1.8rem] lg:py-8 lg:px-12 p-6'>
-                                <div className="flex justify-between flex-col h-full gap-6">
+                                <div className="flex justify-between flex-col h-full gap-10 ">
                                     <div className="flex justify-between items-center">
                                         <div>
                                             <button onClick={() => navigate(-1)} className="font-semibold bg-slate-300 px-6 py-2 rounded-full text-xs md:text-sm"> <i class="lni lni-arrow-left"></i> Back</button>
@@ -47,16 +46,15 @@ export const Profile = () => {
                                         </div>
                                     </div>
 
-                                    <div className="flex justify-center items-end gap-6 md:gap-10 space-y-8 lg:block">
+                                    <div className="md:flex justify-center items-end gap-6 md:gap-10 space-y-8 lg:block">
                                         <div>
                                             {
                                                 !isLoading && user.displayPic !== null ? (
-                                                    <img src={`${user.displayPic.imageUrl}`} className="mx-auto rounded-full w-48" alt='img' />
+                                                    <img src={`${user.displayPic.imageUrl}`} className="mx-auto rounded-full w-36" alt='img' />
                                                 ) : (
-                                                    <div className='mx-auto rounded-full flex items-center justify-center w-48 h-48 bg-blue-500 text-white text-8xl font-medium'>{user.email.charAt(0).toUpperCase()}</div>
+                                                    <div className='mx-auto rounded-full flex items-center justify-center w-36 h-36 bg-blue-500 text-white text-6xl font-medium'>{user.email.charAt(0).toUpperCase()}</div>
                                                 )
                                             }
-
                                         </div>
                                         <div className="text-center space-y-1.5">
                                             <h2 className="text-2xl md:text-3xl font-bold dark:text-slate-200">{user.displayName}</h2>

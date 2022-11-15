@@ -17,7 +17,8 @@ import {
     SIGN_OUT,
     EMAIL_VERIFY_SUCCESS,
     BROWSER_CONFIG_SUCCESS,
-    PASSWORD_RESET_SUCCESS
+    PASSWORD_RESET_SUCCESS,
+    EDIT_PROFILE
 
 } from "./actions";
 import AuthContext from "./context";
@@ -87,7 +88,6 @@ const AuthState = (props) => {
                 sessionStorage.setItem('ctoken', data.token)
                 dispatch({
                     type: SIGNIN_SUCCESS,
-                    payload: data.token
                 })
                 let userLoading = await loadUsersDetails();
                 if (userLoading) {
@@ -111,9 +111,9 @@ const AuthState = (props) => {
         await axios.post(`${baseUrl}/confirmation`, value, config)
             .then(async (response) => {
                 const { data } = response
+                sessionStorage.setItem('ctoken', data.token)
                 dispatch({
                     type: EMAIL_VERIFY_SUCCESS,
-                    payload: data.token
                 })
                 let userLoading = await loadUsersDetails();
                 if (userLoading) {
@@ -174,9 +174,9 @@ const AuthState = (props) => {
         await axios.put(`${baseUrl}/browser_confirmation/${data.id}`, details, config)
             .then(async (response) => {
                 const { data } = response
+                sessionStorage.setItem('ctoken', data.token)
                 dispatch({
                     type: BROWSER_CONFIG_SUCCESS,
-                    payload: data.token
                 })
                 let userLoading = await loadUsersDetails();
                 if (userLoading) {
@@ -246,10 +246,31 @@ const AuthState = (props) => {
         if (userLoading) {
             navigate('/dashboard')
             setAlert({ msg: "Signin Successful", type: "success" })
-        }else{
+        } else {
             navigate('/login')
             setAlert({ msg: "Unauthorised", type: "fail" })
         }
+    }
+
+
+    const editProfile = async (data) => {
+        console.log(data)
+        if (sessionStorage.ctoken) {
+            setAuthToken(sessionStorage.ctoken)
+        }
+        await axios.put(`${baseUrl}/auth`, data, config)
+            .then((response) => {
+                const { data } = response
+                // dispatch({
+                //     type: EDIT_PROFILE,
+                //     payload: data
+                // })
+                setAlert({ msg: data.message, type: "success" })
+                setLoading(true)
+            }).catch((err) => {
+                const { data } = err.response
+                setAlert({ msg: data.message, type: "fail" })
+            })
     }
 
 
@@ -271,6 +292,8 @@ const AuthState = (props) => {
             userSignOut,
             resendCode,
             otherAuth,
+            editProfile,
+            setLoading,
             isAuthenticated: state.isAuthenticated,
             isLoading: state.isLoading,
             loading: loading,

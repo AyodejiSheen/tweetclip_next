@@ -10,7 +10,7 @@ import {
     EMAIL_VERIFY_SUCCESS,
     BROWSER_CONFIG_SUCCESS,
     PASSWORD_RESET_SUCCESS,
-
+    EDIT_PROFILE,
     // EDIT_USER
 
 } from './actions'
@@ -61,6 +61,12 @@ const AuthReducers = (state, action) => {
                 user: null,
                 isLoading: false,
                 isAuthenticated: false
+            }
+        
+        case EDIT_PROFILE:
+            return{
+                ...state,
+                user: {displayName:action.payload},
             }
 
 

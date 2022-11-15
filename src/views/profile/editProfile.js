@@ -1,7 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";   //to make use of formik to handle the form creation for the posts
 import { useContext, useState } from "react";
 import * as Yup from 'yup'
-import dp from '../../assets/media/dp.png'
 import AuthContext from "../../context/auth/context";
 
 
@@ -9,13 +8,12 @@ import AuthContext from "../../context/auth/context";
 
 
 
-export const EditProfile = (props) => {
+export const EditProfile = () => {
 
-    let {user, isLoading} = useContext(AuthContext)
+    let {user, isLoading, editProfile, setLoading} = useContext(AuthContext)
+
     const [onChange, setOnchange] = useState(false)
 
-
-    let { onSubmit } = props;
 
     const intialValues = {
         firstname: "",
@@ -35,6 +33,11 @@ export const EditProfile = (props) => {
     }
 
 
+    const Edit = (data) => {
+        editProfile({displayName:data.firstname + " " + data.lastname})
+        setLoading(false)
+    }
+
 
 
     return (
@@ -44,7 +47,7 @@ export const EditProfile = (props) => {
                     <h2 className="font-bold text-xl text-slate-500 dark:text-slate-300">Edit Profile</h2>
                 </div>
 
-                <Formik initialValues={intialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+                <Formik initialValues={intialValues} validationSchema={validationSchema} onSubmit={(data) => Edit(data) }>
                     <Form>
 
                         <div className="space-y-8">
