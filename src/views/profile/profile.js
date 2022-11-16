@@ -18,7 +18,7 @@ export const Profile = () => {
     const navigate = useNavigate();
 
 
-    const { loadUsersDetails, isLoading, user, loading } = useContext(AuthContext)
+    const { loadUsersDetails, isLoading, user } = useContext(AuthContext)
 
 
     useEffect(() => {

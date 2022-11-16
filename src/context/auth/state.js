@@ -33,8 +33,8 @@ const AuthState = (props) => {
 
     const initialState = {
         user: null,
-        isAuthenticated: false,
-        isLoading: true,
+        isAuthenticated: true,
+        isLoading: false,
         token: localStorage.getItem('ctoken'),
     }
 
@@ -206,11 +206,12 @@ const AuthState = (props) => {
                 setLoading(true);
                 return true;
             }).catch((err) => {
+                console.log(err)
                 const { data } = err.response
-                dispatch({
-                    type: USER_LOADED_FAIL
-                })
-                setAlert({ msg: data.message, type: "fail" })
+                // dispatch({
+                //     type: USER_LOADED_FAIL
+                // })
+                setAlert({ msg: data.error, type: "fail" })
                 return false;
             })
 

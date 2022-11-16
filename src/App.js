@@ -20,6 +20,7 @@ import { SuccessParams } from "./views/payments/successParams";
 import { Cancel } from "./views/payments/cancel";
 import setAuthToken from "./context/auth/setAuthToken";
 import DashboardGuard from "./views/userDashboard/gaurd";
+import { DashboardNav } from "./views/userDashboard/dashboardNav";
 
 
 
@@ -51,8 +52,8 @@ function App() {
           <Route path="new-device/:email/:id" element={<BrowserConfig />}></Route>
         </Route>
 
-        <Route path="dashboard" element={<DashboardGuard> <DashHome /> </DashboardGuard>}>
-          <Route index element={<Controls />}></Route>
+        <Route path="dashboard" element={<DashboardGuard> <DashboardNav /> </DashboardGuard>}>
+          <Route index element={<DashHome />}></Route>
         </Route>
 
         <Route path="profile" element={<Profile />}></Route>

@@ -127,9 +127,7 @@ export const Login = () => {
                         </div>
 
                         <p className="text-right">
-                            <Link to="/forgot-password"
-                                className="text-xs md:text-sm  font-semibold text-sky-600 hover:underline"
-                            >
+                            <Link to="/forgot-password" className="text-xs md:text-sm  font-semibold text-sky-600 hover:underline">
                                 Forgot your password?
                             </Link>
                         </p>

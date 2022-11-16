@@ -10,20 +10,18 @@ import AuthContext from "../../context/auth/context";
 
 export const EditProfile = () => {
 
-    let {user, isLoading, editProfile, setLoading} = useContext(AuthContext)
+    let { user, isLoading, editProfile, setLoading } = useContext(AuthContext)
 
     const [onChange, setOnchange] = useState(false)
 
 
     const intialValues = {
-        firstname: "",
-        lastname: "",
+        displayName:"",
         email: user.email,
     }
 
     const validationSchema = Yup.object().shape({
-        firstname: Yup.string().required("Please input your firstname"),  //i.e it must be a string and its required
-        lastname: Yup.string().required("Please input your firstname"), //error message is defined for required
+        displayName: Yup.string().required("Please input your displayName"),  //i.e it must be a string and its required
         email: Yup.string().email('Invalid email').required('Email is required'),
     })
 
@@ -34,7 +32,7 @@ export const EditProfile = () => {
 
 
     const Edit = (data) => {
-        editProfile({displayName:data.firstname + " " + data.lastname})
+        editProfile({ displayName: data.displayName })
         setLoading(false)
     }
 
@@ -46,7 +44,7 @@ export const EditProfile = () => {
                 <div className="border-b-2 border-slate-300 dark:border-slate-600 pb-7">
                     <h2 className="font-bold text-xl text-slate-500 dark:text-slate-300">Edit Profile</h2>
                 </div>
-                <Formik initialValues={intialValues} validationSchema={validationSchema} onSubmit={(data) => Edit(data) }>
+                <Formik initialValues={intialValues} validationSchema={validationSchema} onSubmit={(data) => Edit(data)}>
                     <Form>
 
                         <div className="space-y-8">
@@ -75,34 +73,20 @@ export const EditProfile = () => {
                             </div>
 
 
-                            <div className='lg:grid grid-cols-2 space-y-4 lg:space-y-0 gap-6'>
+                            <div className='space-y-6'>
                                 <div className='mt-4 md:mt-0 flex-1 space-y-4'>
                                     <label className="block text-sm">
-                                        <span className="text-gray-700 dark:text-gray-400">Firstname</span>
+                                        <span className="text-gray-700 dark:text-gray-400">Display Name</span>
                                         <Field
-                                            name="firstname"
+                                            name="displayName"
                                             onFocus={setchange}
                                             className="block w-full mt-1 border p-2.5 font-medium text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                                             type="text" />
-                                        <ErrorMessage name="firstname" component="span" className="text-red-500" />
+                                        <ErrorMessage name="displayName" component="span" className="text-red-500" />
                                     </label>
                                 </div>
 
                                 <div className='flex-1 space-y-4'>
-                                    <label className="block text-sm">
-                                        <span className="text-gray-700 dark:text-gray-400">Lastname</span>
-                                        <Field name="lastname"
-                                            onFocus={setchange}
-                                            className="block w-full mt-1 border p-2.5 font-medium text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                            type="text" />
-                                        <ErrorMessage name="lastname" component="span" className="text-red-500" />
-                                    </label>
-                                </div>
-                            </div>
-
-
-                            <div className=''>
-                                <div>
                                     <label className="block text-sm">
                                         <span className="text-gray-700 dark:text-gray-400">Email Address</span>
                                         <Field
@@ -115,7 +99,7 @@ export const EditProfile = () => {
                                 </div>
                             </div>
 
-                            <button type='submit' className={` text-sm mt-5 text-white px-5 py-3 rounded-lg shadow-md shadow-blue-300 dark:shadow-gray-900 ${onChange ? "bg-blue-700" : "bg-blue-300"}`} >Save Changes</button>
+                            <button type='submit' className={` text-sm mt-5 text-white px-5 py-3 rounded-lg shadow-md shadow-blue-300 dark:shadow-gray-900 ${onChange ? "bg-blue-500" : "bg-blue-300"}`} >Save Changes</button>
                         </div>
 
 

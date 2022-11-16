@@ -1,5 +1,9 @@
 
-import { useReducer } from "react";
+import axios from "axios";
+import { useContext, useReducer } from "react";
+import { baseUrl } from "../../baseUrl";
+import setAuthToken from "../auth/setAuthToken";
+import UiContext from "../UI/context";
 import { CHANGE_COLOR, GET_FONTS, FONT_SIZE } from "./actions";
 import ArtBoardContext from "./context";
 import ArtboardReducers from "./reducer";
@@ -17,13 +21,18 @@ const ArtboardState = (props) => {
     const initialState = {
         color: '#ffffff',
         font: "",
-        font_size: ""
+        font_size: 40,
+        allArtboards:null,
+        singleArtboard:null,
+        artboardLoading:false,
     }
 
 
     //to call Uireducers with dispatch
     const [state, dispatch] = useReducer(ArtboardReducers, initialState);
 
+
+    let { setAlert } = useContext(UiContext)
 
 
     //Global functions go down here (with Auth API calls)
@@ -51,6 +60,23 @@ const ArtboardState = (props) => {
     }
 
 
+    const getAllArtboards = async () => {
+
+        if (localStorage.ctoken) {
+            setAuthToken(localStorage.ctoken)
+        }
+
+        await axios.get(`${baseUrl}/artboard`)
+            .then((response) => {
+                const {data} = response
+                console.log(data);
+            }).catch((err) => {
+                const { data } = err.response
+                setAlert({ msg: data.message, type: "fail" })
+            })
+    }
+
+
 
 
 
@@ -67,6 +93,7 @@ const ArtboardState = (props) => {
             changeColor,
             getFonts,
             changeFontSize,
+            getAllArtboards
         }}>
 
             {/* to make the fuctions and state availabe globally */}

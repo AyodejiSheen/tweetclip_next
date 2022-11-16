@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import dp from '../../assets/media/dp.png'
 import ArtBoardContext from "../../context/artboard/context";
+import { Controls } from "./controls";
 
 
 
@@ -15,7 +16,6 @@ export const Artboard = () => {
 
     return (
         <>
-
             <section className="flex flex-col justify-between p-6 md:p-14 h-max gap-12 md:gap-24 rounded-xl shadow-lg" style={{ backgroundColor: `${color}` }}>
                 {/* top */}
                 <div className="flex justify-between items-center">
@@ -29,14 +29,10 @@ export const Artboard = () => {
                             <p className="font-medium text-slate-400  text-xs md:text-base lg:text-lg">@the_interplace</p>
                         </div>
                     </div>
-
-                    <div>
-                        <i className="text-base md:text-xl lg:text-3xl font-bold text-slate-600 lni lni-line-dotted"></i>
-                    </div>
                 </div>
 
                 {/* main text */}
-                <div className="text-center">
+                <div >
                     <h1 className="w-11/12 break-words" style={{ fontFamily: ` ${font}`, fontSize: `${font_size}px` }} >
                         Flutter Developer
 
