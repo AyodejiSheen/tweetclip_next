@@ -3,10 +3,11 @@ import { useContext, useEffect } from 'react'
 import UiContext from '../../context/UI/context'
 import { Outlet } from 'react-router-dom'
 import { Theme } from '../../components/theme'
-import ArtBoardContext from '../../context/artboard/context'
 import { ProfileNav } from '../../components/profileNav'
 import AuthContext from '../../context/auth/context'
 import { Loading } from 'notiflix'
+import { Artboard } from './artboard'
+import { LinkImport } from '../../components/linkImport'
 
 
 
@@ -14,7 +15,7 @@ import { Loading } from 'notiflix'
 export const DashHome = () => {
 
     let { isDark, show, showItem } = useContext(UiContext)
-    let { color, font, font_size } = useContext(ArtBoardContext);
+
 
     const { loadUsersDetails, loading, isLoading, user } = useContext(AuthContext)
 
@@ -22,7 +23,6 @@ export const DashHome = () => {
     useEffect(() => {
         loadUsersDetails()
         Loading.remove();
-        console.log(loading)
         // eslint-disable-next-line
     }, [])
 
@@ -36,7 +36,7 @@ export const DashHome = () => {
 
                     <div className={isDark === 'dark' ? 'dark' : ""}>
 
-                        <section className='flex flex-col lg:flex-row p-5 lg:p-10 lg:h-screen items-start bg-neutral-50 dark:bg-slate-900 gap-y-6 lg:gap-y-0'>
+                        <section  className='flex flex-col lg:flex-row p-5 lg:p-10 lg:h-screen items-start bg-neutral-50 dark:bg-slate-900 gap-y-6 lg:gap-y-0'>
                             <div className=' lg:mt-0 w-full lg:w-1/4 lg:fixed overflow-y-scroll dark:bg-slate-800  bg-neutral-100 rounded-xl lg:rounded-[1.8rem] lg:h-[92%] inset-10 lg:py-8 lg:px-12 p-6 order-2 lg:order-1 lg:space-y-14 space-y-10 '>
                                 <div>
                                     <img src={Logo} className="w-64" alt='imga' />
@@ -51,15 +51,15 @@ export const DashHome = () => {
                             <div className='w-full lg:flex-1 lg:ml-[28%]  h-[100%] lg:inset-10 rounded-[3rem] order-1 lg:order-2 space-y-7 '>
                                 <div className='flex flex-col lg:flex-row lg:justify-between lg:items-center gap-y-6 lg:gap-y-0'>
                                     <div className='flex gap-2 order-2 lg:order-1 justify-center '>
-                                        <div className='border-2 dark:border-slate-600 dark:text-slate-300 px-6 md:px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base '>
+                                        <div className='cursor-pointer border-2 dark:border-slate-600 dark:text-slate-300 px-6 md:px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base '>
                                             <i className="lni lni-save"></i>
                                             <p>Save</p>
                                         </div>
-                                        <div className='border-2 dark:border-slate-600 dark:text-slate-300 px-6 md:px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base '>
+                                        <div className='cursor-pointer border-2 dark:border-slate-600 dark:text-slate-300 px-6 md:px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base '>
                                             <i className="lni lni-cloud-download"></i>
                                             <p>Import</p>
                                         </div>
-                                        <div className='lg:hidden border-2 dark:border-slate-600 dark:text-slate-300 px-6 md:px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base '>
+                                        <div onClick={()=> showItem('import')} className='cursor-pointer lg:hidden border-2 dark:border-slate-600 dark:text-slate-300 px-6 md:px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base '>
                                             <i className="lni lni-cloud-upload"></i>
                                             <p>Export</p>
                                         </div>
@@ -102,10 +102,12 @@ export const DashHome = () => {
                                         </div>
                                     </div>
                                 </div>
-
-                                <div className={`flex justify-center items-center h-96 lg:h-[90%] rounded-2xl`} style={{ backgroundColor: `${color}` }}>
-                                    <h1 className='text-4xl text-white font-extrabold text-center' style={{ fontFamily: ` ${font}`, fontSize: `${font_size}px` }}>This is the Artboard</h1>
-                                </div>
+                                    {
+                                        show === "import" && (
+                                            <LinkImport/>
+                                        )
+                                    }
+                                <Artboard />
                             </div>
                         </section>
 

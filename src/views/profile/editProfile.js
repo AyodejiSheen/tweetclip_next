@@ -46,7 +46,6 @@ export const EditProfile = () => {
                 <div className="border-b-2 border-slate-300 dark:border-slate-600 pb-7">
                     <h2 className="font-bold text-xl text-slate-500 dark:text-slate-300">Edit Profile</h2>
                 </div>
-
                 <Formik initialValues={intialValues} validationSchema={validationSchema} onSubmit={(data) => Edit(data) }>
                     <Form>
 
@@ -122,7 +121,6 @@ export const EditProfile = () => {
 
                     </Form>
                 </Formik>
-
             </section>
 
         </>

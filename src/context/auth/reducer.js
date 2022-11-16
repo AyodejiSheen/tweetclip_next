@@ -55,7 +55,7 @@ const AuthReducers = (state, action) => {
 
         case SIGN_OUT:
         case USER_LOADED_FAIL:
-            sessionStorage.removeItem('ctoken')
+            localStorage.removeItem('ctoken')
             return {
                 ...state,
                 user: null,

@@ -77,7 +77,7 @@ export const Profile = () => {
                             </div>
 
 
-                            <div className='w-full lg:w-2/3 2xl:w-3/4  rounded-[3rem] space-y-7 '>
+                            <div className='w-full lg:w-2/3 2xl:w-3/4  rounded-[3rem] space-y-7 relative mb-40 h-[60%]'>
 
                                 <div className='flex gap-4 order-2 lg:order-1 justify-start overflow-x-scroll'>
                                     <div onClick={() => showNavTabs("overview")} className={`cursor-pointer border-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm md:text-base ${navTabs === "overview" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>

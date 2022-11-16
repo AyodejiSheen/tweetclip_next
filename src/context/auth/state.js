@@ -35,7 +35,7 @@ const AuthState = (props) => {
         user: null,
         isAuthenticated: false,
         isLoading: true,
-        token: sessionStorage.getItem('ctoken'),
+        token: localStorage.getItem('ctoken'),
     }
 
     const [loading, setLoading] = useState(false)
@@ -85,7 +85,7 @@ const AuthState = (props) => {
         await axios.post(`${baseUrl}/auth`, value, config)
             .then(async (response) => {
                 const { data } = response;
-                sessionStorage.setItem('ctoken', data.token)
+                localStorage.setItem('ctoken', data.token)
                 dispatch({
                     type: SIGNIN_SUCCESS,
                 })
@@ -111,7 +111,7 @@ const AuthState = (props) => {
         await axios.post(`${baseUrl}/confirmation`, value, config)
             .then(async (response) => {
                 const { data } = response
-                sessionStorage.setItem('ctoken', data.token)
+                localStorage.setItem('ctoken', data.token)
                 dispatch({
                     type: EMAIL_VERIFY_SUCCESS,
                 })
@@ -174,7 +174,7 @@ const AuthState = (props) => {
         await axios.put(`${baseUrl}/browser_confirmation/${data.id}`, details, config)
             .then(async (response) => {
                 const { data } = response
-                sessionStorage.setItem('ctoken', data.token)
+                localStorage.setItem('ctoken', data.token)
                 dispatch({
                     type: BROWSER_CONFIG_SUCCESS,
                 })
@@ -193,8 +193,8 @@ const AuthState = (props) => {
 
 
     const loadUsersDetails = async () => {
-        if (sessionStorage.ctoken) {
-            setAuthToken(sessionStorage.ctoken)
+        if (localStorage.ctoken) {
+            setAuthToken(localStorage.ctoken)
         }
         let res = await axios.get(`${baseUrl}/auth/me`)
             .then((response) => {
@@ -255,8 +255,8 @@ const AuthState = (props) => {
 
     const editProfile = async (data) => {
         console.log(data)
-        if (sessionStorage.ctoken) {
-            setAuthToken(sessionStorage.ctoken)
+        if (localStorage.ctoken) {
+            setAuthToken(localStorage.ctoken)
         }
         await axios.put(`${baseUrl}/auth`, data, config)
             .then((response) => {

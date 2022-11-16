@@ -15,7 +15,7 @@ const ArtboardState = (props) => {
 
 
     const initialState = {
-        color: 'rgba(65, 89, 56, 1)',
+        color: '#ffffff',
         font: "",
         font_size: ""
     }

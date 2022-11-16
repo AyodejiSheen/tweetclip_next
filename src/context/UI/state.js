@@ -61,7 +61,6 @@ const UiState = (props) => {
                 payload: value
             })
         }
-
     }
 
 

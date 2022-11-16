@@ -22,7 +22,7 @@ const GoogleAuth = () => {
     let res = JSON.parse(query.get("response"));
 
     const submit = () => {
-        sessionStorage.setItem('ctoken', res.token)
+        localStorage.setItem('ctoken', res.token)
         if (res.isSuccess === true) {
             otherAuth(res.token)
             return true;
