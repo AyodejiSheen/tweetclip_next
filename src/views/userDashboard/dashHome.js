@@ -2,8 +2,8 @@ import { useContext, useEffect } from 'react'
 import UiContext from '../../context/UI/context'
 import AuthContext from '../../context/auth/context'
 import { Loading } from 'notiflix'
-import ArtBoardContext from '../../context/artboard/context'
 import { AllProjects } from './allProject'
+import ArtBoardContext from '../../context/artboard/context'
 
 
 
@@ -11,14 +11,11 @@ import { AllProjects } from './allProject'
 export const DashHome = () => {
 
     let { showItem } = useContext(UiContext)
-
     const { loading } = useContext(AuthContext)
-
-    const { getAllArtboards } = useContext(ArtBoardContext)
+    const { allArtboards } = useContext(ArtBoardContext)
 
     useEffect(() => {
         Loading.remove();
-        getAllArtboards();
         // eslint-disable-next-line
     }, [])
 
@@ -43,7 +40,9 @@ export const DashHome = () => {
                         </div>
 
                         <div className='lg:flex-1 lg:ml-80 xl:ml-[28%] my-8 lg:my-20'>
-                            <AllProjects />
+                            {
+                                allArtboards === null ? (<p className='text-center'>You have no project yet please import a link to create one</p>) : (<AllProjects />)
+                            }
                         </div>
                     </section>
 

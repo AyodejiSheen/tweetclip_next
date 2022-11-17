@@ -3,6 +3,9 @@ import {
     CHANGE_COLOR,
     GET_FONTS,
     FONT_SIZE,
+    GET_SINGLE_ARTBOARD,
+    GET_ALL_ARTBOARDS,
+
 
 } from './actions'
 
@@ -28,12 +31,16 @@ const ArtboardReducers = (state, action) => {
             }
 
         case FONT_SIZE:
-            console.log(action.payload)
             return{
                 ...state,
                 font_size:action.payload
             }
-
+        
+        case GET_ALL_ARTBOARDS:
+            return{
+                ...state,
+                allArtboards : action.payload
+            }
 
 
 

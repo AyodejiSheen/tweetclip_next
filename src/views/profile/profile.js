@@ -7,7 +7,7 @@ import { Plan } from "./plan"
 import { Security } from "./security"
 import { Devices } from "./devices"
 import AuthContext from "../../context/auth/context"
-import { Loading } from "notiflix"
+
 
 
 
@@ -24,7 +24,7 @@ export const Profile = () => {
         <>
 
             {
-                !isLoading ?
+                !isLoading && user !== null ?
 
                     <section className='lg:flex items-center lg:flex-row p-5 lg:p-10 bg-neutral-50 dark:bg-slate-900 gap-y-6 lg:gap-y-0'>
 
@@ -33,6 +33,7 @@ export const Profile = () => {
                             <div className='flex justify-between space-y-12 flex-col h-full w-full'>
                                 <div>
                                     <button onClick={() => navigate(-1)} className="font-semibold bg-slate-300 px-6 py-2 rounded-full text-xs md:text-sm"> <i class="lni lni-arrow-left"></i> Back</button>
+                                    <span>{user !== null}</span>
                                 </div>
 
                                 <div className="md:flex justify-center items-end gap-6 md:gap-16 space-y-8 lg:block">
@@ -166,7 +167,7 @@ export const Profile = () => {
 
                     :
 
-                    Loading.standard()
+                    <p>Welcome home</p>
             }
 
         </>

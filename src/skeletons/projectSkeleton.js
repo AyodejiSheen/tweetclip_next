@@ -7,7 +7,7 @@ import { Shimmer } from './shimmer';
 
 
 
-export const ReqSkeleton = (props) => {
+export const ProjectSkeleton = (props) => {
 
     let { theme } = props;
     const themeClass = theme || 'light'

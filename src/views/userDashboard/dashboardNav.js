@@ -6,6 +6,7 @@ import { Theme } from '../../components/theme'
 import { ProfileNav } from '../../components/profileNav'
 import AuthContext from '../../context/auth/context'
 import { LinkImport } from '../../components/linkImport'
+import ArtBoardContext from '../../context/artboard/context'
 
 
 
@@ -16,10 +17,11 @@ export const DashboardNav = () => {
 
     let { isDark, show, showItem } = useContext(UiContext)
     const { loadUsersDetails, isLoading, user } = useContext(AuthContext)
-
+    const {getAllArtboards} = useContext(ArtBoardContext)
 
     useEffect(() => {
-        loadUsersDetails()
+        loadUsersDetails();
+        getAllArtboards();
     }, [])
 
     return (
@@ -65,22 +67,17 @@ export const DashboardNav = () => {
                                         </div>
                                     </div>
 
-
                                     <div className='relative'>
                                         <Theme />
                                     </div>
 
-
                                     <div>
                                         {
-
                                             !isLoading && user.displayPic !== null ? 
                                                 <img src={`${user.displayPic.imageUrl}`} className=" cursor-pointer w-10 lg:w-14 rounded-xl" alt='img' onClick={() => showItem('profile')} />
                                              : !isLoading ?
-                                                <div className='cursor-pointer text-white bg-blue-500 dark:text-slate-300  w-10 h-10 lg:h-14 lg:w-14 flex items-center justify-center hover:text-blue-400 rounded-xl hover:dark:text-blue-400 text-2xl font-bold' onClick={() => showItem('profile')} >{user.email.charAt(0).toUpperCase()}</div> : <div>No Img</div>
-                                            
+                                                <div className='cursor-pointer text-white bg-blue-500 dark:text-slate-300  w-10 h-10 lg:h-14 lg:w-14 flex items-center justify-center hover:text-blue-400 rounded-xl hover:dark:text-blue-400 text-2xl font-bold' onClick={() => showItem('profile')} >{user.email.charAt(0).toUpperCase()}</div> : ""
                                         }
-
 
                                         {
                                             show === "profile" && (
@@ -94,7 +91,6 @@ export const DashboardNav = () => {
                     </div>
 
                     <div className=''>
-
                         {
                             show === "import" && (
                                 <LinkImport />

@@ -11,7 +11,7 @@ import AuthContext from '../context/auth/context';
 export const ProfileNav = () => {
 
 
-    let { isDark } = useContext(UiContext)
+    let { isDark, showItem } = useContext(UiContext)
 
     let { userSignOut, user } = useContext(AuthContext)
 
@@ -36,7 +36,7 @@ export const ProfileNav = () => {
                             <hr className='dark:opacity-10' />
                         </div>
 
-                        <Link to="profile">
+                        <Link to="profile" onClick={() => showItem('profile')}>
                             <div className='px-6 py-3 cursor-pointer hover:bg-blue-50 hover:dark:bg-gray-700'>
                                 <div className='flex gap-5 items-center'>
                                     <div className='dark:text-slate-400'>

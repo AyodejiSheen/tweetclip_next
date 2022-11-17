@@ -204,15 +204,12 @@ const AuthState = (props) => {
                 setLoading(true);
                 return true;
             }).catch((err) => {
-                console.log(err)
-                const { data } = err.response
                 dispatch({
                     type: USER_LOADED_FAIL
                 })
-                setAlert({ msg: data.error, type: "fail" })
+                setAlert({ msg: "Request Failed", type: "fail" })
                 return false;
             })
-            console.log(state.isLoading)
         return res;
     }
 

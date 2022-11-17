@@ -4,11 +4,11 @@ import { useContext, useReducer } from "react";
 import { baseUrl } from "../../baseUrl";
 import setAuthToken from "../auth/setAuthToken";
 import UiContext from "../UI/context";
-import { CHANGE_COLOR, GET_FONTS, FONT_SIZE } from "./actions";
 import ArtBoardContext from "./context";
 import ArtboardReducers from "./reducer";
 
 
+import { CHANGE_COLOR, GET_FONTS, FONT_SIZE, GET_ALL_ARTBOARDS } from "./actions";
 
 
 
@@ -22,9 +22,9 @@ const ArtboardState = (props) => {
         color: '#ffffff',
         font: "",
         font_size: 40,
-        allArtboards:null,
-        singleArtboard:null,
-        artboardLoading:false,
+        allArtboards: null,
+        singleArtboard: null,
+        artboardLoading: false,
     }
 
 
@@ -55,9 +55,10 @@ const ArtboardState = (props) => {
     const changeFontSize = (value) => {
         dispatch({
             type: FONT_SIZE,
-            payload:value
+            payload: value
         })
     }
+
 
 
     const getAllArtboards = async () => {
@@ -68,8 +69,11 @@ const ArtboardState = (props) => {
 
         await axios.get(`${baseUrl}/artboard`)
             .then((response) => {
-                const {data} = response
-                console.log(data);
+                const { data } = response
+                dispatch({
+                    type: GET_ALL_ARTBOARDS,
+                    payload: data.artboards
+                })
             }).catch((err) => {
                 const { data } = err.response
                 setAlert({ msg: data.message, type: "fail" })
@@ -90,6 +94,7 @@ const ArtboardState = (props) => {
             color: state.color,
             font: state.font,
             font_size: state.font_size,
+            allArtboards : state.allArtboards,
             changeColor,
             getFonts,
             changeFontSize,

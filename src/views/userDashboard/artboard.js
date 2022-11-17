@@ -17,7 +17,7 @@ export const Artboard = () => {
 
     return (
         <>
-            <div className="mb-6">
+            <div className="mb-6 lg:hidden">
                 <button onClick={() => navigate(-1)} className="font-semibold bg-slate-300 px-6 py-2 rounded-full text-xs md:text-sm"> <i class="lni lni-arrow-left"></i> Back</button>
             </div>
 
