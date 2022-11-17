@@ -21,6 +21,7 @@ import { Cancel } from "./views/payments/cancel";
 import setAuthToken from "./context/auth/setAuthToken";
 import DashboardGuard from "./views/userDashboard/gaurd";
 import { DashboardNav } from "./views/userDashboard/dashboardNav";
+import { NewProject } from "./views/userDashboard/newProject";
 
 
 
@@ -36,7 +37,7 @@ function App() {
   if (localStorage.ctoken) {
     setAuthToken(localStorage.ctoken)
   }
- 
+
 
   return (
     <>
@@ -54,9 +55,10 @@ function App() {
 
         <Route path="dashboard" element={<DashboardGuard> <DashboardNav /> </DashboardGuard>}>
           <Route index element={<DashHome />}></Route>
+          <Route path="project" element={<NewProject/>}></Route>
+          <Route path="profile" element={<Profile />}></Route>
         </Route>
 
-        <Route path="profile" element={<Profile />}></Route>
 
         <Route path="success/:tranCode" element={<SuccessParams />}></Route>
         <Route path="cancel" element={<Cancel />}></Route>

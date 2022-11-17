@@ -12,12 +12,12 @@ export const Overview = () => {
     return (
         <>
 
-            <section className=" dark:bg-slate-900 space-y-8">
-                <div className="border-b-2 border-slate-300 dark:border-slate-600 pb-7">
+            <section className=" dark:bg-slate-900 space-y-6">
+                <div className="border-b-2 border-slate-300 dark:border-slate-600 pb-6">
                     <h2 className="font-bold text-xl text-slate-500 dark:text-slate-300">Profile Details</h2>
                 </div>
 
-                <div className="md:w-2/5 space-y-7 md:space-y-10">
+                <div className="md:w-2/5 lg:w-4/5 xl:w-2/5 space-y-7 md:space-y-10">
                     <div className="md:flex justify-between">
                         <div className="font-medium dark:text-slate-600 text-slate-400 text-sm md:text-base">Full Name</div>
                         <div className="font-semibold dark:text-slate-300 text-slate-600">{user.displayName}</div>

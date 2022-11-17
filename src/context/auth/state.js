@@ -208,9 +208,9 @@ const AuthState = (props) => {
             }).catch((err) => {
                 console.log(err)
                 const { data } = err.response
-                // dispatch({
-                //     type: USER_LOADED_FAIL
-                // })
+                dispatch({
+                    type: USER_LOADED_FAIL
+                })
                 setAlert({ msg: data.error, type: "fail" })
                 return false;
             })

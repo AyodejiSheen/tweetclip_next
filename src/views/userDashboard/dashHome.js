@@ -52,12 +52,7 @@ export const DashHome = () => {
                     </div>
                 </div>
 
-                <div className='lg:flex-1 xl:w-1/4 lg:ml-80 xl:ml-[28%] my-8 lg:my-20 h-screen'>
-                    {
-                        show === "import" && (
-                            <LinkImport />
-                        )
-                    }
+                <div className='lg:flex-1 lg:ml-80 xl:ml-[28%] my-8 lg:my-20'>
                     <AllProjects />
                 </div>
             </section>

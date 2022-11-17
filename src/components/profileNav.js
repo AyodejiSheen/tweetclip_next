@@ -36,7 +36,7 @@ export const ProfileNav = () => {
                             <hr className='dark:opacity-10' />
                         </div>
 
-                        <Link to="/profile">
+                        <Link to="profile">
                             <div className='px-6 py-3 cursor-pointer hover:bg-blue-50 hover:dark:bg-gray-700'>
                                 <div className='flex gap-5 items-center'>
                                     <div className='dark:text-slate-400'>

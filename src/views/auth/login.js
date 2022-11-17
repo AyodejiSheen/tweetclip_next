@@ -1,6 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from "formik"
 import * as Yup from 'yup';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 //context API
@@ -26,9 +26,6 @@ import UiContext from "../../context/UI/context";
 
 
 export const Login = () => {
-
-    const navigate = useNavigate()
-
 
     const { userLogin } = useContext(AuthContext)
 
@@ -112,7 +109,6 @@ export const Login = () => {
                                 <ErrorMessage name="email" component="span" className="text-red-500" /> {/*to display the error message for the field*/}
                             </label>
                         </div>
-
 
                         <div className='my-4 md:mt-0 lg:py-1.5'>
                             <label className="block text-sm">

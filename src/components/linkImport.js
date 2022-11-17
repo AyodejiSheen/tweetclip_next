@@ -1,6 +1,7 @@
 // import dp from '../../assets/dp.png'
 
 import { useContext } from "react"
+import { Link } from "react-router-dom"
 import UiContext from "../context/UI/context"
 
 
@@ -42,10 +43,10 @@ export const LinkImport = (props) => {
 
                             <div className='py-4 flex items-center justify-end'>
                                 <div className=''>
-                                    <button className="flex gap-3 items-center w-full bg-blue-500 py-4 px-6 rounded-lg text-white shadow-lg dark:shadow-slate-700 shadow-blue-500 hover:bg-blue-700 transition-all duration-500">
+                                    <Link to="project" className="flex gap-3 items-center w-full bg-blue-500 py-4 px-6 rounded-lg text-white shadow-lg dark:shadow-slate-700 shadow-blue-500 hover:bg-blue-700 transition-all duration-500">
                                         <i class="lni lni-download"></i>
                                         <span className="font-semibold">Import Link</span>
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

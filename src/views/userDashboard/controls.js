@@ -1,4 +1,5 @@
 import { useContext } from "react"
+import { useNavigate } from "react-router-dom"
 import UiContext from "../../context/UI/context"
 import { Color } from "./color/color"
 import { FontSize } from "./fontsize/fontSize"
@@ -10,13 +11,24 @@ export const Controls = () => {
 
     let { showItem, show } = useContext(UiContext)
 
+    const navigate = useNavigate();
+
     return (
         <>
 
             <div className='space-y-4'>
+
+                <div className="lg:flex justify-end mb-10 hidden">
+                    <button onClick={() => navigate(-1)} className="font-semibold bg-slate-300 px-6 py-2 rounded-full text-xs md:text-sm"> <i class="lni lni-arrow-left"></i> Back</button>
+                </div>
+
+                <div className="border-b-2 border-slate-300 dark:border-slate-600 mb-8 pb-4">
+                    <h2 className="font-bold text-xl text-slate-500 dark:text-slate-300">Tools</h2>
+                </div>
+
                 <div>
-                    <div onClick={() => showItem('color')} className={`cursor-pointer px-6 border-2 dark:border-slate-600 text-lg flex justify-between font-light dark:text-slate-300 text-center py-5 w-full rounded-lg ${show === "color" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
-                        <p className="font-medium">Background Color</p>
+                    <div onClick={() => showItem('color')} className={`cursor-pointer px-6 border-2 text-sm font-medium dark:border-slate-600 flex justify-between dark:text-slate-300 text-center py-5 w-full rounded-lg ${show === "color" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
+                        <p className="">Background Color</p>
                         <p><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={show === 'color' ? "rotate-90 transition duration-300" : "transition duration-300"}>
                             <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor"></path>
                             <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z" fill="currentColor"></path>
@@ -24,8 +36,8 @@ export const Controls = () => {
                     </div>
                     {
                         show === "color" && (
-                            <div     data-aos="fade-down"     data-aos-duration="600"
-                            data-aos-easing="ease-in-out" className="">
+                            <div data-aos="fade-down" data-aos-duration="600"
+                                data-aos-easing="ease-in-out" className="">
                                 <Color />
                             </div>
                         )
@@ -34,7 +46,7 @@ export const Controls = () => {
 
 
                 <div>
-                    <div onClick={() => showItem('text')} className={`cursor-pointer px-6 border-2 dark:border-slate-600 text-lg flex justify-between font-light dark:text-slate-300 text-center py-5 w-full rounded-lg ${show === "text" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
+                    <div onClick={() => showItem('text')} className={`cursor-pointer px-6 border-2 text-sm font-medium dark:border-slate-600 flex justify-between dark:text-slate-300 text-center py-5 w-full rounded-lg  ${show === "text" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
                         <p className="font-medium">Font Style</p>
                         <p><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={show === 'text' ? "rotate-90 transition duration-300" : "transition duration-300"}>
                             <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor"></path>
@@ -43,8 +55,8 @@ export const Controls = () => {
                     </div>
                     {
                         show === "text" && (
-                            <div data-aos="fade-down"     data-aos-duration="600"
-                            data-aos-easing="ease-in-out" className="">
+                            <div data-aos="fade-down" data-aos-duration="600"
+                                data-aos-easing="ease-in-out" className="">
 
                                 <Text />
 
@@ -55,7 +67,7 @@ export const Controls = () => {
 
 
                 <div>
-                    <div onClick={() => showItem('fontsize')} className={`cursor-pointer px-6 border-2 dark:border-slate-600 text-lg flex justify-between font-light dark:text-slate-300 text-center py-5 w-full rounded-lg ${show === "fontsize" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
+                    <div onClick={() => showItem('fontsize')} className={`cursor-pointer px-6 border-2 text-sm font-medium dark:border-slate-600 flex justify-between dark:text-slate-300 text-center py-5 w-full rounded-lg  ${show === "fontsize" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
                         <p className="font-medium">Font Size</p>
                         <p><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={show === 'fontsize' ? "rotate-90 transition duration-300" : "transition duration-300"}>
                             <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor"></path>
@@ -64,8 +76,8 @@ export const Controls = () => {
                     </div>
                     {
                         show === "fontsize" && (
-                            <div data-aos="fade-down"     data-aos-duration="600"
-                            data-aos-easing="ease-in-out" className="">
+                            <div data-aos="fade-down" data-aos-duration="600"
+                                data-aos-easing="ease-in-out" className="">
                                 <FontSize />
                             </div>
                         )
@@ -73,7 +85,7 @@ export const Controls = () => {
                 </div>
 
                 <div>
-                    <div onClick={() => showItem('layout')} className={`cursor-pointer px-6 border-2 dark:border-slate-600 text-lg flex justify-between font-light dark:text-slate-300 text-center py-5 w-full rounded-lg ${show === "layout" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
+                    <div onClick={() => showItem('layout')} className={`cursor-pointer px-6 border-2 text-sm font-medium dark:border-slate-600 flex justify-between dark:text-slate-300 text-center py-5 w-full rounded-lg  ${show === "layout" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
                         <p className="font-medium">Layout</p>
                         <p><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={show === 'layout' ? "rotate-90 transition duration-300" : "transition duration-300"}>
                             <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor"></path>
@@ -82,8 +94,8 @@ export const Controls = () => {
                     </div>
                     {
                         show === "layout" && (
-                            <div data-aos="fade-down"     data-aos-duration="600"
-                            data-aos-easing="ease-in-out" className="">
+                            <div data-aos="fade-down" data-aos-duration="600"
+                                data-aos-easing="ease-in-out" className="">
                                 <Layout />
                             </div>
                         )
@@ -91,16 +103,16 @@ export const Controls = () => {
                 </div>
 
 
+                <div className="">
+                    <button data-aos="fade-down" data-aos-duration="600"
+                        data-aos-easing="ease-in-out" className="space-x-2 w-full border-2 dark:border-slate-800 text-lg dark:text-slate-300 text-center py-5 rounded-2xl bg-blue-500 text-white font-semibold">
+                        <i className="lni lni-video text-2xl"></i>
+                        <span className="text-sm font-semibold">Generate Video</span>
+                    </button>
+                </div>
 
             </div>
 
-            <div className=" hidden lg:block">
-                <button data-aos="fade-down"     data-aos-duration="600"
-                            data-aos-easing="ease-in-out" className="space-x-2 w-full border-2 dark:border-slate-800 text-lg dark:text-slate-300 text-center py-5 rounded-2xl bg-blue-500 text-white font-semibold">
-                    <i className="lni lni-video text-2xl"></i>
-                    <span className="font-semibold">Generate Video</span>
-                </button>
-            </div>
 
         </>
     )
