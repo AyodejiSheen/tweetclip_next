@@ -12,7 +12,6 @@ import { UpdatePassword } from "./views/auth/updatePassword";
 import { Verification } from "./views/auth/verification";
 import { ErrorPage } from "./views/errorpage";
 import { Profile } from "./views/profile/profile";
-import { Controls } from "./views/userDashboard/controls";
 import { DashHome } from "./views/userDashboard/dashHome";
 import AOS from 'aos';
 import 'aos/dist/aos.css';

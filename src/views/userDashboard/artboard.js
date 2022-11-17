@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import dp from '../../assets/media/dp.png'
 import ArtBoardContext from "../../context/artboard/context";
-import { Controls } from "./controls";
 
 
 

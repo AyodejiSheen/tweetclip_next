@@ -18,8 +18,6 @@ import {
     EMAIL_VERIFY_SUCCESS,
     BROWSER_CONFIG_SUCCESS,
     PASSWORD_RESET_SUCCESS,
-    EDIT_PROFILE
-
 } from "./actions";
 import AuthContext from "./context";
 

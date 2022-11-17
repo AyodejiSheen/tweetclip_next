@@ -1,7 +1,6 @@
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import UiContext from "../../context/UI/context"
 import { Link, useNavigate } from "react-router-dom"
-import { Theme } from "../../components/theme"
 import { Overview } from "./overview"
 import { EditProfile } from "./editProfile"
 import { Plan } from "./plan"
@@ -9,23 +8,17 @@ import { Security } from "./security"
 import { Devices } from "./devices"
 import AuthContext from "../../context/auth/context"
 import { Loading } from "notiflix"
-import { DashHome } from "../userDashboard/dashHome"
+
 
 
 
 export const Profile = () => {
 
-    let { isDark, navTabs, showNavTabs } = useContext(UiContext)
+    let { navTabs, showNavTabs } = useContext(UiContext)
     const navigate = useNavigate();
 
 
-    const { loadUsersDetails, isLoading, user } = useContext(AuthContext)
-
-
-    useEffect(() => {
-        loadUsersDetails()
-        Loading.remove();
-    }, [])
+    const { isLoading, user } = useContext(AuthContext)
 
     return (
         <>

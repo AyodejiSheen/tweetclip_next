@@ -1,37 +1,10 @@
-import Logo from '../../assets/media/logo.png'
-import { useContext, useEffect } from 'react'
-import UiContext from '../../context/UI/context'
-import { Outlet, useNavigate } from 'react-router-dom'
-import { Theme } from '../../components/theme'
-import { ProfileNav } from '../../components/profileNav'
-import AuthContext from '../../context/auth/context'
-import { Loading } from 'notiflix'
+
 import { Artboard } from './artboard'
-import { LinkImport } from '../../components/linkImport'
-import ArtBoardContext from '../../context/artboard/context'
 import { Controls } from './controls'
-import { AllProjects } from './allProject'
+
 
 
 export const NewProject = () => {
-
-    let { isDark, show, showItem } = useContext(UiContext)
-    const navigate = useNavigate();
-
-
-    const { loadUsersDetails, loading, isLoading, user } = useContext(AuthContext)
-
-    const { getAllArtboards } = useContext(ArtBoardContext)
-
-    useEffect(() => {
-        // loadUsersDetails()
-        Loading.remove();
-        getAllArtboards();
-        // eslint-disable-next-line
-    }, [])
-
-
-
 
     return (
         <>

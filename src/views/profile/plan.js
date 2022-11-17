@@ -8,7 +8,7 @@ export const Plan = () => {
     const [details, setDetails] = useState('startup')
     const [planType, setPlanType] = useState('monthly')
 
-    let { loadingplan, plans, getPlans } = useContext(PlanContext)
+    let { loadingplan, getPlans } = useContext(PlanContext)
 
 
     const handlePlanType = (value) => {

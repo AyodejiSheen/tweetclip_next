@@ -5,9 +5,8 @@ import { Outlet } from 'react-router-dom'
 import { Theme } from '../../components/theme'
 import { ProfileNav } from '../../components/profileNav'
 import AuthContext from '../../context/auth/context'
-import { Artboard } from './artboard'
 import { LinkImport } from '../../components/linkImport'
-import dp from '../../assets/media/dp.png'
+
 
 
 
@@ -15,10 +14,10 @@ import dp from '../../assets/media/dp.png'
 export const DashboardNav = () => {
 
     let { isDark, show, showItem } = useContext(UiContext)
-    const { loadUsersDetails, loading, isLoading, user } = useContext(AuthContext)
+    const { loadUsersDetails, isLoading, user } = useContext(AuthContext)
 
     useEffect(() => {
-        // loadUsersDetails()
+        loadUsersDetails()
     })
 
     return (
