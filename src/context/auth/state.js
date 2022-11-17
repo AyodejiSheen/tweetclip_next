@@ -31,8 +31,8 @@ const AuthState = (props) => {
 
     const initialState = {
         user: null,
-        isAuthenticated: true,
-        isLoading: false,
+        isAuthenticated: false,
+        isLoading: true,
         token: localStorage.getItem('ctoken'),
     }
 
@@ -212,7 +212,7 @@ const AuthState = (props) => {
                 setAlert({ msg: data.error, type: "fail" })
                 return false;
             })
-
+            console.log(state.isLoading)
         return res;
     }
 
@@ -260,10 +260,6 @@ const AuthState = (props) => {
         await axios.put(`${baseUrl}/auth`, data, config)
             .then((response) => {
                 const { data } = response
-                // dispatch({
-                //     type: EDIT_PROFILE,
-                //     payload: data
-                // })
                 setAlert({ msg: data.message, type: "success" })
                 setLoading(true)
             }).catch((err) => {

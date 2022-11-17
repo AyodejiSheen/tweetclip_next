@@ -13,12 +13,14 @@ import { LinkImport } from '../../components/linkImport'
 
 export const DashboardNav = () => {
 
+
     let { isDark, show, showItem } = useContext(UiContext)
     const { loadUsersDetails, isLoading, user } = useContext(AuthContext)
 
+
     useEffect(() => {
         loadUsersDetails()
-    })
+    }, [])
 
     return (
         <>
@@ -72,12 +74,13 @@ export const DashboardNav = () => {
                                     <div>
                                         {
 
-                                            !isLoading && user.displayPic !== null ? (
+                                            !isLoading && user.displayPic !== null ? 
                                                 <img src={`${user.displayPic.imageUrl}`} className=" cursor-pointer w-10 lg:w-14 rounded-xl" alt='img' onClick={() => showItem('profile')} />
-                                            ) : (
-                                                <div className='cursor-pointer text-white bg-blue-500 dark:text-slate-300  w-10 h-10 lg:h-14 lg:w-14 flex items-center justify-center hover:text-blue-400 rounded-xl hover:dark:text-blue-400 text-2xl font-bold' onClick={() => showItem('profile')} >{user.email.charAt(0).toUpperCase()}</div>
-                                            )
+                                             : !isLoading ?
+                                                <div className='cursor-pointer text-white bg-blue-500 dark:text-slate-300  w-10 h-10 lg:h-14 lg:w-14 flex items-center justify-center hover:text-blue-400 rounded-xl hover:dark:text-blue-400 text-2xl font-bold' onClick={() => showItem('profile')} >{user.email.charAt(0).toUpperCase()}</div> : <div>No Img</div>
+                                            
                                         }
+
 
                                         {
                                             show === "profile" && (
