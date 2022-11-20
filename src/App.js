@@ -15,6 +15,7 @@ import { Profile } from "./views/profile/profile";
 import { DashHome } from "./views/userDashboard/dashHome";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import 'animate.css';
 import { SuccessParams } from "./views/payments/successParams";
 import { Cancel } from "./views/payments/cancel";
 import setAuthToken from "./context/auth/setAuthToken";

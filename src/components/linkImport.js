@@ -1,7 +1,7 @@
 // import dp from '../../assets/dp.png'
 
-import { useContext, useState } from "react"
-import { Link } from "react-router-dom"
+import { useContext, useEffect, useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
 import ArtBoardContext from "../context/artboard/context";
 import UiContext from "../context/UI/context"
 
@@ -9,6 +9,7 @@ import UiContext from "../context/UI/context"
 
 export const LinkImport = (props) => {
 
+    const navigate = useNavigate();
 
     let { showItem, setAlert, alert } = useContext(UiContext);
     let { getTweet } = useContext(ArtBoardContext);
@@ -20,7 +21,6 @@ export const LinkImport = (props) => {
         setAlert({ msg: null, type: "loading" });
         let data = { tweetLink: link }
         getTweet(data)
-        console.log(data)
     }
 
 

@@ -6,7 +6,7 @@ import ArtBoardContext from "../../context/artboard/context";
 
 export const AllProjects = () => {
 
-    const { allProjects, artboardLoading } = useContext(ArtBoardContext)
+    const { allProjects, allArtboardLoading } = useContext(ArtBoardContext)
     const navigate = useNavigate();
 
     const nav = (id) => {
@@ -17,8 +17,8 @@ export const AllProjects = () => {
         <>
             <h1 className="text-2xl font-bold border-b py-3 mb-6 text-slate-600 dark:border-slate-600">Your Projects</h1>
             {
-                artboardLoading ?
-                    <section className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-3 gap-5  items-start" >
+                allArtboardLoading ?
+                    <section className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-3 gap-5  items-start cursor-pointer" >
                         {
                             allProjects.map((each) => {
                                 return (
@@ -33,7 +33,7 @@ export const AllProjects = () => {
 
                                                     <div>
                                                         <h4 className="font-bold text-sm md:text-base ">{each.name}</h4>
-                                                        <p className="font-medium text-slate-400  text-xs ">@{each.username}</p>
+                                                        <p className="font-medium text-slate-600  text-xs ">@{each.username}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -47,7 +47,7 @@ export const AllProjects = () => {
 
                                             {/* bottom */}
                                             <div className="space-y-1.5">
-                                                <p className="text-xs text-slate-400">11:40 AM · Nov 16, 2022 · {each.source}</p>
+                                                <p className="text-xs text-slate-600">11:40 AM · Nov 16, 2022 · {each.source}</p>
                                                 <div className="border-y p-2.5 ">
                                                     <div className=" text-sm flex justify-between">
                                                         <div className="flex gap-0.5 md:gap-2 text-slate-600">

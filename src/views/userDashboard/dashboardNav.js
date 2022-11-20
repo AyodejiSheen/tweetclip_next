@@ -1,7 +1,7 @@
 import Logo from '../../assets/media/logo.png'
 import { useContext, useEffect } from 'react'
 import UiContext from '../../context/UI/context'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import { Theme } from '../../components/theme'
 import { ProfileNav } from '../../components/profileNav'
 import AuthContext from '../../context/auth/context'
@@ -31,9 +31,9 @@ export const DashboardNav = () => {
                 <section className='bg-neutral-50 dark:bg-slate-900 h-screen'>
 
                     <div className='flex justify-between items-center px-4 md:px-6 lg:px-12 2xl:px-32 fixed w-full h-16 md:h-20 lg:h-24 py-3 lg:py-4 bg-neutral-100 dark:bg-slate-900 lg:gap-16 z-50'>
-                        <div className='lg:w-1/5 xl:w-1/4'>
+                        <Link to="/dashboard" className='lg:w-1/5 xl:w-1/4'>
                             <img src={Logo} className="w-32 object-contain xl:w-64 md:w-44" alt='tweeclip-logo' />
-                        </div>
+                        </Link>
 
                         <div className='lg:w-4/5 xl:w-2/3'>
                             <div className='flex justify-between items-center'>

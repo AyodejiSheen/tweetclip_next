@@ -6,6 +6,7 @@ import {
     GET_SINGLE_ARTBOARD,
     GET_ALL_ARTBOARDS,
     NEW_TWEET,
+    CHANGE_BG_COLOR
 
 } from './actions'
 
@@ -19,6 +20,11 @@ const ArtboardReducers = (state, action) => {
     switch (action.type) {
 
         case CHANGE_COLOR:
+            return {
+                ...state,
+                artboardProps: { fontColor: action.payload }
+            }
+        case CHANGE_BG_COLOR:
             return {
                 ...state,
                 artboardProps: { bgColor: action.payload }
@@ -40,21 +46,23 @@ const ArtboardReducers = (state, action) => {
             return {
                 ...state,
                 allProjects: action.payload,
-                artboardLoading : true
+                allArtboardLoading: true
             }
 
         case NEW_TWEET:
             let res = action.payload
             return {
                 ...state,
-                allProjects: { ...state.Projects, res }
+                allProjects: { ...state.Projects, res },
+                artboardLoading: true
             }
 
         case GET_SINGLE_ARTBOARD:
             return {
                 ...state,
-                singleArtboard : action.payload,
-                artboardProps : action.payload.props,
+                singleArtboard: action.payload,
+                artboardProps: action.payload.props,
+                artboardLoading: true
             }
 
 
