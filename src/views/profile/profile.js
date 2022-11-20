@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import UiContext from "../../context/UI/context"
 import { Link, useNavigate } from "react-router-dom"
 import { Overview } from "./overview"
@@ -7,6 +7,7 @@ import { Plan } from "./plan"
 import { Security } from "./security"
 import { Devices } from "./devices"
 import AuthContext from "../../context/auth/context"
+import PlanContext from "../../context/plans/context"
 
 
 
@@ -18,7 +19,13 @@ export const Profile = () => {
     const navigate = useNavigate();
 
 
-    const { isLoading, user } = useContext(AuthContext)
+    const { isLoading, user } = useContext(AuthContext);
+    let { getPlans, plans } = useContext(PlanContext)
+
+
+    useEffect(() => {
+        getPlans()
+    }, [])
 
     return (
         <>
@@ -117,7 +124,7 @@ export const Profile = () => {
                                 {
                                     navTabs === "plan" && (
                                         <div data-aos="fade-up">
-                                            <Plan />
+                                            <Plan/>
                                         </div>
                                     )
                                 }

@@ -39,7 +39,7 @@ export const DashHome = () => {
                             </div>
                         </div>
 
-                        <div className='lg:flex-1 lg:ml-80 xl:ml-[28%] my-8 lg:my-20'>
+                        <div className='lg:w-flex-1 lg:ml-80 xl:ml-[28%] my-8 lg:my-20'>
                             {
                                 allArtboards === null ? (<p className='text-center'>You have no project yet please import a link to create one</p>) : (<AllProjects />)
                             }

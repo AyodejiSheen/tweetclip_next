@@ -22,7 +22,7 @@ export const DashboardNav = () => {
     useEffect(() => {
         loadUsersDetails();
         getAllArtboards();
-    }, [])
+    }, [isLoading])
 
     return (
         <>

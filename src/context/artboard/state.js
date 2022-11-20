@@ -8,7 +8,8 @@ import ArtBoardContext from "./context";
 import ArtboardReducers from "./reducer";
 
 
-import { CHANGE_COLOR, GET_FONTS, FONT_SIZE, GET_ALL_ARTBOARDS } from "./actions";
+import { CHANGE_COLOR, GET_FONTS, FONT_SIZE, GET_ALL_ARTBOARDS, NEW_TWEET } from "./actions";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -31,7 +32,7 @@ const ArtboardState = (props) => {
     //to call Uireducers with dispatch
     const [state, dispatch] = useReducer(ArtboardReducers, initialState);
 
-
+    const navigate = useNavigate()
     let { setAlert } = useContext(UiContext)
 
 
@@ -81,6 +82,31 @@ const ArtboardState = (props) => {
     }
 
 
+    const getTweet = async (value) => {
+
+        if (localStorage.ctoken) {
+            setAuthToken(localStorage.ctoken)
+        }
+
+        console.log(value)
+        await axios.post(`${baseUrl}/get_tweet`, value)
+            .then((response) => {
+                const { data } = response
+                console.log(data)
+                dispatch({
+                    type: NEW_TWEET,
+                    payload: data.artBoard
+                })
+                setAlert({ msg: data.message, type: "success" })
+                navigate('dashboard/project')
+            }).catch((err) => {
+                const { data } = err.response;
+                if (data.isSuccess === false) {
+                    setAlert({ msg: data.message, type: "fail" })
+                }
+            })
+    }
+
 
 
 
@@ -94,11 +120,12 @@ const ArtboardState = (props) => {
             color: state.color,
             font: state.font,
             font_size: state.font_size,
-            allArtboards : state.allArtboards,
+            allArtboards: state.allArtboards,
             changeColor,
             getFonts,
             changeFontSize,
-            getAllArtboards
+            getAllArtboards,
+            getTweet,
         }}>
 
             {/* to make the fuctions and state availabe globally */}

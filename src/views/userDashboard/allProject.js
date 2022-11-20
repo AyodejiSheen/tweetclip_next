@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import dp from '../../assets/media/dp.png'
 import ArtBoardContext from "../../context/artboard/context";
 
@@ -8,20 +8,22 @@ import ArtBoardContext from "../../context/artboard/context";
 export const AllProjects = () => {
 
     const { allArtboards } = useContext(ArtBoardContext)
-    console.log(allArtboards)
+    const navigate = useNavigate();
+
+    const nav = () => {
+        navigate('project')
+    }
 
     return (
         <>
             <h1 className="text-2xl font-bold border-b py-3 mb-6 text-slate-600 dark:border-slate-600">Your Projects</h1>
 
-            {
-                allArtboards.map((each) => {
-                    return (
-
-                        <section key={each.id} index={each.id} className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-3 gap-5  items-center" >
-
-                            <Link to="project">
-                                <div className="bg-white rounded-lg p-5 space-y-8 h-max shadow">
+            <section className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-3 gap-5  items-start" >
+                {
+                    allArtboards.map((each) => {
+                        return (
+                            <div onClick={nav}>
+                                <div key={each.id} index={each.id} className="bg-white rounded-lg p-5 space-y-8 h-max shadow">
                                     {/* top */}
                                     <div className="flex justify-between items-center">
                                         <div className="flex gap-3 md:gap-5 items-center">
@@ -64,13 +66,12 @@ export const AllProjects = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </Link>
+                            </div>
 
-                        </section>
-
-                    )
-                })
-            }
+                        )
+                    })
+                }
+            </section>
         </>
     )
 }

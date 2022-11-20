@@ -5,7 +5,7 @@ import {
     FONT_SIZE,
     GET_SINGLE_ARTBOARD,
     GET_ALL_ARTBOARDS,
-
+    NEW_TWEET,
 
 } from './actions'
 
@@ -40,6 +40,14 @@ const ArtboardReducers = (state, action) => {
             return{
                 ...state,
                 allArtboards : action.payload
+            }
+
+        case NEW_TWEET:
+            let res = action.payload
+            console.log(res)
+            return{
+                ...state,
+                allArtboards: {...state.allArtboards, res}
             }
 
 
