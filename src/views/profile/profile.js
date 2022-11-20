@@ -20,7 +20,7 @@ export const Profile = () => {
 
 
     const { isLoading, user } = useContext(AuthContext);
-    let { getPlans, plans } = useContext(PlanContext)
+    let { getPlans } = useContext(PlanContext)
 
 
     useEffect(() => {
@@ -58,10 +58,6 @@ export const Profile = () => {
                                     <div className="text-center space-y-1.5">
                                         <h2 className="text-2xl md:text-3xl font-bold dark:text-slate-200">{user.displayName}</h2>
                                         <p className="text-sm dark:text-slate-400 break-words">{user.email}</p>
-
-                                        <div>
-                                            <button className="text-xs font-bold bg-emerald-200 text-green-600 dark:text-green-400 hover:dark:bg-green-700 dark:bg-emerald-900 px-5 py-2 rounded-lg hover:bg-green-500 dark:hover:text-white hover:text-white">Upgrade to pro</button>
-                                        </div>
                                     </div>
                                 </div>
 
@@ -124,7 +120,7 @@ export const Profile = () => {
                                 {
                                     navTabs === "plan" && (
                                         <div data-aos="fade-up">
-                                            <Plan/>
+                                            <Plan />
                                         </div>
                                     )
                                 }

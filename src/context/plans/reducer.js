@@ -17,7 +17,7 @@ const planReducers = (state, action) => {
         case GET_PLANS:
             return {
                 ...state,
-                allPlans: action.payload.plans,
+                allPlans: action.payload,
                 loadingPlan:true
             }
 

@@ -34,20 +34,16 @@ const PlanState = (props) => {
                     type: GET_PLANS,
                     payload: plans
                 })
-                // let iift = plans.map((each) => each.plansToFeatures)
-                // let mainft = {iift.map((e
-                // let mainft2 = mainft.map((each) => each.feature)
-                // console.log(mainft2)
-
-                // console.log(plans[0].plansToFeatures[0].feature)
+            }).catch((err) => {
+                console.log(err)
+            })
+    }
 
 
-                // console.log(plansToFeatures)
-                // let planFeatures = data.plans.map((each) => each.plansToFeatures.feature)
-                // dispatch({
-                //     type: SORT_FEATURES,
-                //     payload: planFeatures
-                // })
+    const userSubscribe = async (priceId) => {
+        await axios.post(`${baseUrl}/transaction/${priceId}`)
+            .then((response) => {
+                console.log(response)
             }).catch((err) => {
                 console.log(err)
             })
@@ -60,9 +56,10 @@ const PlanState = (props) => {
     return (
         <PlanContext.Provider value={{
             loadingPlan: state.loadingPlan,
-            plans: state.plans,
+            allPlans: state.allPlans,
             features: state.features,
             getPlans,
+            userSubscribe,
         }}>
 
             {/* to make the fuctions and state availabe globally */}

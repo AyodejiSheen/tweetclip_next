@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 //context API
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 
 
@@ -26,6 +26,7 @@ import UiContext from "../../context/UI/context";
 
 
 export const Login = () => {
+
 
     const { userLogin } = useContext(AuthContext)
 

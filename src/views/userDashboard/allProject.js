@@ -23,7 +23,7 @@ export const AllProjects = () => {
             <h1 className="text-2xl font-bold border-b py-3 mb-6 text-slate-600 dark:border-slate-600">Your Projects</h1>
             {
                 allArtboardLoading ?
-                    <section className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-3 gap-5  items-start cursor-pointer" >
+                    <section className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-5  items-start cursor-pointer" >
                         {
                             allProjects.map((each) => {
                                 return (

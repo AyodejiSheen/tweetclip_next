@@ -19,9 +19,20 @@ export const Artboard = () => {
     const navigate = useNavigate();
     let { getSingleArtboard, artboardLoading, artboardProps, singleArtboard } = useContext(ArtBoardContext);
 
+
+    const alertUser = (e) => {
+        e.preventDefault();
+        e.returnValue = "";
+    };
+
     useEffect(() => {
-        getSingleArtboard(id)
-    }, [id])
+        window.addEventListener("beforeunload", alertUser);
+        return () => {
+            window.removeEventListener("beforeunload", getSingleArtboard(id));
+        };
+    }, [id]);
+
+
 
 
     return (
@@ -49,7 +60,7 @@ export const Artboard = () => {
 
                         {/* main text */}
                         <div >
-                            <h1 className="w-11/12 break-words animate__animated animate__bounce" style={{ fontFamily: ` ${artboardProps.fontStyle}`, fontSize: `${artboardProps.fontSize}px` }} >
+                            <h1 className="w-11/12 break-words animate__animated animate__bounce animate__infinite" style={{ fontFamily: ` ${artboardProps.fontStyle}`, fontSize: `${artboardProps.fontSize}px` }} >
                                 {singleArtboard.text}
                             </h1>
                         </div>
@@ -77,8 +88,8 @@ export const Artboard = () => {
                         </div>
 
                     </section> :
-                <p>Loading...</p>
-}
+                    <p>Loading...</p>
+            }
         </>
     )
 }
