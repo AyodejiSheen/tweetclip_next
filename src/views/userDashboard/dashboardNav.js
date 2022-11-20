@@ -17,12 +17,13 @@ export const DashboardNav = () => {
 
     let { isDark, show, showItem } = useContext(UiContext)
     const { loadUsersDetails, isLoading, user } = useContext(AuthContext)
-    const { getAllProjects } = useContext(ArtBoardContext)
+    let { projectId } = useContext(ArtBoardContext)
 
     useEffect(() => {
         loadUsersDetails();
         // getAllProjects();
     }, [isLoading])
+
 
     return (
         <>
@@ -38,10 +39,14 @@ export const DashboardNav = () => {
                         <div className='lg:w-4/5 xl:w-2/3'>
                             <div className='flex justify-between items-center'>
                                 <div className='hidden lg:flex gap-2 justify-center '>
-                                    <div className='cursor-pointer border-2 dark:border-slate-600 dark:text-slate-300 px-6 xl:px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm  xl:text-base'>
-                                        <i className="lni lni-save"></i>
-                                        <p>Save</p>
-                                    </div>
+                                    {
+                                        projectId !== null && (
+                                            <div className='cursor-pointer border-2 dark:border-slate-600 dark:text-slate-300 px-6 xl:px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm  xl:text-base'>
+                                                <i className="lni lni-save"></i>
+                                                <p>Save</p>
+                                            </div>
+                                        )
+                                    }
 
                                     <div onClick={() => showItem('import')} className='cursor-pointer border-2 dark:border-slate-600 dark:text-slate-300 px-6 xl:px-10 py-3 flex items-center justify-center rounded-xl space-x-2 text-sm  xl:text-base'>
                                         <i className="lni lni-cloud-download"></i>

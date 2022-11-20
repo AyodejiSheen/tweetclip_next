@@ -25,7 +25,7 @@ const ArtboardState = (props) => {
         artboardLoading: false,
         allArtboardLoading: false,
         artboardProps: null,
-        projectId:""
+        projectId: null
     }
 
 
@@ -133,6 +133,7 @@ const ArtboardState = (props) => {
             artboardLoading: state.artboardLoading,
             artboardProps: state.artboardProps,
             allArtboardLoading: state.allArtboardLoading,
+            projectId: state.projectId,
             changeColor,
             changeBgColor,
             getFonts,

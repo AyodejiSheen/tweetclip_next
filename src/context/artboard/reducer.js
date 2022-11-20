@@ -46,7 +46,8 @@ const ArtboardReducers = (state, action) => {
             return {
                 ...state,
                 allProjects: action.payload,
-                allArtboardLoading: true
+                allArtboardLoading: true,
+                projectId:null,
             }
 
         case NEW_TWEET:
@@ -56,6 +57,7 @@ const ArtboardReducers = (state, action) => {
                 allProjects: { ...state.Projects, res },
                 artboardLoading: true,
                 allArtboardLoading: false,
+                projectId: res.id
             }
 
         case GET_SINGLE_ARTBOARD:
@@ -65,7 +67,7 @@ const ArtboardReducers = (state, action) => {
                 artboardProps: action.payload.props,
                 artboardLoading: true,
                 allArtboardLoading: false,
-
+                projectId: action.payload.id
             }
 
 

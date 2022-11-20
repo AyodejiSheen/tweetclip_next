@@ -63,10 +63,12 @@ export const Profile = () => {
 
 
                                 <div className="w-full mx-auto text-center">
-                                    <button className="space-x-2 mx-auto xl:w-80 border-2 dark:border-slate-800  md:text-lg dark:text-slate-300 text-center px-7 md:px-10 py-2.5 lg:py-3.5 rounded-2xl bg-blue-500 text-white font-semibold hover:bg-blue-700">
-                                        <i className="lni lni-cloud-upload"></i>
-                                        <span className="font-semibold text-xs lg:text-sm">View Saved Projects</span>
-                                    </button>
+                                    <Link to="/dashboard">
+                                        <button className="space-x-2 mx-auto xl:w-80 border-2 dark:border-slate-800  md:text-lg dark:text-slate-300 text-center px-7 md:px-10 py-2.5 lg:py-3.5 rounded-2xl bg-blue-500 text-white font-semibold hover:bg-blue-700">
+                                            <i className="lni lni-cloud-upload"></i>
+                                            <span className="font-semibold text-xs lg:text-sm">View Saved Projects</span>
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
