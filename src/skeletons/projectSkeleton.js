@@ -1,5 +1,4 @@
 import React from 'react';
-import { MainSkeleton } from './MainSkeleton';
 import { Shimmer } from './shimmer';
 
 

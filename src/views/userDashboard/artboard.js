@@ -3,6 +3,8 @@ import { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import ArtBoardContext from "../../context/artboard/context";
+import UiContext from "../../context/UI/context";
+import { ProjectSkeleton } from "../../skeletons/projectSkeleton";
 
 
 
@@ -17,19 +19,11 @@ export const Artboard = () => {
     let { id } = useParams();
 
     const navigate = useNavigate();
+    let { isDark } = useContext(UiContext)
     let { getSingleArtboard, artboardLoading, artboardProps, singleArtboard } = useContext(ArtBoardContext);
 
-
-    const alertUser = (e) => {
-        e.preventDefault();
-        e.returnValue = "";
-    };
-
     useEffect(() => {
-        window.addEventListener("beforeunload", alertUser);
-        return () => {
-            window.removeEventListener("beforeunload", getSingleArtboard(id));
-        };
+        getSingleArtboard(id)
     }, [id]);
 
 
@@ -88,7 +82,12 @@ export const Artboard = () => {
                         </div>
 
                     </section> :
-                    <p>Loading...</p>
+                    <div className="">
+                        {
+                            [1].map((n) => <ProjectSkeleton key={n} theme={isDark === "light" ? "light" : "dark"} />)
+                        }
+                    </div>
+
             }
         </>
     )

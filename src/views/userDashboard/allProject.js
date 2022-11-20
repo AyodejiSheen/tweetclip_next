@@ -1,22 +1,30 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ArtBoardContext from "../../context/artboard/context";
+import UiContext from "../../context/UI/context";
+import { ProjectSkeleton } from "../../skeletons/projectSkeleton";
 
 
 
 export const AllProjects = () => {
 
     const { allProjects, allArtboardLoading, getAllProjects } = useContext(ArtBoardContext)
+    let { isDark } = useContext(UiContext)
     const navigate = useNavigate();
+    let [skeleton, setSkeleton] = useState(false)
+
 
     useEffect(() => {
         getAllProjects();
+        setSkeleton(true)
     }, [allArtboardLoading])
 
 
     const nav = (id) => {
         navigate(`project/${id}`)
     }
+
+
 
     return (
         <>
@@ -78,7 +86,13 @@ export const AllProjects = () => {
                         }
                     </section> :
 
-                    <p>Loading...</p>
+                    <div>
+                        <section className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-5  items-start cursor-pointer">
+                            {
+                                [1, 2, 3, 4, 5, 6].map((n) => <ProjectSkeleton key={n} theme={isDark === "light" ? "light" : "dark"} />)
+                            }
+                        </section>
+                    </div>
             }
         </>
     )
