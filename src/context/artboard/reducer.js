@@ -21,33 +21,40 @@ const ArtboardReducers = (state, action) => {
         case CHANGE_COLOR:
             return {
                 ...state,
-                color: action.payload
+                artboardProps: { bgColor: action.payload }
             }
 
         case GET_FONTS:
-            return{
+            return {
                 ...state,
-                font:action.payload
+                artboardProps: { fontStyle: action.payload }
             }
 
         case FONT_SIZE:
-            return{
+            return {
                 ...state,
-                font_size:action.payload
+                artboardProps: { fontSize: action.payload }
             }
-        
+
         case GET_ALL_ARTBOARDS:
-            return{
+            return {
                 ...state,
-                allArtboards : action.payload
+                allProjects: action.payload,
+                artboardLoading : true
             }
 
         case NEW_TWEET:
             let res = action.payload
-            console.log(res)
-            return{
+            return {
                 ...state,
-                allArtboards: {...state.allArtboards, res}
+                allProjects: { ...state.Projects, res }
+            }
+
+        case GET_SINGLE_ARTBOARD:
+            return {
+                ...state,
+                singleArtboard : action.payload,
+                artboardProps : action.payload.props,
             }
 
 

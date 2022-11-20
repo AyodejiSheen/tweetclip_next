@@ -17,18 +17,17 @@ export const DashboardNav = () => {
 
     let { isDark, show, showItem } = useContext(UiContext)
     const { loadUsersDetails, isLoading, user } = useContext(AuthContext)
-    const {getAllArtboards} = useContext(ArtBoardContext)
+    const { getAllProjects } = useContext(ArtBoardContext)
 
     useEffect(() => {
         loadUsersDetails();
-        getAllArtboards();
+        getAllProjects();
     }, [isLoading])
 
     return (
         <>
 
             <div className={isDark === 'dark' ? 'dark' : ""}>
-
                 <section className='bg-neutral-50 dark:bg-slate-900 h-screen'>
 
                     <div className='flex justify-between items-center px-4 md:px-6 lg:px-12 2xl:px-32 fixed w-full h-16 md:h-20 lg:h-24 py-3 lg:py-4 bg-neutral-100 dark:bg-slate-900 lg:gap-16 z-50'>
@@ -73,10 +72,10 @@ export const DashboardNav = () => {
 
                                     <div>
                                         {
-                                            !isLoading && user.displayPic !== null ? 
+                                            !isLoading && user.displayPic !== null ?
                                                 <img src={`${user.displayPic.imageUrl}`} className=" cursor-pointer w-10 lg:w-14 rounded-xl" alt='img' onClick={() => showItem('profile')} />
-                                             : !isLoading ?
-                                                <div className='cursor-pointer text-white bg-blue-500 dark:text-slate-300  w-10 h-10 lg:h-14 lg:w-14 flex items-center justify-center hover:text-blue-400 rounded-xl hover:dark:text-blue-400 text-2xl font-bold' onClick={() => showItem('profile')} >{user.email.charAt(0).toUpperCase()}</div> : ""
+                                                : !isLoading ?
+                                                    <div className='cursor-pointer text-white bg-blue-500 dark:text-slate-300  w-10 h-10 lg:h-14 lg:w-14 flex items-center justify-center hover:text-blue-400 rounded-xl hover:dark:text-blue-400 text-2xl font-bold' onClick={() => showItem('profile')} >{user.email.charAt(0).toUpperCase()}</div> : ""
                                         }
 
                                         {
@@ -101,10 +100,6 @@ export const DashboardNav = () => {
                     </div>
 
                 </section>
-
-
-
-
             </div>
 
         </>

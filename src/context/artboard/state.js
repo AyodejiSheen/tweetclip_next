@@ -8,7 +8,7 @@ import ArtBoardContext from "./context";
 import ArtboardReducers from "./reducer";
 
 
-import { CHANGE_COLOR, GET_FONTS, FONT_SIZE, GET_ALL_ARTBOARDS, NEW_TWEET } from "./actions";
+import { CHANGE_COLOR, GET_FONTS, FONT_SIZE, GET_ALL_ARTBOARDS, NEW_TWEET, GET_SINGLE_ARTBOARD } from "./actions";
 import { useNavigate } from "react-router-dom";
 
 
@@ -20,12 +20,10 @@ const ArtboardState = (props) => {
 
 
     const initialState = {
-        color: '#ffffff',
-        font: "",
-        font_size: 40,
-        allArtboards: null,
+        allProjects: null,
         singleArtboard: null,
         artboardLoading: false,
+        artboardProps: null,
     }
 
 
@@ -33,7 +31,7 @@ const ArtboardState = (props) => {
     const [state, dispatch] = useReducer(ArtboardReducers, initialState);
 
     const navigate = useNavigate()
-    let { setAlert } = useContext(UiContext)
+    let { setAlert, showItem } = useContext(UiContext)
 
 
     //Global functions go down here (with Auth API calls)
@@ -62,7 +60,7 @@ const ArtboardState = (props) => {
 
 
 
-    const getAllArtboards = async () => {
+    const getAllProjects = async () => {
 
         if (localStorage.ctoken) {
             setAuthToken(localStorage.ctoken)
@@ -83,12 +81,9 @@ const ArtboardState = (props) => {
 
 
     const getTweet = async (value) => {
-
         if (localStorage.ctoken) {
             setAuthToken(localStorage.ctoken)
         }
-
-        console.log(value)
         await axios.post(`${baseUrl}/get_tweet`, value)
             .then((response) => {
                 const { data } = response
@@ -98,7 +93,8 @@ const ArtboardState = (props) => {
                     payload: data.artBoard
                 })
                 setAlert({ msg: data.message, type: "success" })
-                navigate('dashboard/project')
+                navigate(`dashboard/project/${data.artBoard.id}`)
+                showItem('import')
             }).catch((err) => {
                 const { data } = err.response;
                 if (data.isSuccess === false) {
@@ -108,10 +104,27 @@ const ArtboardState = (props) => {
     }
 
 
-
-
-
-
+    const getSingleArtboard = async (id) => {
+        if (localStorage.ctoken) {
+            setAuthToken(localStorage.ctoken)
+        }
+        await axios.get(`${baseUrl}/artboard/${id}`)
+            .then((response) => {
+                const { data } = response
+                console.log(data.artboard.props)
+                dispatch({
+                    type: GET_SINGLE_ARTBOARD,
+                    payload: data.artboard
+                })
+                setAlert({ msg: data.message, type: "success" })
+            }).catch((err) => {
+                const { data } = err.response;
+                if (data.isSuccess === false) {
+                    setAlert({ msg: data.message, type: "fail" })
+                    navigate('dashboard')
+                }
+            })
+    }
 
 
 
@@ -120,12 +133,16 @@ const ArtboardState = (props) => {
             color: state.color,
             font: state.font,
             font_size: state.font_size,
-            allArtboards: state.allArtboards,
+            allProjects: state.allProjects,
+            singleArtboard: state.singleArtboard,
+            artboardLoading: state.artboardLoading,
+            artboardProps: state.artboardProps,
             changeColor,
             getFonts,
             changeFontSize,
-            getAllArtboards,
+            getAllProjects,
             getTweet,
+            getSingleArtboard,
         }}>
 
             {/* to make the fuctions and state availabe globally */}

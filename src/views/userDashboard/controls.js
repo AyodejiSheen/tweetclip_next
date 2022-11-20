@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import UiContext from "../../context/UI/context"
+import { Animations } from "./animations/animations"
 import { Color } from "./color/color"
 import { FontSize } from "./fontsize/fontSize"
 import { Layout } from "./layout/layout"
@@ -83,6 +84,26 @@ export const Controls = () => {
                         )
                     }
                 </div>
+
+                <div>
+                    <div onClick={() => showItem('animation')} className={`cursor-pointer px-6 border-2 text-sm font-medium dark:border-slate-600 flex justify-between dark:text-slate-300 text-center py-5 w-full rounded-lg  ${show === "animation" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
+                        <p className="font-medium">Animations</p>
+                        <p><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={show === 'animation' ? "rotate-90 transition duration-300" : "transition duration-300"}>
+                            <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor"></path>
+                            <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z" fill="currentColor"></path>
+                        </svg></p>
+                    </div>
+                    {
+                        show === "animation" && (
+                            <div data-aos="fade-down" data-aos-duration="600"
+                                data-aos-easing="ease-in-out" className="">
+                                <Animations />
+                            </div>
+                        )
+                    }
+                </div>
+
+
 
                 <div>
                     <div onClick={() => showItem('layout')} className={`cursor-pointer px-6 border-2 text-sm font-medium dark:border-slate-600 flex justify-between dark:text-slate-300 text-center py-5 w-full rounded-lg  ${show === "layout" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>

@@ -54,7 +54,7 @@ function App() {
 
         <Route path="dashboard" element={<DashboardGuard> <DashboardNav /> </DashboardGuard>}>
           <Route index element={<DashHome />}></Route>
-          <Route path="project" element={<NewProject/>}></Route>
+          <Route path="project/:id" element={<NewProject/>}></Route>
           <Route path="profile" element={<Profile />}></Route>
         </Route>
 
