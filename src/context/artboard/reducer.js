@@ -54,7 +54,8 @@ const ArtboardReducers = (state, action) => {
             return {
                 ...state,
                 allProjects: { ...state.Projects, res },
-                artboardLoading: true
+                artboardLoading: true,
+                allArtboardLoading: false,
             }
 
         case GET_SINGLE_ARTBOARD:
@@ -62,7 +63,9 @@ const ArtboardReducers = (state, action) => {
                 ...state,
                 singleArtboard: action.payload,
                 artboardProps: action.payload.props,
-                artboardLoading: true
+                artboardLoading: true,
+                allArtboardLoading: false,
+
             }
 
 

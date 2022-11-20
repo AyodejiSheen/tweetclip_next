@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ArtBoardContext from "../../context/artboard/context";
 
@@ -6,8 +6,13 @@ import ArtBoardContext from "../../context/artboard/context";
 
 export const AllProjects = () => {
 
-    const { allProjects, allArtboardLoading } = useContext(ArtBoardContext)
+    const { allProjects, allArtboardLoading, getAllProjects } = useContext(ArtBoardContext)
     const navigate = useNavigate();
+
+    useEffect(() => {
+        getAllProjects();
+    }, [allArtboardLoading])
+
 
     const nav = (id) => {
         navigate(`project/${id}`)

@@ -21,7 +21,7 @@ export const DashboardNav = () => {
 
     useEffect(() => {
         loadUsersDetails();
-        getAllProjects();
+        // getAllProjects();
     }, [isLoading])
 
     return (
