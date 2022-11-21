@@ -1,6 +1,7 @@
 
 import axios from "axios";
 import { useReducer } from "react";
+import { useHref, useNavigate } from "react-router-dom";
 import { baseUrl } from "../../baseUrl";
 import { GET_PLANS} from "./actions";
 import PlanContext from "./context";
@@ -22,7 +23,7 @@ const PlanState = (props) => {
 
     //to call Uireducers with dispatch
     const [state, dispatch] = useReducer(planReducers, initialState);
-
+    const navigate = useHref();
 
 
     //Global functions go down here (with Auth API calls)
@@ -43,7 +44,8 @@ const PlanState = (props) => {
     const userSubscribe = async (priceId) => {
         await axios.post(`${baseUrl}/transaction/${priceId}`)
             .then((response) => {
-                console.log(response)
+                const {data} = response
+                window.open(`${data.checkout_url}`,'_blank')
             }).catch((err) => {
                 console.log(err)
             })
