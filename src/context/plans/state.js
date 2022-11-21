@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useReducer } from "react";
 import { baseUrl } from "../../baseUrl";
-import { GET_PLANS, SORT_FEATURES } from "./actions";
+import { GET_PLANS} from "./actions";
 import PlanContext from "./context";
 import planReducers from "./reducer";
 

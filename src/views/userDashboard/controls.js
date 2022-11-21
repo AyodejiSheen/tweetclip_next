@@ -1,5 +1,4 @@
 import { useContext } from "react"
-import { useNavigate } from "react-router-dom"
 import UiContext from "../../context/UI/context"
 import { Animations } from "./animations/animations"
 import { BackgroundColor } from "./backgroundColor/bgColor"
@@ -13,7 +12,7 @@ export const Controls = () => {
 
     let { showItem, show } = useContext(UiContext)
 
-    const navigate = useNavigate();
+
 
     return (
         <>

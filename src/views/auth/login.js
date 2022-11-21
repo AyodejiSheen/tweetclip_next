@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 //context API
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 
 
 

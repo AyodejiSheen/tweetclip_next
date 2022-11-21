@@ -2,7 +2,6 @@
 import axios from "axios";
 import { useContext, useReducer } from "react";
 import { baseUrl } from "../../baseUrl";
-import setAuthToken from "../auth/setAuthToken";
 import UiContext from "../UI/context";
 import ArtBoardContext from "./context";
 import ArtboardReducers from "./reducer";

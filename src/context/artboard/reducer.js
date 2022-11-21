@@ -56,6 +56,7 @@ const ArtboardReducers = (state, action) => {
                 ...state,
                 allProjects: { ...state.Projects, res },
                 artboardLoading: true,
+                artboardProps: res.props,
                 allArtboardLoading: false,
                 projectId: res.id
             }

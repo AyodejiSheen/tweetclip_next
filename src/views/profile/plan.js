@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState } from "react"
 import PlanContext from "../../context/plans/context"
 import { Loading } from 'notiflix'
 
 
-export const Plan = (props) => {
+export const Plan = () => {
 
     const [details, setDetails] = useState('startup')
     const [planType, setPlanType] = useState('monthly')

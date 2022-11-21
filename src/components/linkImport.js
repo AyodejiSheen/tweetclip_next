@@ -1,7 +1,6 @@
 // import dp from '../../assets/dp.png'
 
-import { useContext, useEffect, useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { useContext,  useState } from "react"
 import ArtBoardContext from "../context/artboard/context";
 import UiContext from "../context/UI/context"
 
@@ -9,7 +8,6 @@ import UiContext from "../context/UI/context"
 
 export const LinkImport = (props) => {
 
-    const navigate = useNavigate();
 
     let { showItem, setAlert, alert } = useContext(UiContext);
     let { getTweet } = useContext(ArtBoardContext);

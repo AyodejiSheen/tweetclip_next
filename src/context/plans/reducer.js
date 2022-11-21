@@ -1,7 +1,6 @@
 import {
     //import all the actions for plan context api
     GET_PLANS,
-    SORT_FEATURES,
 
 } from './actions'
 
@@ -19,12 +18,6 @@ const planReducers = (state, action) => {
                 ...state,
                 allPlans: action.payload,
                 loadingPlan:true
-            }
-
-        case SORT_FEATURES:
-            return{
-                ...state,
-                features: action.payload
             }
 
 

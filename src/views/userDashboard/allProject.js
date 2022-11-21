@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ArtBoardContext from "../../context/artboard/context";
 import UiContext from "../../context/UI/context";
@@ -11,12 +11,10 @@ export const AllProjects = () => {
     const { allProjects, allArtboardLoading, getAllProjects } = useContext(ArtBoardContext)
     let { isDark } = useContext(UiContext)
     const navigate = useNavigate();
-    let [skeleton, setSkeleton] = useState(false)
 
 
     useEffect(() => {
         getAllProjects();
-        setSkeleton(true)
     }, [allArtboardLoading])
 
 
