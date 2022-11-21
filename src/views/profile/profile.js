@@ -33,9 +33,9 @@ export const Profile = () => {
             {
                 !isLoading && user !== null ?
 
-                    <section className='lg:flex items-center lg:flex-row p-5 lg:p-10 bg-neutral-50 dark:bg-slate-900 gap-y-6 lg:gap-y-0'>
+                    <section className='lg:flex lg:flex-row p-5 lg:p-10 bg-slate-100 min-h-screen dark:bg-slate-900 gap-y-6 lg:gap-y-0'>
 
-                        <div className='lg:fixed lg:w-72 xl:w-1/4 px-8 inset-y-12 mt-16 md:mt-20 h-max  lg:h-auto dark:bg-slate-800 bg-slate-100 rounded-xl lg:rounded-2xl xl:rounded-[1.8rem] flex py-10'>
+                        <div className='lg:fixed lg:w-72 xl:w-1/4 px-8 inset-y-12 mt-16 md:mt-20 h-max  lg:h-auto dark:bg-slate-800 bg-white rounded-xl lg:rounded-2xl xl:rounded-[1.8rem] flex py-10'>
 
                             <div className='flex justify-between space-y-12 flex-col h-full w-full'>
                                 <div>
@@ -64,7 +64,7 @@ export const Profile = () => {
 
                                 <div className="w-full mx-auto text-center">
                                     <Link to="/dashboard">
-                                        <button className="space-x-2 mx-auto xl:w-80 border-2 dark:border-slate-800  md:text-lg dark:text-slate-300 text-center px-7 md:px-10 py-2.5 lg:py-3.5 rounded-2xl bg-blue-500 text-white font-semibold hover:bg-blue-700">
+                                        <button className="space-x-2 mx-auto xl:w-80  md:text-lg dark:text-slate-300 text-center px-7 md:px-10 py-2.5 lg:py-3.5 rounded-2xl bg-blue-500 text-white font-semibold hover:bg-blue-700">
                                             <i className="lni lni-cloud-upload"></i>
                                             <span className="font-semibold text-xs lg:text-sm">View Saved Projects</span>
                                         </button>

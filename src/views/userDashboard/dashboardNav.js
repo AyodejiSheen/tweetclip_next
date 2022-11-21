@@ -29,9 +29,9 @@ export const DashboardNav = () => {
         <>
 
             <div className={isDark === 'dark' ? 'dark' : ""}>
-                <section className='bg-neutral-50 dark:bg-slate-900 h-screen'>
+                <section className='bg-white dark:bg-slate-900 h-screen'>
 
-                    <div className='flex justify-between items-center px-4 md:px-6 lg:px-12 2xl:px-32 fixed w-full h-16 md:h-20 lg:h-24 py-3 lg:py-4 bg-neutral-100 dark:bg-slate-900 lg:gap-16 z-50'>
+                    <div className='flex justify-between items-center px-4 md:px-6 lg:px-12 2xl:px-32 fixed w-full h-16 md:h-20 lg:h-24 py-3 lg:py-4 bg-white dark:bg-slate-900 lg:gap-16 z-50'>
                         <Link to="/dashboard" className='lg:w-1/5 xl:w-1/4'>
                             <img src={Logo} className="w-32 object-contain xl:w-64 md:w-44" alt='tweeclip-logo' />
                         </Link>
@@ -61,7 +61,7 @@ export const DashboardNav = () => {
 
                                 <div className='flex gap-2  md:gap-6  items-center'>
                                     <div className="flex  items-center flex-1 ">
-                                        <div className="relative w-32 md:w-80 lg:w-64 focus-within:text-sky-500">
+                                        <div className="relative w-32 md:w-80 lg:w-64 focus-within:text-sky-500 border-2 rounded-xl">
                                             <div className="absolute inset-y-0 flex items-center pl-3">
                                                 <svg className="w-4 h-4 dark:text-slate-300" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                                                     <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>

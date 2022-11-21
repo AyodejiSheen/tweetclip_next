@@ -7,7 +7,7 @@ import ArtBoardContext from "./context";
 import ArtboardReducers from "./reducer";
 
 
-import { CHANGE_COLOR, GET_FONTS, FONT_SIZE, GET_ALL_ARTBOARDS, NEW_TWEET, GET_SINGLE_ARTBOARD, CHANGE_BG_COLOR } from "./actions";
+import { CHANGE_COLOR, GET_FONTS, FONT_SIZE, GET_ALL_ARTBOARDS, NEW_TWEET, GET_SINGLE_ARTBOARD, CHANGE_BG_COLOR, CHANGE_BG_URL, NO_ARTBOARD_FOUND } from "./actions";
 import { useNavigate } from "react-router-dom";
 
 
@@ -51,6 +51,13 @@ const ArtboardState = (props) => {
         })
     }
 
+    const changeBgUrl = (value) => {
+        dispatch({
+            type: CHANGE_BG_URL,
+            payload: value
+        })
+    }
+
 
     const getFonts = async (value) => {
         dispatch({
@@ -79,7 +86,11 @@ const ArtboardState = (props) => {
                 })
             }).catch((err) => {
                 const { data } = err.response
-                setAlert({ msg: data.message, type: "fail" })
+                if (data.isSuccess === false) {
+                    dispatch({
+                        type: NO_ARTBOARD_FOUND
+                    })
+                }
             })
     }
 
@@ -140,6 +151,7 @@ const ArtboardState = (props) => {
             getAllProjects,
             getTweet,
             getSingleArtboard,
+            changeBgUrl,
         }}>
 
             {/* to make the fuctions and state availabe globally */}

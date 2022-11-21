@@ -17,7 +17,7 @@ export const Controls = () => {
     return (
         <>
 
-            <div className='space-y-4'>
+            <div className='space-y-4 py-8'>
                 <div className="border-b-2 border-slate-300 dark:border-slate-600 mb-8 pb-4">
                     <h2 className="font-bold text-xl text-slate-500 dark:text-slate-300">Tools</h2>
                 </div>

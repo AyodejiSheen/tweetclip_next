@@ -26,18 +26,18 @@ export const Artboard = () => {
         getSingleArtboard(id)
     }, [id]);
 
-
+    console.log(artboardProps)
 
 
     return (
         <>
             <div className="mb-6 lg:hidden">
                 <button onClick={() => navigate(-1)} className="font-semibold bg-slate-300 px-6 py-2 rounded-full text-xs md:text-sm"> <i class="lni lni-arrow-left"></i> Back</button>
-            </div>
+            </div> 
 
             {
                 artboardLoading ?
-                    <section className="flex flex-col justify-between p-6 md:p-14 h-max gap-12 md:gap-24 rounded-xl shadow-lg" style={{ backgroundColor: `${artboardProps.bgColor}`, color: `${artboardProps.fontColor}` }}>
+                    <section className="flex flex-col justify-between p-6 md:p-14 h-max gap-12 md:gap-24 rounded-xl shadow-lg w-full" style={{ backgroundColor:`${artboardProps.bgColor}`, color: `${artboardProps.fontColor}`, backgroundImage: `url(${artboardProps.bgUrl})`, backgroundSize:'cover', backgroundRepeat:'no-repeat' }}>
                         {/* top */}
                         <div className="flex justify-between items-center">
                             <div className="flex gap-3 md:gap-5 items-center">

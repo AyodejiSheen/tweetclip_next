@@ -6,7 +6,9 @@ import {
     GET_SINGLE_ARTBOARD,
     GET_ALL_ARTBOARDS,
     NEW_TWEET,
-    CHANGE_BG_COLOR
+    CHANGE_BG_COLOR,
+    NO_ARTBOARD_FOUND,
+    CHANGE_BG_URL,
 
 } from './actions'
 
@@ -22,24 +24,30 @@ const ArtboardReducers = (state, action) => {
         case CHANGE_COLOR:
             return {
                 ...state,
-                artboardProps: { fontColor: action.payload }
+                artboardProps: { ...state.artboardProps, fontColor: action.payload }
             }
         case CHANGE_BG_COLOR:
             return {
                 ...state,
-                artboardProps: { bgColor: action.payload }
+                artboardProps: { ...state.artboardProps, bgColor: action.payload }
+            }
+
+        case CHANGE_BG_URL:
+            return {
+                ...state,
+                artboardProps: { ...state.artboardProps, bgUrl: action.payload }
             }
 
         case GET_FONTS:
             return {
                 ...state,
-                artboardProps: { fontStyle: action.payload }
+                artboardProps: { ...state.artboardProps, fontStyle: action.payload }
             }
 
         case FONT_SIZE:
             return {
                 ...state,
-                artboardProps: { fontSize: action.payload }
+                artboardProps: { ...state.artboardProps, fontSize: action.payload }
             }
 
         case GET_ALL_ARTBOARDS:
@@ -47,7 +55,14 @@ const ArtboardReducers = (state, action) => {
                 ...state,
                 allProjects: action.payload,
                 allArtboardLoading: true,
-                projectId:null,
+                projectId: null,
+            }
+
+        case NO_ARTBOARD_FOUND:
+            return {
+                ...state,
+                allArtboardLoading: true,
+                projectId: null
             }
 
         case NEW_TWEET:
@@ -55,6 +70,7 @@ const ArtboardReducers = (state, action) => {
             return {
                 ...state,
                 allProjects: { ...state.Projects, res },
+                singleArtboard: action.payload,
                 artboardLoading: true,
                 artboardProps: res.props,
                 allArtboardLoading: false,

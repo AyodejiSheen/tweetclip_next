@@ -27,9 +27,9 @@ export const DashHome = () => {
                 loading ?
 
 
-                    <section className='lg:flex items-center lg:flex-row p-5 lg:p-10 bg-neutral-50 dark:bg-slate-900 gap-y-6 lg:gap-y-0'>
+                    <section className='lg:flex lg:flex-row p-5 lg:p-10 bg-slate-100 dark:bg-slate-900 gap-y-6 lg:gap-y-0 min-h-screen'>
 
-                        <div className='lg:fixed lg:w-72 xl:w-1/4 px-8 inset-y-16 mt-16 md:mt-20 h-96 lg:h-auto dark:bg-slate-800  bg-slate-100 rounded-xl lg:rounded-2xl xl:rounded-[1.8rem] flex'>
+                        <div className='lg:fixed lg:w-72 xl:w-1/4 px-8 inset-y-16 mt-16 md:mt-20 h-96 lg:h-auto dark:bg-slate-800  bg-white rounded-xl lg:rounded-2xl xl:rounded-[1.8rem] flex'>
                             <div className='m-auto space-y-6 flex flex-col justify-center'>
                                 <div className='mx-auto rounded-full flex items-center justify-center w-36 h-36 lg:w-24 lg:h-24 xl:w-36 xl:h-36 bg-blue-500 text-white text-6xl font-medium lg:text-3xl'><i class="lni lni-download"></i></div>
 
@@ -40,9 +40,9 @@ export const DashHome = () => {
                         </div>
 
                         <div className='lg:w-flex-1 lg:ml-80 xl:ml-[28%] my-8 lg:my-20'>
-                            {
-                                allArtboards === null ? (<p className='text-center'>You have no project yet please import a link to create one</p>) : (<AllProjects />)
-                            }
+
+                            <AllProjects />
+
                         </div>
                     </section>
 
