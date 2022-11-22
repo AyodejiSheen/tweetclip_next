@@ -61,13 +61,13 @@ export const DashboardNav = () => {
 
                                 <div className='flex gap-2  md:gap-6  items-center'>
                                     <div className="flex  items-center flex-1 ">
-                                        <div className="relative w-32 md:w-80 lg:w-64 focus-within:text-sky-500 border-2 rounded-xl">
+                                        <div className="relative w-32 md:w-80 lg:w-64 focus-within:text-sky-500 border-2 dark:border-slate-400 rounded-xl">
                                             <div className="absolute inset-y-0 flex items-center pl-3">
                                                 <svg className="w-4 h-4 dark:text-slate-300" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                                                     <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
                                                 </svg>
                                             </div>
-                                            <input className="w-full pl-8 pr-2 py-2 h-10 md:h-14  text-xs md:text-sm text-gray-700 placeholder-gray-600 bg-white-100 border-0 rounded-xl dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-slate-700 dark:text-slate-300 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input" type="text" placeholder="Search for projects" aria-label="Search" />
+                                            <input className="w-full pl-8 pr-2 py-2 h-10 md:h-14  text-xs md:text-sm text-gray-700 placeholder-gray-600 bg-white-100 rounded-xl dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-slate-700 dark:text-slate-300 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input" type="text" placeholder="Search for projects" aria-label="Search" />
                                         </div>
                                     </div>
 

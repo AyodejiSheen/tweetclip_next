@@ -90,7 +90,6 @@ const AuthState = (props) => {
                 let userLoading = await loadUsersDetails();
                 if (userLoading) {
                     navigate("/dashboard")
-                    setAlert({ msg: data.message, type: "success" })
                 }
             }).catch((err) => {
                 const { data } = err.response;

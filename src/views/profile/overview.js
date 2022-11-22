@@ -29,6 +29,16 @@ export const Overview = () => {
                     </div>
 
                     <div className="md:flex justify-between">
+                        <div className="font-medium dark:text-slate-600 text-slate-400 text-sm md:text-base">Subscription Date</div>
+                        <div className="font-semibold  dark:text-slate-300  text-slate-600">12 - 12 - 2022</div>
+                    </div>
+
+                    <div className="md:flex justify-between">
+                        <div className="font-medium dark:text-slate-600 text-slate-400 text-sm md:text-base">Expiry Date</div>
+                        <div className="font-semibold  dark:text-slate-300  text-slate-600">12 - 12 - 2023</div>
+                    </div>
+
+                    <div className="md:flex justify-between">
                         <div className="font-medium dark:text-slate-600 text-slate-400 text-sm md:text-base">Email Address</div>
                         <div className="font-semibold dark:text-slate-300 text-slate-600">{user.email}</div>
                     </div>

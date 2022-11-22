@@ -16,7 +16,7 @@ export const NewProject = () => {
                     </div>
                 </div>
 
-                <div className='lg:w-2/3 xl:flex-1 lg:ml-80 xl:ml-[28%] my-8 lg:my-20 order-1 lg:order-2 w-full mt-16 md:mt-2'>
+                <div className='lg:w-2/3 xl:flex-1 lg:ml-80 xl:ml-[28%] my-8 lg:my-20 order-1 lg:order-2 w-full mt-16 md:mt-20'>
                     <Artboard />
                 </div>
             </section>
