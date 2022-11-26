@@ -33,7 +33,7 @@ export const MyComposition = (props) => {
                     artboardLoading ?
 
                         <div>
-                            <AbsoluteFill className='px-10 border-4 border-green-700'>
+                            <AbsoluteFill className='px-10 border-4 border-green-700 bg-red-500 text-white'>
                                 <h1 className="break-words font-semibold " style={{ fontFamily: ` ${artboardProps.fontStyle}`, fontSize: `${artboardProps.fontSize}px` }} >
                                     <Title />
                                 </h1>
