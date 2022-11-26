@@ -8,6 +8,7 @@ import { Security } from "./security"
 import { Devices } from "./devices"
 import AuthContext from "../../context/auth/context"
 import PlanContext from "../../context/plans/context"
+import { Subscription } from "./Subscription"
 
 
 
@@ -85,9 +86,16 @@ export const Profile = () => {
                                     <i className="lni lni-cloud-download"></i>
                                     <p>Edit Profile</p>
                                 </div>
+
+                                <div onClick={() => showNavTabs("subscription")} className={`cursor-pointer border-r-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center  space-x-2 flex-none text-sm md:text-base ${navTabs === "subscription" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
+                                    <i className="lni lni-cloud-download"></i>
+                                    <p>Subscription</p>
+                                </div>
+
+
                                 <div onClick={() => showNavTabs("plan")} className={`cursor-pointer border-r-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center space-x-2 text-sm md:text-base ${navTabs === "plan" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
                                     <i className="lni lni-cloud-download"></i>
-                                    <p>Plan</p>
+                                    <p>Plans</p>
                                 </div>
 
                                 <div onClick={() => showNavTabs("security")} className={`cursor-pointer border-r-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center space-x-2 text-sm md:text-base ${navTabs === "security" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
@@ -115,6 +123,15 @@ export const Profile = () => {
                                     navTabs === "editProfile" && (
                                         <div data-aos="fade-up">
                                             <EditProfile />
+                                        </div>
+                                    )
+                                }
+
+
+                                {
+                                    navTabs === "subscription" && (
+                                        <div data-aos="fade-up">
+                                            <Subscription />
                                         </div>
                                     )
                                 }

@@ -4,6 +4,10 @@
 export const Devices = () => {
     return (
         <>
+        <section className=" dark:bg-slate-900 space-y-6">
+                <div className="border-b-2 border-slate-300 dark:border-slate-600 pb-6">
+                    <h2 className="font-bold text-xl text-slate-500 dark:text-slate-300">Your Devices</h2>
+                </div>
 
             <div className="md:grid md:grid-cols-2 2xl:grid-cols-3 gap-6 space-y-4 md:space-y-0">
 
@@ -58,6 +62,8 @@ export const Devices = () => {
                     </div>
                 </div>
             </div>
+
+            </section>
 
         </>
     )
