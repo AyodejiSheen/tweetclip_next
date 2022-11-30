@@ -38,7 +38,6 @@ function App() {
     setAuthToken(localStorage.ctoken)
   }
 
-
   return (
     <>
       <Alert />
