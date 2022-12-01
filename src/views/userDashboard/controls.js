@@ -143,7 +143,7 @@ export const Controls = () => {
 
 
                 <div className="">
-                    <button data-aos="fade-in" data-aos-duration="600"
+                    <button onClick={() => showItem('generated')} data-aos="fade-in" data-aos-duration="600"
                         data-aos-easing="ease-in-out" className="space-x-2 w-full border-2 dark:border-slate-800 text-lg dark:text-slate-300 text-center py-5 rounded-2xl bg-blue-500 text-white font-semibold">
                         <i className="lni lni-video text-2xl"></i>
                         <span className="text-sm font-semibold">Generate Video</span>

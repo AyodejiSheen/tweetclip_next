@@ -7,6 +7,7 @@ import { ProfileNav } from '../../components/profileNav'
 import AuthContext from '../../context/auth/context'
 import { LinkImport } from '../../components/linkImport'
 import ArtBoardContext from '../../context/artboard/context'
+import { VideoComplete } from '../../components/videoComplete'
 
 
 
@@ -98,6 +99,12 @@ export const DashboardNav = () => {
                         {
                             show === "import" && (
                                 <LinkImport />
+                            )
+                        }
+
+                        {
+                            show === 'generated' && (
+                                <VideoComplete/>
                             )
                         }
 
