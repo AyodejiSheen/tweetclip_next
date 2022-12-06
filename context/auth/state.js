@@ -213,12 +213,17 @@ const AuthState = (props) => {
                 setLoading(true);
                 return true;
             }).catch((err) => {
-                dispatch({
-                    type: USER_LOADED_FAIL
-                })
+                setAlert({ msg: err.message, type: "fail" })
                 router.push('/');
-                setAlert({ msg: "Token not found!", type: "fail" })
-                return false;
+                if (err.response) {
+                    dispatch({
+                        type: USER_LOADED_FAIL
+                    })
+                    const { data } = err.response
+                    setAlert({ msg: data.message, type: "fail" })
+                    router.push('/');
+                    return false;
+                }
             })
         return res;
     }
