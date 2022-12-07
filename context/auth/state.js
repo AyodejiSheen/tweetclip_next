@@ -177,15 +177,15 @@ const AuthState = (props) => {
         let details = { email: data.email, code: data.code }
         await axios.put(`${baseUrl}/browser_confirmation/${data.id}`, details, config)
             .then(async (response) => {
-                const { data } = response
+                const { data } = response;
                 localStorage.setItem('ctoken', data.token)
                 dispatch({
                     type: BROWSER_CONFIG_SUCCESS,
                 })
+                    setAlert({ msg: data.message, type: "success" })
                 let userLoading = await loadUsersDetails();
                 if (userLoading) {
                     router.push('/dashboard')
-                    setAlert({ msg: data.message, type: "success" })
                 }
                 return true;
             }).catch((err) => {
