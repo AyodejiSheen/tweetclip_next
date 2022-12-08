@@ -5,12 +5,10 @@ import { MyComposition } from "./composition";
 
 export const RemotionRoot = () => {
 
-    let { singleArtboard } = useContext(ArtBoardContext)
-
     return (
         <>
             <Composition
-                id={singleArtboard.id}
+                id={"HelloWorld"}
                 component={MyComposition}
                 durationInFrames={150}
                 fps={30}

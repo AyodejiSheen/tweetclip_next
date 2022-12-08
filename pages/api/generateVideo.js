@@ -26,7 +26,7 @@ export default async function handler(req, res) {
     // Generate video
     const reponse = await axios.post(`${baseUrl}/generate-video`,
       {
-        composition,
+        composition:'HelloWorld',
         serveUrl,
       }
     );
