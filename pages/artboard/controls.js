@@ -24,7 +24,7 @@ const Controls = () => {
         });
     };
 
-    console.log(singleArtboard)
+    // console.log(singleArtboard)
 
     return (
         <>

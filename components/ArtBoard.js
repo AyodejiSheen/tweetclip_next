@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import ArtBoardContext from '../context/artboard/context';
 import style from '../styles/artboard.module.css'
 import ArtboardState from '../context/artboard/state';
-import { loadFont } from "@remotion/google-fonts/Montserrat";
+import { loadFont } from "@remotion/google-fonts/TitanOne";
 
 
 
@@ -14,7 +14,7 @@ export const ArtBoard = () => {
     // const videoConfig = useVideoConfig();
     // const frame = useCurrentFrame();
 
-    const { fontFamily } = loadFont(); // "Titan One"
+    const { fontFamily } = loadFont; // "Titan One"
 
 
 

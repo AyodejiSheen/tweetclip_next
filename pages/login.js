@@ -49,7 +49,8 @@ const Login = () => {
         <title>Login</title>
       </Head>
 
-        <ArtBoard/>
+        {/* <ArtBoard/> */}
+        
       <AuthLayout>
         <div className='space-y-2'>
           <h2 className='text-xl font-extrabold text-center'> Sign In</h2>
