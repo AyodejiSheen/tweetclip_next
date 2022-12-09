@@ -8,6 +8,7 @@ import user3 from '../assets/media/user3.webp'
 import user4 from '../assets/media/user4.webp'
 import user5 from '../assets/media/user5.webp'
 import Head from "next/head";
+import Link from "next/link";
 
 const HomePage = () => {
     return (
@@ -44,11 +45,11 @@ const HomePage = () => {
                                     <a href="#" className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
                                 </li>
                                 <div>
-                                    <button className="text-blue-600 border-2 border-blue-600 font-semibold rounded-full px-6 py-2">Try Now</button>
+                                    <Link href='signup' className="text-blue-600 border-2 border-blue-600 font-semibold rounded-full px-6 py-2">Try Now</Link>
                                 </div>
 
                                 <div>
-                                    <button className="text-white bg-blue-600 font-semibold rounded-full px-6 py-2.5">Sign in</button>
+                                    <Link href='login' className="text-white bg-blue-600 font-semibold rounded-full px-6 py-2.5">Sign in</Link>
                                 </div>
                             </ul>
                         </div>
@@ -60,8 +61,10 @@ const HomePage = () => {
                 <div className="container mx-auto md:flex justify-between items-center px-4 md:px-0 space-y-14 md:space-y-0">
                     <div className="md:w-1/2 text-white space-y-8">
                         <h3 className="text-4xl md:text-7xl font-bold">Automatically convert your tweets into videos</h3>
-                        <p className="text-lg md:text-2xl">Growth hack your Twitter following by repurposing your content as Instagram Reels, TikTok, and Youtube Shorts</p>
-                        <button className="w-56 bg-white text-blue-600 h-16 rounded-full font-medium text-lg">Get Started</button>
+                        <p className="text-lg md:text-2xl">Growth hack your Twitter following by repurposing your content as Instagram Reels, TikTok, and Youtube Shorts.</p>
+                        <div className="">
+                            <Link href='signup' className="px-20 py-5  bg-white text-blue-600 h-16 rounded-full font-medium text-lg">Get Started</Link>
+                        </div>
                     </div>
 
                     <div className="md:w-1/2 flex justify-center md:justify-end">
@@ -74,41 +77,41 @@ const HomePage = () => {
                 <div className="container mx-auto space-y-14 px-4">
                     <h3 className="text-center text-3xl md:text-4xl font-semibold">Trusted by our beloved users including:</h3>
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-10 items-center ">
-                        <div><Image src={user1} className="rounded-full w-56 mx-auto" alt="tweetclip user" data-aos="fade-in"/></div>
-                        <div><Image src={user2} className="rounded-full w-56 mx-auto" alt="tweetclip user" data-aos="fade-in"/></div>
-                        <div><Image src={user3} className="rounded-full w-56 mx-auto" alt="tweetclip user" data-aos="fade-in"/></div>
-                        <div><Image src={user4} className="rounded-full w-56 mx-auto" alt="tweetclip user" data-aos="fade-in"/></div>
-                        <div><Image src={user5} className="rounded-full w-56 mx-auto " alt="tweetclip user" data-aos="fade-in"/></div>
+                        <div><Image src={user1} className="rounded-full w-56 mx-auto" alt="tweetclip user" data-aos="fade-in" /></div>
+                        <div><Image src={user2} className="rounded-full w-56 mx-auto" alt="tweetclip user" data-aos="fade-in" /></div>
+                        <div><Image src={user3} className="rounded-full w-56 mx-auto" alt="tweetclip user" data-aos="fade-in" /></div>
+                        <div><Image src={user4} className="rounded-full w-56 mx-auto" alt="tweetclip user" data-aos="fade-in" /></div>
+                        <div><Image src={user5} className="rounded-full w-56 mx-auto " alt="tweetclip user" data-aos="fade-in" /></div>
                     </div>
                 </div>
             </section>
 
             <section className="container mx-auto py-24">
-                <div className="flex justify-between items-center ">
-                    <div className="w-1/2 px-32">
-                        <h3 className="text-6xl font-semibold">Grow your Personal Brand FAST across all platforms</h3>
+                <div className="md:flex justify-between items-center ">
+                    <div className="md:w-1/2 px-4 md:pr-32">
+                        <h3 className="text-3xl md:text-6xl font-semibold text-center md:text-left">Grow your Personal Brand FAST across all platforms</h3>
                     </div>
 
-                    <div className="w-1/2 grid grid-cols-2 gap-24 justify-center">
-                        <div className="space-y-2 w-64">
+                    <div className="md:w-1/2 grid grid-cols-1 md:grid-cols-2 md:gap-14 justify-items-center ">
+                        <div className="space-y-2 border-2 rounded-xl border-blue-100 p-5 md:p-10">
                             <p className="text-4xl text-blue-600"><i className="lni lni-volume-high"></i></p>
-                            <h3 className="text-2xl font-semibold">Repurpose</h3>
-                            <p className="font-medium text-lg">Repurpose your Best Tweets as Videos</p>
+                            <h3 className="text-lg md:text-2xl font-semibold">Repurpose</h3>
+                            <p className="font-medium text-sm md:text-lg">Repurpose your Best Tweets as Videos</p>
                         </div>
 
-                        <div className="space-y-2 w-64">
+                        <div className="space-y-2 border-2 rounded-xl border-blue-100 p-5 md:p-10">
                             <p className="text-4xl text-blue-600"><i className="lni lni-volume-high"></i></p>
                             <h3 className="text-2xl font-semibold">Optimize</h3>
                             <p className="font-medium text-lg">Repurpose your Best Tweets as Videos</p>
                         </div>
 
-                        <div className="space-y-2 w-64">
+                        <div className="space-y-2  border-2 rounded-xl border-blue-100 p-5 md:p-10">
                             <p className="text-4xl text-blue-600"><i className="lni lni-volume-high"></i></p>
                             <h3 className="text-2xl font-semibold">Growth Hack</h3>
                             <p className="font-medium text-lg">Repurpose your Best Tweets as Videos</p>
                         </div>
 
-                        <div className="space-y-2 w-64">
+                        <div className="space-y-2 border-2 rounded-xl border-blue-100 p-5 md:p-10">
                             <p className="text-4xl text-blue-600"><i className="lni lni-volume-high"></i></p>
                             <h3 className="text-2xl font-semibold">Awareness</h3>
                             <p className="font-medium text-lg">Repurpose your Best Tweets as Videos</p>

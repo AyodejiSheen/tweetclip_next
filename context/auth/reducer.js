@@ -38,8 +38,6 @@ const AuthReducers = (state, action) => {
 
         case SIGNIN_SUCCESS:
         case EMAIL_VERIFY_SUCCESS:
-        case BROWSER_CONFIG_SUCCESS:
-        case PASSWORD_RESET_SUCCESS:
             localStorage.setItem('ctoken', action.payload)
             return {
                 ...state,
@@ -63,11 +61,11 @@ const AuthReducers = (state, action) => {
                 isLoading: false,
                 isAuthenticated: false
             }
-        
+
         case EDIT_PROFILE:
-            return{
+            return {
                 ...state,
-                user: {displayName:action.payload},
+                user: { displayName: action.payload },
             }
 
 

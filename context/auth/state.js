@@ -150,19 +150,10 @@ const AuthState = (props) => {
     let details = { code: data.code, password: data.password };
     await axios
       .put(`${baseUrl}/password_reset/${state.user.email}`, details, config)
-      .then(async (response) => {
+      .then((response) => {
         const { data } = response;
-        console.log(data)
-        dispatch({
-          type: PASSWORD_RESET_SUCCESS,
-          payload: data.token,
-        });
-        console.log(data.token)
-        // let userLoading = await loadUsersDetails();
-        // if (userLoading) {
-        //   router.push("/dashboard");
-        //   setAlert({ msg: data.message, type: "success" });
-        // }
+        setAlert({ msg: data.message, type: "success" });
+        router.push("/login");
       })
       .catch((err) => {
         setAlert({ msg: err.message, type: "fail" });
@@ -177,17 +168,13 @@ const AuthState = (props) => {
     let details = { email: data.email, code: data.code };
     await axios
       .put(`${baseUrl}/browser_confirmation/${data.id}`, details, config)
-      .then(async (response) => {
+      .then((response) => {
         const { data } = response;
-        localStorage.setItem("ctoken", data.token);
         dispatch({
           type: BROWSER_CONFIG_SUCCESS,
         });
         setAlert({ msg: data.message, type: "success" });
-        let userLoading = await loadUsersDetails();
-        if (userLoading) {
-          router.push("/dashboard");
-        }
+        router.push("/login");
         return true;
       })
       .catch((err) => {
