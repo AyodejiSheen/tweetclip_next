@@ -1,12 +1,7 @@
-
-import { Player } from "@remotion/player";
-import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
-import { ArtBoard } from "../../components/ArtBoard";
 import { ArtboardSkeleton } from "../../components/skeletons/artboardSkeleton";
 import ArtBoardContext from "../../context/artboard/context";
 import UiContext from "../../context/UI/context";
-import { MyComposition } from "../../remotion/composition";
 
 
 
@@ -81,20 +76,10 @@ const Artboard = () => {
                             {
                                 [1].map((n) => <ArtboardSkeleton key={n} theme={isDark === "light" ? "light" : "dark"} />)
                             }
-                            <ArtBoard artboardProps={artboardProps} className="hidden"/>
                         </div>
 
                 }
             </section>
-
-            {/* <Player
-                component={MyComposition}
-                durationInFrames={120}
-                compositionWidth={1280}
-                compositionHeight={720}
-                fps={30}
-                controls
-            /> */}
         </>
     )
 };

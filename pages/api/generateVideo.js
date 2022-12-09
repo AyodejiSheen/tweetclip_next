@@ -6,9 +6,8 @@ import { deploySite, getOrCreateBucket } from "@remotion/lambda";
 import { baseUrl } from "../../baseUrl";
 
 export default async function handler(req, res) {
-  console.log(req.body)
-  const { composition, siteName } = JSON.parse(req.body);
-
+  console.log(req.body);
+  const { composition, siteName, token } = JSON.parse(req.body);
   try {
     // Get the bucket name
     const { bucketName } = await getOrCreateBucket({
@@ -24,19 +23,22 @@ export default async function handler(req, res) {
     });
 
     // Generate video
-    const reponse = await axios.post(`${baseUrl}/generate-video`,
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const reponse = await axios.post(
+      `http://localhost:3001/api/v1/generate-video`,
       {
-        composition:'HelloWorld',
+        composition,
         serveUrl,
-      }
+      },
+      config
     );
-
-    // console.log(reponse.data);
-    res.status(200).json({ name: serveUrl });
-
+    return res.status(200).json(reponse.data);
   } catch (error) {
-    console.log(error)
+    console.log(error);
+    return res.status(400).json(error);
   }
-
 }
-

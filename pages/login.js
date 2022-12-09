@@ -14,7 +14,6 @@ import AuthContext from '../context/auth/context';
 import UiContext from '../context/UI/context';
 import AuthLayout from '../components/layouts/authLayout';
 import Head from 'next/head';
-import { ArtBoard } from '../components/ArtBoard';
 
 
 

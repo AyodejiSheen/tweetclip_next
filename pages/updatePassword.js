@@ -1,7 +1,8 @@
 import { ErrorMessage, Field, Form, Formik } from "formik"
 import Head from "next/head";
 import Link from "next/link";
-import { useContext, useState } from "react";
+import { useRouter } from "next/router";
+import { useContext, useEffect, useState } from "react";
 import * as Yup from 'yup';
 import AuthLayout from "../components/layouts/authLayout";
 import AuthContext from "../context/auth/context";
@@ -13,6 +14,13 @@ import UiContext from "../context/UI/context";
 
 const UpdatePassword = () => {
 
+    const router = useRouter();
+    
+    useEffect(() => {
+        if(user.email === null){
+            router.push('/')
+        }
+    }, [])
 
     const [otp, setOtp] = useState(new Array(4).fill(""));
     const [otpToken, setOtpToken] = useState("");
@@ -68,6 +76,8 @@ const UpdatePassword = () => {
             // Loading.remove();
         }, 2000)
     }
+
+
 
 
 
