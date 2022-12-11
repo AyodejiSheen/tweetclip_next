@@ -46,9 +46,6 @@ export const Plan = () => {
     return (
         <>
 
-            {/* <Head>
-                <title>Plan</title>
-            </Head> */}
 
 
 
@@ -58,7 +55,7 @@ export const Plan = () => {
                     <section className=" dark:bg-slate-900 ">
                         <section className="space-y-7 my-3">
 
-                            <section className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-8">
+                            <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
 
                                 {
                                     allPlans.map((eachplan, i) => {
@@ -86,7 +83,7 @@ export const Plan = () => {
                                                         eachplan.prices.map((price) => {
                                                             return (
 
-                                                                <div className="rounded-full items-center cursor-pointer bg-blue-600 text-white py-5 font-semibold px-6" onClick={() => createTrans(price.id)}>
+                                                                <div className="rounded-full items-center cursor-pointer bg-blue-600 text-white py-5 font-semibold px-6 w-max lg:w-auto" onClick={() => createTrans(price.id)}>
                                                                     {price.unit_amount} {price.currency} /<span>{price.recurring === 2 ? "Year" : price.recurring === 1 ? "Month" : ""}</span>
                                                                 </div>
                                                             )
