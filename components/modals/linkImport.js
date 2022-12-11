@@ -1,6 +1,6 @@
 // import dp from '../../assets/dp.png'
 
-import { useContext,  useState } from "react"
+import { useContext, useState } from "react"
 import ArtBoardContext from "../../context/artboard/context";
 import UiContext from "../../context/UI/context";
 
@@ -28,7 +28,6 @@ const LinkImport = (props) => {
 
             <div className="absolute top-0 left-0" >
                 <div className="inset-0 fixed bg-slate-800 w-screen z-50 h-[100vh] bg-opacity-70 flex items-center px-3">
-
                     <div data-aos="fade-down" data-aos-duration="600" data-aos-easing="ease-in-out" className="rounded-lg space-y-4 bg-white dark:bg-slate-700 mx-auto w-full lg:w-2/3 2xl:w-1/2 py-3">
                         <div className="flex justify-between items-center  2xl:px-8  border-b dark:border-slate-600 py-4  px-4 md:px-6">
                             <div>

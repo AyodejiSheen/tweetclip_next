@@ -11,6 +11,7 @@ import { Subscription } from "./Subscription"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import DashboardLayout from "../../components/layouts/dashboardLayout"
+import Head from "next/head"
 
 
 
@@ -134,9 +135,22 @@ const Profile = () => {
 
                                     {
                                         navTabs === "plan" && (
-                                            <div data-aos="fade-up">
-                                                <Plan />
-                                            </div>
+
+                                            <>
+                                                <Head>
+                                                    <title>Plan</title>
+                                                </Head>
+
+                                                <div data-aos="fade-up">
+                                                    <div className="border-b-2 border-slate-300 dark:border-slate-600 pb-3">
+                                                        <div className="text-center space-y-3">
+                                                            <h2 className="text-2xl text-slate-800 dark:text-slate-300 font-bold">Upgrade a Plan</h2>
+                                                            <p className="text-slate-500">If you need more info, please check <span className="font-bold text-blue-600">Pricing Guidelines.</span></p>
+                                                        </div>
+                                                    </div>
+                                                    <Plan />
+                                                </div>
+                                            </>
                                         )
                                     }
 

@@ -1,8 +1,9 @@
 import { useContext, useState } from "react"
 import PlanContext from "../../context/plans/context"
-import { Loading } from 'notiflix'
 import UiContext from "../../context/UI/context"
 import Head from "next/head"
+import AuthContext from "../../context/auth/context"
+import { useRouter } from "next/router"
 
 
 export const Plan = () => {
@@ -10,10 +11,11 @@ export const Plan = () => {
     const [details, setDetails] = useState('startup')
     const [planType, setPlanType] = useState('monthly')
 
+    const router = useRouter();
 
     let { allPlans, loadingPlan, userSubscribe } = useContext(PlanContext)
-
     let { setAlert, alert } = useContext(UiContext)
+    let { isAuthenticated } = useContext(AuthContext)
 
 
     const handlePlanType = (value) => {
@@ -27,8 +29,12 @@ export const Plan = () => {
 
 
     const createTrans = (id) => {
-        setAlert({ msg: null, type: "loading" })
-        userSubscribe(id);
+        if (!isAuthenticated) {
+            router.push('login')
+        } else {
+            setAlert({ msg: null, type: "loading" })
+            userSubscribe(id);
+        }
     }
 
 
@@ -40,9 +46,9 @@ export const Plan = () => {
     return (
         <>
 
-            <Head>
+            {/* <Head>
                 <title>Plan</title>
-            </Head>
+            </Head> */}
 
 
 
@@ -50,27 +56,21 @@ export const Plan = () => {
                 loadingPlan ?
 
                     <section className=" dark:bg-slate-900 ">
-                        <div className="border-b-2 border-slate-300 dark:border-slate-600 pb-3">
-                            <div className="text-center space-y-3">
-                                <h2 className="text-2xl text-slate-800 dark:text-slate-300 font-bold">Upgrade a Plan</h2>
-                                <p className="text-slate-500">If you need more info, please check <span className="font-bold text-blue-600">Pricing Guidelines.</span></p>
-                            </div>
-                        </div>
-
                         <section className="space-y-7 my-3">
 
                             <section className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-8">
 
                                 {
-                                    allPlans.map((eachplan) => {
+                                    allPlans.map((eachplan, i) => {
+                                        console.log(i, eachplan.name)
                                         return (
-                                            <div className="shadow-xl dark:border-slate-600 rounded-xl p-6 space-y-5">
-                                                <h2 className="bg-blue-500 text-white font-semibold text-center p-3 rounded-md">{eachplan.name.toUpperCase()}</h2>
+                                            <div key={i} className="shadow-xl dark:border-slate-600 rounded-xl p-6 space-y-5">
+                                                <h2 className={`text-white font-semibold text-center p-3 rounded-md ${i === 1 ? 'bg-yellow-300 text-black' : 'bg-blue-600'}`}>{eachplan.name.toUpperCase()}</h2>
 
                                                 {
                                                     eachplan.plansToFeatures.map((eachfeature) => {
                                                         return (
-                                                            <div className="rounded-lg border border-slate-300 dark:border-slate-600 p-5 space-y-4">
+                                                            <div className="rounded-lg dark:border-slate-600 p-5 space-y-4">
                                                                 <p className="text-center border-b pb-4 font-medium">Features</p>
                                                                 <div className="flex gap-3  ">
                                                                     <p><i class="lni lni-checkmark-circle"></i></p>
@@ -86,7 +86,7 @@ export const Plan = () => {
                                                         eachplan.prices.map((price) => {
                                                             return (
 
-                                                                <div className="rounded-md items-center cursor-pointer bg-blue-500 text-white py-3 px-6" onClick={() => createTrans(price.id)}>
+                                                                <div className="rounded-full items-center cursor-pointer bg-blue-600 text-white py-5 font-semibold px-6" onClick={() => createTrans(price.id)}>
                                                                     {price.unit_amount} {price.currency} /<span>{price.recurring === 2 ? "Year" : price.recurring === 1 ? "Month" : ""}</span>
                                                                 </div>
                                                             )
@@ -103,7 +103,7 @@ export const Plan = () => {
 
                     :
 
-                    Loading.standard()
+                    <p className="text-center">Loading...</p>
             }
 
         </>
