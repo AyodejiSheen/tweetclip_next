@@ -29,7 +29,7 @@ const UpdatePassword = () => {
     let { user, updatePassword, resendCode } = useContext(AuthContext);
 
     const details = {
-        email: user.email,
+        email: "user email",
         type: 2
     }
 
@@ -100,7 +100,7 @@ const UpdatePassword = () => {
                     <Formik initialValues={intialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
                         <Form>
 
-                            <p className="text-sm text-center">Enter the code sent to {user.email}</p>
+                            <p className="text-sm text-center">Enter the code sent to user email</p>
                             <div className='my-4 md:mt-0 lg:py-1.5 flex justify-center'>
                                 {
                                     otp.map((x, index) => (

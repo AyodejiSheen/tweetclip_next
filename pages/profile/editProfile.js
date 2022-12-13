@@ -57,7 +57,7 @@ import AuthContext from "../../context/auth/context";
                                         !isLoading && user.displayPic !== null ? (
                                             <img src={`${user.displayPic.imageUrl}`} className="mx-auto rounded-full w-36" alt='img' />
                                         ) : (
-                                            <div className='mx-auto rounded-full flex items-center justify-center w-36 h-36 bg-blue-500 text-white text-6xl font-medium'>{user.email.charAt(0).toUpperCase()}</div>
+                                            <div className='mx-auto rounded-full flex items-center justify-center w-36 h-36 bg-blue-500 text-white text-6xl font-medium'>{"aolu".charAt(0).toUpperCase()}</div>
                                         )
                                     }
 

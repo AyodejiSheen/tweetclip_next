@@ -63,7 +63,7 @@ const Verification = () => {
                 <div className='space-y-2'>
                     <h2 className='text-xl font-extrabold text-center'> Verify your Email</h2>
                     <p className='font-medium text-center text-slate-400'>Enter the verification code we sent to</p>
-                    <p className='font-bold text-center '>{user.email}</p>
+                    <p className='font-bold text-center '>user email</p>
                 </div>
 
                 <div className='space-y-6 flex justify-center'>
@@ -103,7 +103,7 @@ const Verification = () => {
                     </form>
 
                 </div>
-                <p className='font-medium text-center text-xs md:text-sm'>Didn’t get the code? <button onClick={() => resendCode({email: user.email, type: 1})} className='text-sky-600'>Resend</button> </p>
+                <p className='font-medium text-center text-xs md:text-sm'>Didn’t get the code? <button onClick={() => resendCode({email: "user email", type: 1})} className='text-sky-600'>Resend</button> </p>
             </AuthLayout>
 
         </>
