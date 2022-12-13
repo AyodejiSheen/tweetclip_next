@@ -1,7 +1,11 @@
 import React, { useContext } from 'react'
 import { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom'
 import AuthContext from '../context/auth/context';
+import { useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/router';
+
+
+
 
 
 
@@ -9,12 +13,13 @@ import AuthContext from '../context/auth/context';
 
 const GoogleAuth = () => {
 
-    const navigate = useNavigate();
     let { otherAuth } = useContext(AuthContext)
 
+    const searchParams = useSearchParams();
+    const router = useRouter();
 
     function useQuery() {
-        return new URLSearchParams(useLocation().search);
+        return new searchParams;
     }
 
     let query = useQuery();
@@ -27,7 +32,7 @@ const GoogleAuth = () => {
             otherAuth(res.token)
             return true;
         } else if (res.type === 3) {
-            navigate(`/new-device/${res.email}/${res.device}`)
+            router.push(`/new-device/${res.email}/${res.device}`)
         }
     }
 
@@ -42,4 +47,6 @@ const GoogleAuth = () => {
         </>
     )
 }
+
+
 export default GoogleAuth

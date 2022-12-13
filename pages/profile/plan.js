@@ -61,8 +61,8 @@ export const Plan = () => {
                                     allPlans.map((eachplan, i) => {
                                         console.log(i, eachplan.name)
                                         return (
-                                            <div key={i} className="shadow-xl dark:border-slate-600 rounded-xl p-6 space-y-5">
-                                                <h2 className={`text-white font-semibold text-center p-3 rounded-md ${i === 1 ? 'bg-yellow-300 text-black' : 'bg-blue-600'}`}>{eachplan.name.toUpperCase()}</h2>
+                                            <div key={i} className="shadow-xl dark:border-slate-600 rounded-xl space-y-5">
+                                                <h2 className={`text-white font-semibold text-center p-3 rounded-t-md ${i === 1 ? 'bg-yellow-300 text-black' : 'bg-blue-600'}`}>{eachplan.name.toUpperCase()}</h2>
 
                                                 {
                                                     eachplan.plansToFeatures.map((eachfeature) => {
@@ -78,7 +78,7 @@ export const Plan = () => {
                                                     })
                                                 }
 
-                                                <div className="grid grid-cols-2 gap-3 text-sm font-medium items-center justify-items-stretch text-center">
+                                                <div className="grid grid-cols-2 gap-3 text-sm font-medium items-center justify-items-stretch text-center p-6">
                                                     {
                                                         eachplan.prices.map((price) => {
                                                             return (

@@ -30,7 +30,7 @@ const ProfileNav = () => {
                         <div className=''>
                             <div className='px-4 pb-4'>
                                 <div className='text-center'>
-                                    <p className='text-lg font-bold text-gray-800 dark:text-gray-200 '>{ user.displayName !== null ? user.displayName : ""}</p>
+                                    <p className='text-lg font-bold text-gray-800 dark:text-gray-200 '>{user.displayName !== null ? user.displayName : ""}</p>
                                     <p className='text-sm text-gray-800 dark:text-gray-200 '>{user.email}</p>
                                 </div>
                             </div>
@@ -66,7 +66,9 @@ const ProfileNav = () => {
                                     </div>
 
                                     <div className='text-gray-600 dark:text-gray-300 flex-1 text-sm space-y-1'>
-                                        <p className='lg:text-base font-medium'>Need Help?</p>
+                                        <Link href="/#faq">
+                                            <p className='lg:text-base font-medium'>Need Help?</p>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +85,7 @@ const ProfileNav = () => {
                                 </div>
 
                                 <div className='text-gray-600 dark:text-gray-300 flex-1 text-sm space-y-1'>
-                                    <button  className='lg:text-base font-medium'>Sign Out</button>
+                                    <button className='lg:text-base font-medium'>Sign Out</button>
                                 </div>
                             </div>
                         </div>

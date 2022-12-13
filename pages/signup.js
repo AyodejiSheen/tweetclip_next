@@ -82,8 +82,8 @@ const SignUp = () => {
 
       <AuthLayout>
         <div className='space-y-2'>
-          <h2 className='text-xl font-extrabold text-center'> Sign Up</h2>
-          <p className='font-medium text-center text-slate-400'>Create an account</p>
+          <h2 className='text-xl font-extrabold text-center'> Create Account</h2>
+          <p className='font-medium text-center text-slate-400'>Create a tweetclip account</p>
         </div>
 
         <div className='md:flex gap-6 justify-center space-y-2 md:space-y-0'>
@@ -92,7 +92,7 @@ const SignUp = () => {
               className="flex items-center justify-center w-full px-4 py-2.5 text-sm font-medium leading-5 text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray"
             >
               <Image src={google} alt="img" className="w-4 mr-3" />
-              Sign in with Google
+              Continue with Google
             </a>
           </div>
 
@@ -101,7 +101,7 @@ const SignUp = () => {
               className="flex items-center justify-center w-full px-4 py-2.5 text-sm font-medium leading-5 text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray"
             >
               <Image src={twitter} alt="img" className="w-4 mr-3" />
-              Sign in with Twitter
+              Continue with Twitter
             </a>
           </div>
         </div>
@@ -197,7 +197,7 @@ const SignUp = () => {
           </Formik>
         </div>
 
-        <p className='font-medium text-center text-xs md:text-sm'>Already have an Account? <Link href="/" className='text-sky-600'>Sign in</Link></p>
+        <p className='font-medium text-center text-xs md:text-sm'>Already have an Account? <Link href="login" className='text-sky-600'>Login</Link></p>
       </AuthLayout>
 
     </>

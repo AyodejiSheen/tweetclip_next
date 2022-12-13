@@ -8,6 +8,8 @@ import AuthState from '../context/auth/state'
 import PlanState from '../context/plans/state'
 import UiState from '../context/UI/state'
 import '../styles/globals.css'
+import NextNProgress from 'nextjs-progressbar';
+
 
 
 function MyApp({ Component, pageProps }) {
@@ -20,6 +22,7 @@ function MyApp({ Component, pageProps }) {
     AOS.init();
   }, []);
 
+
   return (
     <>
       <UiState>
@@ -27,6 +30,7 @@ function MyApp({ Component, pageProps }) {
           <PlanState>
             <ArtboardState>
               <Alert />
+              <NextNProgress color="#1C64F2" startPosition={0.3} stopDelayMs={200} height={4} options={{ easing: 'ease', speed: 500 }} />
               <Component {...pageProps} />
             </ArtboardState>
           </PlanState>

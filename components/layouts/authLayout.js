@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Logo from '../../assets/media/logo.png'
+import Link from 'next/link'
 
 const AuthLayout = ({ children }) => {
 
@@ -10,10 +11,13 @@ const AuthLayout = ({ children }) => {
                 <div className='lg:m-auto my-6'>
                     <div className='space-y-3'>
                         <div>
-                            <Image src={Logo} className="w-56 md:w-60 m-auto lg:m-0" alt='logo' priority />
+                            <Link href="/">
+                                <Image src={Logo} className="w-56 md:w-60 m-auto lg:m-0" alt='logo' priority />
+                            </Link>
                         </div>
                         <div>
-                            <p className='font-medium md:text-center text-sm  md:text-base'>Branding tools designed for your business</p>
+                            <p className='font-medium md:text-center text-sm  md:text-base'>Tools designed to Growth Hack your Twitter Following
+</p>
                         </div>
                     </div>
                 </div>

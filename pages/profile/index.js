@@ -42,7 +42,7 @@ const Profile = () => {
                             <div className='lg:fixed lg:w-72 xl:w-1/4 px-8 inset-y-12 mt-16 md:mt-20 h-max  lg:h-auto dark:bg-slate-800 bg-white rounded-xl lg:rounded-2xl xl:rounded-[1.8rem] flex py-10'>
                                 <div className='flex justify-between space-y-12 flex-col h-full w-full'>
                                     <div>
-                                        <button onClick={() => router.back()} className="font-semibold bg-slate-300 px-6 py-2 rounded-full text-xs md:text-sm"> <i class="lni lni-arrow-left"></i> Back</button>
+                                        <button onClick={() => router.back()} className="font-semibold bg-slate-100 px-6 py-2 rounded-full text-xs md:text-sm"> <i class="lni lni-arrow-left"></i> Back</button>
                                         <span>{user !== null}</span>
                                     </div>
 
@@ -66,7 +66,7 @@ const Profile = () => {
                                         <Link href="/dashboard">
                                             <button className="space-x-2 mx-auto xl:w-80  md:text-lg dark:text-slate-300 text-center px-7 md:px-10 py-2.5 lg:py-3.5 rounded-2xl bg-blue-500 text-white font-semibold hover:bg-blue-700">
                                                 <i className="lni lni-cloud-upload"></i>
-                                                <span className="font-semibold text-xs lg:text-sm">View Saved Projects</span>
+                                                <span className="font-semibold text-xs lg:text-sm">View Saved Videos</span>
                                             </button>
                                         </Link>
                                     </div>
@@ -74,39 +74,39 @@ const Profile = () => {
                             </div>
 
                             <div className='lg:w-2/3 xl:flex-1 lg:ml-80 xl:ml-[28%] my-8 lg:my-20  space-y-6'>
-                                <div className=' gap-4 flex overflow-x-scroll overflow-hidden border-y py-2.5 dark:border-slate-600'>
-                                    <div onClick={() => showNavTabs("overview")} className={`cursor-pointer border-r-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center space-x-2 text-sm md:text-base ${navTabs === "overview" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
+                                <div className=' gap-4 flex overflow-x-scroll overflow-hidden bg-white rounded-2xl px-5 justify-between border-y py-2.5 dark:border-slate-600'>
+                                    <div onClick={() => showNavTabs("overview")} className={`cursor-pointer  dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center space-x-2 text-sm md:text-base ${navTabs === "overview" ? "bg-blue-600 border-0 text-white dark:text-white rounded-2xl" : ""}`}>
                                         <i className="lni lni-save"></i>
                                         <p>Overview</p>
                                     </div>
-                                    <div onClick={() => showNavTabs("editProfile")} className={`cursor-pointer border-r-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center  flex-none space-x-2 text-sm md:text-base ${navTabs === "editProfile" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
+                                    <div onClick={() => showNavTabs("editProfile")} className={`cursor-pointer  dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center  flex-none space-x-2 text-sm md:text-base ${navTabs === "editProfile" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
                                         <i className="lni lni-cloud-download"></i>
                                         <p>Edit Profile</p>
                                     </div>
 
-                                    <div onClick={() => showNavTabs("subscription")} className={`cursor-pointer border-r-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center  space-x-2 flex-none text-sm md:text-base ${navTabs === "subscription" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
+                                    {/* <div onClick={() => showNavTabs("subscription")} className={`cursor-pointer border-r-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center  space-x-2 flex-none text-sm md:text-base ${navTabs === "subscription" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
                                         <i className="lni lni-cloud-download"></i>
                                         <p>Subscription</p>
-                                    </div>
+                                    </div> */}
 
 
-                                    <div onClick={() => showNavTabs("plan")} className={`cursor-pointer border-r-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center space-x-2 text-sm md:text-base ${navTabs === "plan" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
+                                    <div onClick={() => showNavTabs("plan")} className={`cursor-pointer dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center space-x-2 text-sm md:text-base ${navTabs === "plan" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
                                         <i className="lni lni-cloud-download"></i>
                                         <p>Plans</p>
                                     </div>
 
-                                    <div onClick={() => showNavTabs("security")} className={`cursor-pointer border-r-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center space-x-2 text-sm md:text-base ${navTabs === "security" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
+                                    <div onClick={() => showNavTabs("security")} className={`cursor-pointer  dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center space-x-2 text-sm md:text-base ${navTabs === "security" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
                                         <i className="lni lni-cloud-download"></i>
                                         <p>Security</p>
                                     </div>
 
-                                    <div onClick={() => showNavTabs("activeDevice")} className={`cursor-pointer border-r-2 dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center  space-x-2 flex-none text-sm md:text-base ${navTabs === "activeDevice" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
+                                    <div onClick={() => showNavTabs("activeDevice")} className={`cursor-pointer  dark:border-slate-600 dark:text-slate-300  px-10 py-3 flex items-center justify-center  space-x-2 flex-none text-sm md:text-base ${navTabs === "activeDevice" ? "bg-blue-600 border-0 text-white dark:text-white" : ""}`}>
                                         <i className="lni lni-cloud-download"></i>
                                         <p>Active Device</p>
                                     </div>
                                 </div>
 
-                                <div className={`rounded-2xl border-slate-300 border-2 dark:border-slate-600 px-5 md:px-8 py-6`}>
+                                <div className={`rounded-2xl  bg-white dark:border-slate-600 px-5 md:px-8 py-6`}>
 
                                     {
                                         navTabs === "overview" && (

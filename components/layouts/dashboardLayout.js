@@ -64,7 +64,7 @@ const DashboardLayout = ({ children }) => {
                       <input
                         className="w-full pl-8 pr-2 py-2 h-10 md:h-14  text-xs md:text-sm text-gray-700 placeholder-gray-600 bg-white-100 rounded-xl dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-slate-700 dark:text-slate-300 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
                         type="text"
-                        placeholder="Search for projects"
+                        placeholder="Search for videos"
                         aria-label="Search"
                       />
                     </div>

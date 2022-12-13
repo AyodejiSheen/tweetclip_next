@@ -50,7 +50,7 @@ const HomePage = () => {
                         <div className="hidden duration-500 w-full lg:block lg:w-auto mt-4 md:mt-0" id="navbar-dropdown">
                             <ul className="flex flex-col py-8 md:py-10 lg:py-4 md:px-8 mt-6  border border-gray-100 rounded-lg bg-slate-50 shadow-xl md:shadow-none lg:flex-row lg:space-x-8 md:mt-10 lg:mt-0 lg:text-sm lg:font-medium lg:border-0 lg:bg-white dark:bg-gray-800 lg:dark:bg-gray-900 dark:border-gray-700 space-y-10 lg:space-y-0 items-center">
                                 <li>
-                                    <a href="#" className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Home</a>
+                                    <a href="#" className="block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0 md:dark:text-white md:dark:bg-transparent" aria-current="page">Home</a>
                                 </li>
                                 <li>
                                     <a href="#testimonial" className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Testimonial </a>
@@ -59,7 +59,7 @@ const HomePage = () => {
                                     <a href="#pricing" className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
                                 </li>
                                 <li>
-                                    <a href="#" className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">FAQ</a>
+                                    <a href="#faq" className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">FAQ</a>
                                 </li>
                                 <li className="mt-4">
                                     <Link href='signup' className="text-blue-600 border-2 border-blue-600 font-semibold rounded-full px-6 py-2">Try Now</Link>
@@ -222,7 +222,7 @@ const HomePage = () => {
                 </div>
             </section>
 
-            <section className="container mx-auto py-20 px-4 md:px-6">
+            <section id="faq" className="container mx-auto py-20 px-4 md:px-6">
                 <div className="mb-8">
                     <h3 className="text-3xl lg:text-4xl xl:text-5xl font-semibold mx-auto md:leading-relaxed md:w-1/2 xl:w-2/3 2xl:w-1/2 text-center" >Frequently Ask Questions</h3>
                 </div>

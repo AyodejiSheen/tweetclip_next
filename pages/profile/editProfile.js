@@ -80,7 +80,7 @@ export const EditProfile = () => {
                             </div>
 
 
-                            <div className='space-y-6'>
+                            <div className='space-y-6 flex gap-10 md:space-y-0'>
                                 <div className='mt-4 md:mt-0 flex-1 space-y-4'>
                                     <label className="block text-sm">
                                         <span className="text-gray-700 dark:text-gray-400">Display Name</span>
