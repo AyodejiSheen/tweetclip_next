@@ -11,10 +11,9 @@ import AuthContext from "../../context/auth/context";
 
  const EditProfile = () => {
 
-    let { user, isLoading, editProfile, setLoading } = useContext(AuthContext)
+    let { user, isLoading, editProfile, setLoading } = useContext(AuthContext);
 
-    const [onChange, setOnchange] = useState(false)
-
+    const [onChange, setOnchange] = useState(false);
 
     const intialValues = {
         displayName: "",
@@ -26,11 +25,9 @@ import AuthContext from "../../context/auth/context";
         email: Yup.string().email('Invalid email').required('Email is required'),
     })
 
-
     const setchange = () => {
         setOnchange(true)
     }
-
 
     const Edit = (data) => {
         editProfile({ displayName: data.displayName })

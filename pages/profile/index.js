@@ -1,17 +1,19 @@
 import { useContext, useEffect } from "react"
 import UiContext from "../../context/UI/context"
-import { Overview } from "./overview"
-import { EditProfile } from "./editProfile"
-import { Plan } from "./plan"
-import { Security } from "./security"
-import { Devices } from "./devices"
+
 import AuthContext from "../../context/auth/context"
 import PlanContext from "../../context/plans/context"
-import { Subscription } from "./Subscription"
+
 import { useRouter } from "next/router"
 import Link from "next/link"
 import DashboardLayout from "../../components/layouts/dashboardLayout"
 import Head from "next/head"
+import Overview from "./overview"
+import EditProfile from "./editProfile"
+import Subscription from "./Subscription"
+import Plan from "./plan"
+import Security from "./security"
+import Devices from "./devices"
 
 
 
@@ -119,7 +121,7 @@ const Profile = () => {
                                     {
                                         navTabs === "editProfile" && (
                                             <div data-aos="fade-up">
-                                                <EditProfile />
+                                                <EditProfile/>
                                             </div>
                                         )
                                     }
