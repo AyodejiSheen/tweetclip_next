@@ -9,7 +9,7 @@ import AuthContext from "../../context/auth/context";
 
 
 
-export const EditProfile = () => {
+ const EditProfile = () => {
 
     let { user, isLoading, editProfile, setLoading } = useContext(AuthContext)
 
@@ -116,4 +116,6 @@ export const EditProfile = () => {
 
         </>
     )
-}
+};
+
+export default EditProfile;

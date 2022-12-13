@@ -2,7 +2,7 @@ import { ErrorMessage, Field, Form, Formik } from 'formik'
 import Head from 'next/head'
 
 
-export const Security = () => {
+ const Security = () => {
 
 
     return (
@@ -75,4 +75,6 @@ export const Security = () => {
 
         </>
     )
-}
+};
+
+export default Security;

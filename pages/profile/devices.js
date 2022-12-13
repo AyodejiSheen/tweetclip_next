@@ -2,7 +2,7 @@ import Head from "next/head"
 
 
 
-export const Devices = () => {
+const Devices = () => {
     return (
         <>
             <Head>
@@ -72,4 +72,7 @@ export const Devices = () => {
 
         </>
     )
-}
+};
+
+
+export default Devices;

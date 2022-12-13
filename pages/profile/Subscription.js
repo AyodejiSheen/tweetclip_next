@@ -2,7 +2,7 @@ import Head from "next/head"
 
 
 
-export const Subscription = () => {
+const Subscription = () => {
     return (
         <>
 
@@ -21,4 +21,6 @@ export const Subscription = () => {
 
         </>
     )
-}
+};
+
+export default Subscription;

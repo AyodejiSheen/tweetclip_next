@@ -4,7 +4,7 @@ import AuthContext from "../../context/auth/context"
 
 
 
-export const Overview = () => {
+ const Overview = () => {
 
     let {user} = useContext(AuthContext)
 
@@ -55,4 +55,7 @@ export const Overview = () => {
 
         </>
     )
-}
+};
+
+
+export default Overview;

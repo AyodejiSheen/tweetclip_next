@@ -6,7 +6,7 @@ import AuthContext from "../../context/auth/context"
 import { useRouter } from "next/router"
 
 
-export const Plan = () => {
+ const Plan = () => {
 
     const [details, setDetails] = useState('startup')
     const [planType, setPlanType] = useState('monthly')
@@ -105,4 +105,7 @@ export const Plan = () => {
 
         </>
     )
-}
+};
+
+
+export default Plan;
