@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { layout } from "../../../assets/layoutImage"
 import ArtBoardContext from "../../../context/artboard/context"
+import UiContext from "../../../context/UI/context";
 
 
 
@@ -14,7 +15,7 @@ const Layout = (props) => {
     const [imageUrl, setImageUrl] = useState("")
 
     let {changeBgUrl} = useContext(ArtBoardContext)
-
+    let {alert} = useContext(UiContext)
 
     return (
 

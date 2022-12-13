@@ -9,8 +9,6 @@ import { useRouter } from 'next/router';
 
 
 
-
-
 const GoogleAuth = () => {
 
     let { otherAuth } = useContext(AuthContext)
@@ -19,7 +17,7 @@ const GoogleAuth = () => {
     const router = useRouter();
 
     function useQuery() {
-        return new searchParams;
+        return searchParams;
     }
 
     let query = useQuery();
@@ -35,6 +33,7 @@ const GoogleAuth = () => {
             router.push(`/new-device/${res.email}/${res.device}`)
         }
     }
+
 
     useEffect(() => {
         submit()

@@ -15,7 +15,7 @@ import AuthContext from "../../context/auth/context";
 
     const intialValues = {
         displayName: "",
-        email: user.email,
+        email: "",
     }
 
     const validationSchema = Yup.object().shape({
@@ -93,6 +93,7 @@ import AuthContext from "../../context/auth/context";
                                         <span className="text-gray-700 dark:text-gray-400">Email Address</span>
                                         <Field
                                             name="email"
+                                            value={user.email}
                                             disabled={true}
                                             className="block w-full mt-1 border p-2.5 font-medium text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                                             type="email" />
