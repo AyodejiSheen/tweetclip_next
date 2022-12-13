@@ -7,8 +7,6 @@ import AuthContext from "../../context/auth/context";
 
 
 
-
-
  const EditProfile = () => {
 
     let { user, isLoading, editProfile, setLoading } = useContext(AuthContext);

@@ -11,7 +11,7 @@ import Head from "next/head";
 import Link from "next/link";
 
 import dp from '../assets/media/dp.png'
-import { Plan } from "./profile/plan";
+import Plan from "./profile/plan";
 import { useContext, useEffect } from "react";
 import PlanContext from "../context/plans/context";
 
@@ -290,7 +290,6 @@ const HomePage = () => {
                     </div>
                 </div>
             </section>
-
 
         </>
     )

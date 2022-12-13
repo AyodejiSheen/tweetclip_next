@@ -24,7 +24,7 @@ import AuthContext from "./context";
 const AuthState = (props) => {
   
   const initialState = {
-    user: null,
+    user: {},
     isAuthenticated: false,
     isLoading: true,
     token:

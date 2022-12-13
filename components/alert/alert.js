@@ -4,7 +4,7 @@ import UiContext from "../../context/UI/context";
 
 
 
-export const Alert = () => {
+ const Alert = () => {
   let { alert } = useContext(UiContext);
 
   return (
@@ -25,3 +25,6 @@ export const Alert = () => {
     </>
   );
 };
+
+
+export default Alert;

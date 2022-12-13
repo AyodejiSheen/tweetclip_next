@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Alert } from '../components/alert/alert'
+import  Alert  from '../components/alert/alert'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import ArtboardState from '../context/artboard/state'

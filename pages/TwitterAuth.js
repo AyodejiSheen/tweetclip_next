@@ -18,7 +18,7 @@ const TwitterAuth = () => {
     const router = useRouter();
 
     function useQuery() {
-        return new searchParams;
+        return searchParams;
     }
 
     let query = useQuery();
