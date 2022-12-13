@@ -17,7 +17,7 @@ const UpdatePassword = () => {
     const router = useRouter();
     
     useEffect(() => {
-        if(user.email === null){
+        if("user email" === null){
             router.push('/')
         }
     }, [])

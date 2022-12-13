@@ -61,8 +61,8 @@ const Profile = () => {
                                             }
                                         </div>
                                         <div className="text-center space-y-1.5">
-                                            <h2 className="text-2xl md:text-3xl font-bold dark:text-slate-200">{user.displayName}</h2>
-                                            <p className="text-sm dark:text-slate-400 break-words">{user.email}</p>
+                                            <h2 className="text-2xl md:text-3xl font-bold dark:text-slate-200">user displayName{user.displayName}</h2>
+                                            <p className="text-sm dark:text-slate-400 break-words"> user email {user.email}</p>
                                         </div>
                                     </div>
 
